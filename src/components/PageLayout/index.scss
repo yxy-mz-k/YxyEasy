@@ -1,0 +1,120 @@
+.page-layout-index {
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  &-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    row-gap: 12px;
+    &-tabs {
+      height: 48px;
+      padding: 0 32px;
+      // margin-bottom: 12px;
+      background-color: #fff;
+      :deep(.ant-tabs) {
+        width: 100%;
+        height: 100%;
+        .ant-tabs-nav {
+          width: 100%;
+          height: 100%;
+          margin-bottom: 0px;
+          .ant-tabs-tab {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    &-content {
+      flex: 1;
+      overflow: auto;
+      // display: flex;
+      // column-gap: 32px;
+      &-tree {
+        // width: 400px;
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+        // margin-right: 12px;
+        background-color: #fff;
+        // position: relative;
+        // flex-shrink: 0;
+        // .shrink {
+        //   width: 24px;
+        //   height: 92px;
+        //   position: absolute;
+        //   top: 50%;
+        //   right: -24px;
+        //   transform: translateY(-50%);
+        //   display: flex;
+        //   // width: 40px;
+        //   // height: 40px;
+        //   // background-color: #eceaea;
+        //   // border-radius: 50%;
+        //   justify-content: center;
+        //   align-items: center;
+        //   color: rgba(#0960bd, 0.8);
+        //   font-size: 24px;
+        //   background: url('/@/assets/images/shrink.png');
+        //   cursor: pointer;
+        // }
+      }
+      // .page-layout-index-content-tree:hover .shrink {
+      //   display: flex;
+      // }
+      &-detail {
+        // width: calc(100% - 352px);
+        // flex: 1;
+        // min-width: calc(100% - 400px - 32px);
+        width: 100%;
+        height: 100%;
+        // background-color: #fff;
+        // position: relative;
+        // .unfold {
+        //   width: 24px;
+        //   height: 92px;
+        //   position: absolute;
+        //   top: 50%;
+        //   left: 0;
+        //   transform: translateY(-50%);
+        //   display: flex;
+        //   // width: 40px;
+        //   // height: 40px;
+        //   // background-color: #eceaea;
+        //   // border-radius: 50%;
+        //   justify-content: center;
+        //   align-items: center;
+        //   color: rgba(#0960bd, 0.8);
+        //   font-size: 24px;
+        //   background: url('/@/assets/images/unfold.png');
+        //   cursor: pointer;
+        // }
+      }
+      // .page-layout-index-content-detail:hover .unfold {
+      //   display: flex;
+      // }
+
+      :deep(.default-theme) {
+        .splitpanes__splitter {
+          // background-color: #f0f2f5;
+          background-color: unset;
+        }
+        .splitpanes__splitter::before {
+          background-color: #2a7dc9;
+        }
+        .splitpanes__splitter::after {
+          background-color: #2a7dc9;
+        }
+      }
+      :deep(.hiddenSplitter) {
+        .splitpanes__splitter {
+          display: none;
+        }
+      }
+    }
+  }
+}
