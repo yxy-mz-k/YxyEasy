@@ -1,8 +1,13 @@
 {
   "name": "yxyeasy",
-  "private": true,
-  "version": "0.0.1",
+  "private": false,
+  "version": "0.0.2",
   "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/types/index.d.ts",
+  "license": "ISC",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,6 +15,7 @@
   },
   "dependencies": {
     "ant-design-vue": "^4.2.6",
+    "dayjs": "^1.11.18",
     "echarts": "^6.0.0",
     "element-plus": "^2.11.4",
     "sass": "^1.93.2",
