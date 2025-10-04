@@ -21,7 +21,10 @@
         <splitpanes
           class="default-theme"
           :class="{
-            hiddenSplitter: !(($slots.left || tree || tree.length) && showLeft),
+            hiddenSplitter: !(
+              ($slots.left || attrs?.tree || attrs?.tree?.length) &&
+              showLeft
+            ),
           }"
           :horizontal="false"
           :push-other-panes="true"
@@ -33,14 +36,17 @@
         >
           <pane
             :size="
-              ($slots.left || tree || tree.length) && showLeft
+              ($slots.left || attrs?.tree || attrs?.tree.length) && showLeft
                 ? attrs?.leftSize ?? defaultSize
                 : 0
             "
           >
             <div class="page-layout-index-content-content-tree">
-              <slot name="left" v-if="$slots.left || tree || tree.length">
-                <!-- <LeftProjectTree
+              <slot
+                name="left"
+                v-if="$slots.left || attrs?.tree || attrs?.tree.length"
+              >
+                <LeftProjectTree
                   v-bind="attrs"
                   ref="LeftProjectTreeRef"
                   :treeStyle="
@@ -50,12 +56,12 @@
                       ? 'height: calc(100vh - 315px)'
                       : 'height: calc(100vh - 255px)'
                   "
-                  :treeData="tree"
+                  :treeData="attrs?.tree"
                   :fieldNames="fieldNames"
-                  :multiple="multiple"
-                  :selectFirst="selectFirst"
-                  :selectedKey="selectedKey"
-                  :canEdit="canEdit"
+                  :multiple="attrs?.multiple ?? false"
+                  :selectFirst="attrs?.selectFirst ?? false"
+                  :selectedKey="attrs?.selectedKey"
+                  :canEdit="attrs?.canEdit ?? true"
                   @select="selectTree"
                   @getTree="getTree"
                   @addTree="addTree"
@@ -65,13 +71,13 @@
                   <template v-for="(_, k) in slots" #[k]="slotProps">
                     <slot :name="k" v-bind="slotProps"></slot>
                   </template>
-                </LeftProjectTree> -->
+                </LeftProjectTree>
               </slot>
             </div>
           </pane>
           <pane
             :size="
-              ($slots.left || tree || tree.length) && showLeft
+              ($slots.left || attrs?.tree || attrs?.tree.length) && showLeft
                 ? 100 - (attrs?.leftSize ?? defaultSize)
                 : 100
             "
@@ -111,7 +117,7 @@ import { Splitpanes, Pane } from "splitpanes";
 import "splitpanes/dist/splitpanes.css";
 const defaultSize = ref<any>(20);
 
-// import LeftProjectTree from '/@/views/common/LeftProjectTree/index.vue';
+import LeftProjectTree from "components/LeftProjectTree/index.vue";
 const emit = defineEmits<{
   (e: "changeTab", k: any): void;
   (e: "selectTree", k?: any, v?: any, c?: any): void;
@@ -130,63 +136,19 @@ interface TAB {
 }
 interface Props {
   tab?: TAB[] | boolean;
-  activeKey?: any;
-  tree?: any;
   fieldNames?: any;
-  multiple?: boolean;
-  selectFirst?: boolean;
-  selectedKey?: any;
-  isNeedConfirm?: boolean;
-  canEdit?: boolean;
 }
 const props = withDefaults(defineProps<Props>(), {
   tab: false,
-  tree: false,
   fieldNames: {
     children: "children",
     key: "id",
     title: "title",
     parentId: "parentId",
   },
-  multiple: false,
-  selectFirst: false,
-  isNeedConfirm: false,
-  canEdit: true,
 });
-const {
-  tab,
-  activeKey,
-  tree,
-  fieldNames,
-  multiple,
-  selectFirst,
-  selectedKey,
-  isNeedConfirm,
-  canEdit,
-} = toRefs(props);
-// import getIndex from './components/hook/index';
+const { tab, fieldNames } = toRefs(props);
 const LeftProjectTreeRef = ref();
-// const {
-//   tabActiveKey,
-//   changeTab,
-//   // treeList,
-//   selectTree,
-//   getTree,
-//   addTree,
-//   editTree,
-//   deleteTree,
-//   closeTreeDia,
-//   showLeft,
-//   handleShrink,
-//   handleUnfold,
-// } = getIndex({
-//   emit,
-//   tab,
-//   activeKey,
-//   tree,
-//   LeftProjectTreeRef,
-//   isNeedConfirm,
-// });
 
 const tabActiveKey = ref("");
 const historyKey = ref("");
@@ -257,33 +219,20 @@ const resize = () => {
 };
 
 watchEffect(() => {
-  if (activeKey.value) {
-    tabActiveKey.value = activeKey.value;
+  console.log("attrs?.tab :>> ", attrs?.tab);
+  if (attrs?.activeKey) {
+    tabActiveKey.value = attrs?.activeKey;
   }
-
-  // if (typeof tree.value === 'object') {
-  //   treeList.length = 0;
-  //   treeList.push(...(tree.value || []));
-  // }
 });
 onMounted(() => {
   if (typeof tab.value === "object") {
-    tabActiveKey.value = activeKey.value
-      ? activeKey.value
+    tabActiveKey.value = attrs?.activeKey
+      ? attrs?.activeKey
       : tab.value[0]?.[tab.value[0]?.keyProp || "key"];
   } else {
-    tabActiveKey.value = activeKey.value ? activeKey.value : "";
+    tabActiveKey.value = attrs?.activeKey ? attrs?.activeKey : "";
   }
   historyKey.value = tabActiveKey.value;
-  // if (typeof tree.value === 'object') {
-  //   treeList.length = 0;
-  //   treeList.push(...(tree.value || []));
-  // } else {
-  //   treeList.length = 0;
-  //   getProjectTreeList({}).then((res) => {
-  //     treeList.push(res);
-  //   });
-  // }
 });
 
 defineExpose({
@@ -294,7 +243,7 @@ import { h } from "vue";
 import { Modal } from "ant-design-vue";
 import { onBeforeRouteUpdate, onBeforeRouteLeave } from "vue-router";
 onBeforeRouteLeave((to, from, next) => {
-  if (isNeedConfirm.value) {
+  if (attrs?.isNeedConfirm) {
     Modal.confirm({
       title: "请问确认离开吗，离开后新修改内容会丢失，请在确认保存之后离开",
       content: h(

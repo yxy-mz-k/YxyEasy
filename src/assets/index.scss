@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+  outline: none;
+  user-select: none;
+  text-decoration: none;
+  font-family: Source Han Sans CN;
+}
+html {
+  font-size: 14px;
+}
+
+a {
+  color: unset;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.router-link-active {
+  text-decoration: none;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.between-searchForm {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  grid-row-gap: 12px; //设置行之间的间隙
+  .between-searchForm-first {
+    grid-row-gap: 12px; //设置行之间的间隙
+  }
+  .between-searchForm-last {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+  }
+}
+.autosize-content {
+  display: flex;
+  flex-direction: column;
+
+  .autosize-basicTable {
+    flex: 1;
+    flex-shrink: 0;
+    height: 100%;
+  }
+  .over-hidden-basicTable {
+    overflow: hidden;
+  }
+}
+
+.page-parent {
+  width: 100%;
+  height: 100%;
+
+  .page-parent-content {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+}
+
+.page-parent-drawer {
+  .page-layout-index {
+    padding: 0;
+  }
+}
+.hoverScroll {
+  overflow: auto;
+}
+
+.hoverScroll::-webkit-scrollbar {
+  display: none !important;
+}
+
+.hoverScroll:hover::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+  overflow: overlay;
+  display: block !important;
+}
+.ant-card {
+  border: 1px solid #dbdbdb !important;
+  box-sizing: border-box !important;
+  .ant-card-head {
+    background-color: #eaf0fc;
+    border-bottom-color: #dbdbdb;
+  }
+}
+.page-left {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .searchFormAdd {
+    position: absolute;
+    right: 0;
+    top: 0px;
+  }
+  .tree-solt {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2px;
+    padding: 6px 0px;
+    box-sizing: border-box;
+    .treetitle {
+      flex: 1;
+      height: 100%;
+      flex-shrink: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .tree-btn {
+      flex-shrink: 0;
+      display: none;
+    }
+  }
+  .tree-solt:hover .tree-btn {
+    display: flex;
+  }
+}
+.NullDataPic {
+  flex: 1;
+  // background: var(--NullData) no-repeat;
+  background: url("/@/assets/images/NullData.png") no-repeat;
+  // background-size: 100% 100%;
+
+  width: 100%;
+  height: 100%;
+  // background-image: url('assets/images/eyeCareGreen/hpLeft/NullData.png');
+  background-position: 50% 100%;
+  // background-size: contain;
+  // background-origin: content-box;
+}
+.descColor {
+  color: rgba(0, 241, 0, 1);
+}
+.ascColor {
+  color: rgba(255, 90, 90, 1);
+}
+.cursorMove {
+  cursor: move;
+}
+.cursorPointer {
+  cursor: pointer;
+}
+
+.textEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ant-tree-list-holder-inner {
+  row-gap: 6px;
+
+  .ant-tree-treenode {
+    width: 100%;
+    height: 36px;
+    // padding-bottom: 6px;
+    align-items: center;
+    box-sizing: border-box;
+    * {
+      height: inherit;
+      // display: flex;
+      // align-items: center;
+    }
+
+    .ant-tree-switcher-noop {
+      display: none;
+    }
+
+    .ant-tree-checkbox {
+      margin: 0 !important;
+      display: flex;
+      align-items: center;
+      .ant-tree-checkbox-inner {
+        height: 16px;
+      }
+    }
+    .ant-tree-node-content-wrapper {
+      // margin-right: 0 !important;
+      padding: 0 !important;
+      .ant-tree-title {
+        padding: 0px 12px;
+        box-sizing: border-box;
+        .vben-tree__title {
+          display: flex;
+          align-items: center;
+        }
+
+        .vben-tree__title {
+          padding-right: 0 !important;
+        }
+      }
+    }
+  }
+
+  .ant-tree-treenode-selected {
+    .ant-tree-node-selected {
+      background: #e6eefc !important;
+    }
+  }
+}
+.ant-table {
+  .ant-table-container {
+    tr {
+      th {
+        padding: 8px !important;
+      }
+    }
+    .ant-table-row {
+      td {
+        padding: 8px !important;
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
     <slot :items="list"></slot>
   </div>
 </template>
-<script setup lang="ts" name="componentName">
+<script setup lang="ts">
 import {
   ref,
   shallowRef,

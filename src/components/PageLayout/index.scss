@@ -32,8 +32,6 @@
     &-content {
       flex: 1;
       overflow: auto;
-      // display: flex;
-      // column-gap: 32px;
       &-tree {
         // width: 400px;
         width: 100%;
@@ -41,62 +39,12 @@
         padding: 24px;
         // margin-right: 12px;
         background-color: #fff;
-        // position: relative;
-        // flex-shrink: 0;
-        // .shrink {
-        //   width: 24px;
-        //   height: 92px;
-        //   position: absolute;
-        //   top: 50%;
-        //   right: -24px;
-        //   transform: translateY(-50%);
-        //   display: flex;
-        //   // width: 40px;
-        //   // height: 40px;
-        //   // background-color: #eceaea;
-        //   // border-radius: 50%;
-        //   justify-content: center;
-        //   align-items: center;
-        //   color: rgba(#0960bd, 0.8);
-        //   font-size: 24px;
-        //   background: url('/@/assets/images/shrink.png');
-        //   cursor: pointer;
-        // }
       }
-      // .page-layout-index-content-tree:hover .shrink {
-      //   display: flex;
-      // }
+
       &-detail {
-        // width: calc(100% - 352px);
-        // flex: 1;
-        // min-width: calc(100% - 400px - 32px);
         width: 100%;
         height: 100%;
-        // background-color: #fff;
-        // position: relative;
-        // .unfold {
-        //   width: 24px;
-        //   height: 92px;
-        //   position: absolute;
-        //   top: 50%;
-        //   left: 0;
-        //   transform: translateY(-50%);
-        //   display: flex;
-        //   // width: 40px;
-        //   // height: 40px;
-        //   // background-color: #eceaea;
-        //   // border-radius: 50%;
-        //   justify-content: center;
-        //   align-items: center;
-        //   color: rgba(#0960bd, 0.8);
-        //   font-size: 24px;
-        //   background: url('/@/assets/images/unfold.png');
-        //   cursor: pointer;
-        // }
       }
-      // .page-layout-index-content-detail:hover .unfold {
-      //   display: flex;
-      // }
 
       :deep(.default-theme) {
         .splitpanes__splitter {
