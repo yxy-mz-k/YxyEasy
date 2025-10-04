@@ -219,7 +219,6 @@ const resize = () => {
 };
 
 watchEffect(() => {
-  console.log("attrs?.tab :>> ", attrs?.tab);
   if (attrs?.activeKey) {
     tabActiveKey.value = attrs?.activeKey;
   }

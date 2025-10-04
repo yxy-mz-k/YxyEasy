@@ -1,14 +1,17 @@
+import Charts from "./Charts/index.vue";
+import LeftProjectTree from "./LeftProjectTree/index.vue";
 import PageLayout from "./PageLayout/index.vue";
 import SortableList from "./SortableList/index.vue";
-import Charts from "./Charts/index.vue";
+import ToolTip from "./ToolTip/index.vue";
 // 按需引入
-export { PageLayout, SortableList, Charts };
+export { Charts, LeftProjectTree, PageLayout, SortableList, ToolTip };
 
-const component = [PageLayout, SortableList, Charts];
+// const component = [Charts, LeftProjectTree, PageLayout, SortableList, ToolTip];
 
+const modules = import.meta.globEager("./*/index.vue");
 const install = function (App: any) {
-  component.forEach((item) => {
-    App.component(item.name, item);
+  Object.keys(modules)?.map((m: any) => {
+    App.component(modules[m].default.name, modules[m].default);
   });
 };
 
