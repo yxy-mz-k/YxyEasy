@@ -65,10 +65,8 @@
                   @editTree="editTree"
                   @deleteTree="deleteTree"
                 >
-                  <template v-if="slots?.length">
-                    <template v-for="(_, k) in slots" #[k]="slotProps">
-                      <slot :name="k" v-bind="slotProps"></slot>
-                    </template>
+                  <template v-for="(_, k) in slots" #[k]="slotProps">
+                    <slot :name="k" v-bind="slotProps"></slot>
                   </template>
                 </LeftProjectTree>
               </slot>
