@@ -6,8 +6,6 @@ import ToolTip from "./ToolTip/index.vue";
 // 按需引入
 export { Charts, LeftProjectTree, PageLayout, SortableList, ToolTip };
 
-// const component = [Charts, LeftProjectTree, PageLayout, SortableList, ToolTip];
-
 const modules = import.meta.globEager("./*/index.vue");
 const install = function (App: any) {
   Object.keys(modules)?.map((m: any) => {

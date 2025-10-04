@@ -22,7 +22,7 @@
           class="default-theme"
           :class="{
             hiddenSplitter: !(
-              ($slots.left || attrs?.tree || attrs?.tree?.length) &&
+              ($slots.left || tree || tree?.length) &&
               showLeft
             ),
           }"
@@ -36,16 +36,13 @@
         >
           <pane
             :size="
-              ($slots.left || attrs?.tree || attrs?.tree.length) && showLeft
+              ($slots.left || tree || tree.length) && showLeft
                 ? attrs?.leftSize ?? defaultSize
                 : 0
             "
           >
             <div class="page-layout-index-content-content-tree">
-              <slot
-                name="left"
-                v-if="$slots.left || attrs?.tree || attrs?.tree.length"
-              >
+              <slot name="left" v-if="$slots.left || tree || tree.length">
                 <LeftProjectTree
                   v-bind="attrs"
                   ref="LeftProjectTreeRef"
@@ -56,7 +53,7 @@
                       ? 'height: calc(100vh - 315px)'
                       : 'height: calc(100vh - 255px)'
                   "
-                  :treeData="attrs?.tree"
+                  :treeData="tree"
                   :fieldNames="fieldNames"
                   :multiple="attrs?.multiple ?? false"
                   :selectFirst="attrs?.selectFirst ?? false"
@@ -77,7 +74,7 @@
           </pane>
           <pane
             :size="
-              ($slots.left || attrs?.tree || attrs?.tree.length) && showLeft
+              ($slots.left || tree || tree.length) && showLeft
                 ? 100 - (attrs?.leftSize ?? defaultSize)
                 : 100
             "
@@ -136,10 +133,12 @@ interface TAB {
 }
 interface Props {
   tab?: TAB[] | boolean;
+  tree?: any;
   fieldNames?: any;
 }
 const props = withDefaults(defineProps<Props>(), {
   tab: false,
+  tree: false,
   fieldNames: {
     children: "children",
     key: "id",
@@ -147,7 +146,7 @@ const props = withDefaults(defineProps<Props>(), {
     parentId: "parentId",
   },
 });
-const { tab, fieldNames } = toRefs(props);
+const { tab, tree, fieldNames } = toRefs(props);
 const LeftProjectTreeRef = ref();
 
 const tabActiveKey = ref("");

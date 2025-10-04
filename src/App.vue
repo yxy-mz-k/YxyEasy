@@ -30,7 +30,6 @@ import {
   h,
   useAttrs,
 } from "vue";
-import PageLayout from "components/PageLayout/index.vue";
 const tabList = reactive<any>([
   {
     key: "hour",
@@ -57,9 +56,7 @@ const tabList = reactive<any>([
     tab: "年报",
   },
 ]);
-const changeTab = (e: any) => {
-  console.log("e :>> ", e);
-};
+const changeTab = (e: any) => {};
 
 const treeList = reactive<any>([
   {
