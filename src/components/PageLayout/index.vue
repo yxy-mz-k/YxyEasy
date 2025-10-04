@@ -22,7 +22,7 @@
           class="default-theme"
           :class="{
             hiddenSplitter: !(
-              ($slots.left || tree || tree?.length) &&
+              ($slots?.left || tree || tree?.length) &&
               showLeft
             ),
           }"
@@ -36,13 +36,13 @@
         >
           <pane
             :size="
-              ($slots.left || tree || tree.length) && showLeft
+              ($slots?.left || tree || tree.length) && showLeft
                 ? attrs?.leftSize ?? defaultSize
                 : 0
             "
           >
             <div class="page-layout-index-content-content-tree">
-              <slot name="left" v-if="$slots.left || tree || tree.length">
+              <slot name="left" v-if="$slots?.left || tree || tree.length">
                 <LeftProjectTree
                   v-bind="attrs"
                   ref="LeftProjectTreeRef"
@@ -65,8 +65,10 @@
                   @editTree="editTree"
                   @deleteTree="deleteTree"
                 >
-                  <template v-for="(_, k) in slots" #[k]="slotProps">
-                    <slot :name="k" v-bind="slotProps"></slot>
+                  <template v-if="slots?.length">
+                    <template v-for="(_, k) in slots" #[k]="slotProps">
+                      <slot :name="k" v-bind="slotProps"></slot>
+                    </template>
                   </template>
                 </LeftProjectTree>
               </slot>
@@ -74,7 +76,7 @@
           </pane>
           <pane
             :size="
-              ($slots.left || tree || tree.length) && showLeft
+              ($slots?.left || tree || tree.length) && showLeft
                 ? 100 - (attrs?.leftSize ?? defaultSize)
                 : 100
             "
