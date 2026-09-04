@@ -1,0 +1,540 @@
+{
+  "city_name": "蚌埠市",
+  "city_code": "340300",
+  "areas": [
+    {
+      "code": "340302",
+      "name": "龙子湖区",
+      "children": [
+        {
+          "code": "340302001000",
+          "name": "东风街道",
+          "type": "street"
+        },
+        {
+          "code": "340302002000",
+          "name": "延安街道",
+          "type": "street"
+        },
+        {
+          "code": "340302003000",
+          "name": "治淮街道",
+          "type": "street"
+        },
+        {
+          "code": "340302004000",
+          "name": "东升街道",
+          "type": "street"
+        },
+        {
+          "code": "340302005000",
+          "name": "解放街道",
+          "type": "street"
+        },
+        {
+          "code": "340302006000",
+          "name": "曹山街道",
+          "type": "street"
+        },
+        {
+          "code": "340302100000",
+          "name": "长淮卫镇",
+          "type": "town"
+        },
+        {
+          "code": "340302200000",
+          "name": "李楼乡",
+          "type": "town"
+        }
+      ]
+    },
+    {
+      "code": "340303",
+      "name": "蚌山区",
+      "children": [
+        {
+          "code": "340303001000",
+          "name": "天桥街道",
+          "type": "street"
+        },
+        {
+          "code": "340303002000",
+          "name": "青年街道",
+          "type": "street"
+        },
+        {
+          "code": "340303003000",
+          "name": "纬二路街道",
+          "type": "street"
+        },
+        {
+          "code": "340303004000",
+          "name": "胜利街道",
+          "type": "street"
+        },
+        {
+          "code": "340303005000",
+          "name": "黄庄街道",
+          "type": "street"
+        },
+        {
+          "code": "340303006000",
+          "name": "宏业村街道",
+          "type": "street"
+        },
+        {
+          "code": "340303007000",
+          "name": "龙湖新村街道",
+          "type": "street"
+        },
+        {
+          "code": "340303200000",
+          "name": "雪华乡",
+          "type": "town"
+        },
+        {
+          "code": "340303201000",
+          "name": "燕山乡",
+          "type": "town"
+        }
+      ]
+    },
+    {
+      "code": "340304",
+      "name": "禹会区",
+      "children": [
+        {
+          "code": "340304001000",
+          "name": "大庆街道",
+          "type": "street"
+        },
+        {
+          "code": "340304002000",
+          "name": "纬四街道",
+          "type": "street"
+        },
+        {
+          "code": "340304003000",
+          "name": "钓鱼台街道",
+          "type": "street"
+        },
+        {
+          "code": "340304004000",
+          "name": "张公山街道",
+          "type": "street"
+        },
+        {
+          "code": "340304005000",
+          "name": "朝阳街道",
+          "type": "street"
+        },
+        {
+          "code": "340304100000",
+          "name": "秦集镇",
+          "type": "town"
+        },
+        {
+          "code": "340304101000",
+          "name": "马城镇",
+          "type": "town"
+        },
+        {
+          "code": "340304200000",
+          "name": "长青乡",
+          "type": "town"
+        }
+      ]
+    },
+    {
+      "code": "340311",
+      "name": "淮上区",
+      "children": [
+        {
+          "code": "340311001000",
+          "name": "淮滨街道",
+          "type": "street"
+        },
+        {
+          "code": "340311100000",
+          "name": "小蚌埠镇",
+          "type": "town"
+        },
+        {
+          "code": "340311101000",
+          "name": "吴小街镇",
+          "type": "town"
+        },
+        {
+          "code": "340311102000",
+          "name": "曹老集镇",
+          "type": "town"
+        },
+        {
+          "code": "340311103000",
+          "name": "梅桥镇",
+          "type": "town"
+        },
+        {
+          "code": "340311104000",
+          "name": "沫河口镇",
+          "type": "town"
+        }
+      ]
+    },
+    {
+      "code": "340321",
+      "name": "怀远县",
+      "children": [
+        {
+          "code": "340321001000",
+          "name": "白乳泉街道",
+          "type": "street"
+        },
+        {
+          "code": "340321002000",
+          "name": "引凤街道",
+          "type": "street"
+        },
+        {
+          "code": "340321003000",
+          "name": "望淮街道",
+          "type": "street"
+        },
+        {
+          "code": "340321100000",
+          "name": "榴城镇",
+          "type": "town"
+        },
+        {
+          "code": "340321101000",
+          "name": "古城镇",
+          "type": "town"
+        },
+        {
+          "code": "340321102000",
+          "name": "唐集镇",
+          "type": "town"
+        },
+        {
+          "code": "340321200000",
+          "name": "荆芡乡",
+          "type": "town"
+        }
+      ]
+    },
+    {
+      "code": "340322",
+      "name": "五河县",
+      "children": [
+        {
+          "code": "340322100000",
+          "name": "城关镇",
+          "type": "town"
+        },
+        {
+          "code": "340322101000",
+          "name": "新集镇",
+          "type": "town"
+        },
+        {
+          "code": "340322102000",
+          "name": "大新镇",
+          "type": "town"
+        },
+        {
+          "code": "340322200000",
+          "name": "沱湖乡",
+          "type": "town"
+        },
+        {
+          "code": "340322201000",
+          "name": "临北回族乡",
+          "type": "town"
+        }
+      ]
+    },
+    {
+      "code": "340323",
+      "name": "固镇县",
+      "children": [
+        {
+          "code": "340323100000",
+          "name": "谷阳镇",
+          "type": "town"
+        },
+        {
+          "code": "340323101000",
+          "name": "王庄镇",
+          "type": "town"
+        },
+        {
+          "code": "340323102000",
+          "name": "刘集镇",
+          "type": "town"
+        },
+        {
+          "code": "340323103000",
+          "name": "濠城镇",
+          "type": "town"
+        },
+        {
+          "code": "340323200000",
+          "name": "石湖乡",
+          "type": "town"
+        }
+      ]
+    },
+    {
+      "code": "340371",
+      "name": "蚌埠市高新技术开发区",
+      "children": [
+        {
+          "code": "340304400001",
+          "name": "山南新村社区",
+          "type": "community"
+        },
+        {
+          "code": "340304400002",
+          "name": "科苑社区",
+          "type": "community"
+        },
+        {
+          "code": "340304400003",
+          "name": "文竹苑社区",
+          "type": "community"
+        },
+        {
+          "code": "340304400004",
+          "name": "绿地世纪城社区",
+          "type": "community"
+        },
+        {
+          "code": "340304400005",
+          "name": "燕山社区",
+          "type": "community"
+        },
+        {
+          "code": "340304400006",
+          "name": "迎河社区",
+          "type": "community"
+        },
+        {
+          "code": "340304400007",
+          "name": "天河社区",
+          "type": "community"
+        },
+        {
+          "code": "340304100201",
+          "name": "秦集村",
+          "type": "village"
+        },
+        {
+          "code": "340304100202",
+          "name": "枣林村",
+          "type": "village"
+        },
+        {
+          "code": "340304100203",
+          "name": "彭巷村",
+          "type": "village"
+        },
+        {
+          "code": "340304100204",
+          "name": "大徐村",
+          "type": "village"
+        },
+        {
+          "code": "340304100205",
+          "name": "九塘村",
+          "type": "village"
+        },
+        {
+          "code": "340304100206",
+          "name": "大孔村",
+          "type": "village"
+        },
+        {
+          "code": "340304100207",
+          "name": "河北村",
+          "type": "village"
+        },
+        {
+          "code": "340304100208",
+          "name": "九龙村",
+          "type": "village"
+        },
+        {
+          "code": "340304202201",
+          "name": "叶姚村",
+          "type": "village"
+        },
+        {
+          "code": "340304202202",
+          "name": "贡姚村",
+          "type": "village"
+        },
+        {
+          "code": "340304202203",
+          "name": "新城口村",
+          "type": "village"
+        },
+        {
+          "code": "340304202204",
+          "name": "姚郢村",
+          "type": "village"
+        },
+        {
+          "code": "340304202205",
+          "name": "洪集村",
+          "type": "village"
+        },
+        {
+          "code": "340304202206",
+          "name": "团结村",
+          "type": "village"
+        },
+        {
+          "code": "340304202207",
+          "name": "岗李村",
+          "type": "village"
+        },
+        {
+          "code": "340304202208",
+          "name": "殳李村",
+          "type": "village"
+        },
+        {
+          "code": "340304202209",
+          "name": "禹庙村",
+          "type": "village"
+        },
+        {
+          "code": "340304202210",
+          "name": "东周村",
+          "type": "village"
+        }
+      ]
+    },
+    {
+      "code": "340372",
+      "name": "蚌埠市经济开发区",
+      "children": [
+        {
+          "code": "340303007000",
+          "name": "龙湖新村街道",
+          "type": "street"
+        },
+        {
+          "code": "340303401001",
+          "name": "金滨社区",
+          "type": "community"
+        },
+        {
+          "code": "340303401002",
+          "name": "龙湖春天社区",
+          "type": "community"
+        },
+        {
+          "code": "340303401003",
+          "name": "曹郢社区",
+          "type": "community"
+        },
+        {
+          "code": "340303401004",
+          "name": "南湖社区",
+          "type": "community"
+        },
+        {
+          "code": "340303402001",
+          "name": "戴湖桃李社区",
+          "type": "community"
+        },
+        {
+          "code": "340303402002",
+          "name": "月明湖社区",
+          "type": "community"
+        },
+        {
+          "code": "340303402003",
+          "name": "航华社区",
+          "type": "community"
+        },
+        {
+          "code": "340303402004",
+          "name": "香榭兰庭社区",
+          "type": "community"
+        },
+        {
+          "code": "340302006001",
+          "name": "幸福村社区",
+          "type": "community"
+        },
+        {
+          "code": "340302100201",
+          "name": "长淮卫村",
+          "type": "village"
+        },
+        {
+          "code": "340302100202",
+          "name": "司马村",
+          "type": "village"
+        },
+        {
+          "code": "340302100203",
+          "name": "高郢村",
+          "type": "village"
+        },
+        {
+          "code": "340302100204",
+          "name": "东风村",
+          "type": "village"
+        },
+        {
+          "code": "340302100205",
+          "name": "南湾村",
+          "type": "village"
+        },
+        {
+          "code": "340302100206",
+          "name": "淮光村",
+          "type": "village"
+        },
+        {
+          "code": "340302100207",
+          "name": "淮上村",
+          "type": "village"
+        },
+        {
+          "code": "340302100208",
+          "name": "汪庙村",
+          "type": "village"
+        },
+        {
+          "code": "340302100209",
+          "name": "陈郢村",
+          "type": "village"
+        },
+        {
+          "code": "340302100210",
+          "name": "余滩村",
+          "type": "village"
+        },
+        {
+          "code": "340302100211",
+          "name": "方沟村",
+          "type": "village"
+        },
+        {
+          "code": "340302100212",
+          "name": "王郢村",
+          "type": "village"
+        },
+        {
+          "code": "340302100213",
+          "name": "吕良村",
+          "type": "village"
+        }
+      ]
+    }
+  ]
+}

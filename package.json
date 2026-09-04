@@ -1,19 +1,56 @@
 {
-  "name": "yxyeasy",
+  "name": "@yxy_27/yxyeasy",
   "private": false,
-  "version": "0.0.12",
+  "version": "0.0.2",
   "type": "module",
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.es.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/types/index.d.ts",
   "license": "ISC",
+  "description": "阿克曼后台项目依赖",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "author": "yxy",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./hooks": {
+      "types": "./dist/types/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
+    },
+    "./utils": {
+      "types": "./dist/types/utils/index.d.ts",
+      "import": "./dist/utils/index.js"
+    },
+    "./api": {
+      "types": "./dist/types/api/index.d.ts",
+      "import": "./dist/api/index.js"
+    },
+    "./store": {
+      "types": "./dist/types/store/index.d.ts",
+      "import": "./dist/store/index.js"
+    },
+    "./components": {
+      "types": "./dist/types/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir dist/types",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "@ant-design/colors": "^6.0.0",
@@ -110,6 +147,7 @@
     "splitpanes": "^4.0.4",
     "tinymce": "^5.10.3",
     "vditor": "^3.8.13",
+    "vite-plugin-glob": "^0.3.2",
     "vue": "^3.3.9",
     "vue-clipboard3": "^2.0.0",
     "vue-i18n": "^9.1.9",
@@ -193,9 +231,5 @@
     "vite-plugin-windicss": "^1.8.4",
     "vue-eslint-parser": "^8.3.0",
     "vue-tsc": "^0.33.9"
-  },
-  "resolutions": {
-    "bin-wrapper": "npm:bin-wrapper-china",
-    "gifsicle": "5.2.0"
   }
 }

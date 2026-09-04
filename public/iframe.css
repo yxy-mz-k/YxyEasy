@@ -1,0 +1,29 @@
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  overflow: overlay;
+}
+::-webkit-scrollbar-corner{
+  width: 5px;
+  height: 5px;
+  overflow: overlay;
+}
+
+.container {
+  overflow: auto;
+}
+
+.container:hover::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+  overflow: overlay;
+
+}
+
+.container:hover::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: overlay;
+}

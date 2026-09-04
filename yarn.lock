@@ -3054,6 +3054,11 @@ acorn@^8.11.0, acorn@^8.15.0, acorn@^8.2.4, acorn@^8.4.1, acorn@^8.9.0:
   resolved "https://registry.npmmirror.com/acorn/-/acorn-8.15.0.tgz#a360898bc415edaac46c8241f6383975b930b816"
   integrity sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==
 
+acorn@^8.7.1:
+  version "8.18.0"
+  resolved "https://registry.npmjs.org/acorn/-/acorn-8.18.0.tgz#4faf01b2d6d326bfeed97aea1f52220b5f4c1940"
+  integrity sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ==
+
 add-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/add-stream/-/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
@@ -3523,16 +3528,15 @@ bin-version@^3.0.0:
     execa "^1.0.0"
     find-versions "^3.0.0"
 
-bin-wrapper@^4.0.0, bin-wrapper@^4.0.1, "bin-wrapper@npm:bin-wrapper-china":
-  version "0.1.0"
-  resolved "https://registry.npmmirror.com/bin-wrapper-china/-/bin-wrapper-china-0.1.0.tgz#c2ec95b4d0eaef6ed5ad10954f9227d8e5ef3725"
-  integrity sha512-1UCm17WYEbgry50tup+AQN+JGVEVzoW4f8HMl899k1lvuFxWKGZXl/G2fgxQxAckRjnloO3ijLVVEsv8zescUg==
+bin-wrapper@^4.0.0, bin-wrapper@^4.0.1:
+  version "4.1.0"
+  resolved "https://registry.npmjs.org/bin-wrapper/-/bin-wrapper-4.1.0.tgz#99348f2cf85031e3ef7efce7e5300aeaae960605"
+  integrity sha512-hfRmo7hWIXPkbpi0ZltboCMVrU+0ClXR/JgbCKKjlDjQf6igXa7OwdqNcFWQZPZTgiY7ZpzE3+LjjkLiTN2T7Q==
   dependencies:
     bin-check "^4.1.0"
     bin-version-check "^4.0.0"
-    binary-mirror-config "^1"
     download "^7.1.0"
-    import-lazy "^4.0.0"
+    import-lazy "^3.1.0"
     os-filter-obj "^2.0.0"
     pify "^4.0.1"
 
@@ -3540,11 +3544,6 @@ binary-extensions@^2.0.0:
   version "2.3.0"
   resolved "https://registry.npmmirror.com/binary-extensions/-/binary-extensions-2.3.0.tgz#f6e14a97858d327252200242d4ccfe522c445522"
   integrity sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==
-
-binary-mirror-config@^1:
-  version "1.41.0"
-  resolved "https://registry.npmmirror.com/binary-mirror-config/-/binary-mirror-config-1.41.0.tgz#b68032588392bee9262971f977922d075513964b"
-  integrity sha512-ZiIhR1s6Sv1Fv6qCQqfPjx0Cj86BgFlhqNxZgHkQOWcxJcMbO3mj1iqsuVjowYqJqeZL8e52+IEv7IRnSX6T6w==
 
 bl@^1.0.0:
   version "1.2.3"
@@ -6966,6 +6965,11 @@ import-fresh@^3.0.0, import-fresh@^3.2.1, import-fresh@^3.3.0:
   dependencies:
     parent-module "^1.0.0"
     resolve-from "^4.0.0"
+
+import-lazy@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/import-lazy/-/import-lazy-3.1.0.tgz#891279202c8a2280fdbd6674dbd8da1a1dfc67cc"
+  integrity sha512-8/gvXvX2JMn0F+CDlSC4l6kOmVaLOO3XLkksI7CI3Ud95KDYJuYur2b9P/PUt/i/pDAMd/DulQsNbbbmRRsDIQ==
 
 import-lazy@^4.0.0:
   version "4.0.0"
@@ -11659,6 +11663,11 @@ typescript@^4.4.3, typescript@^4.6.3:
   resolved "https://registry.npmmirror.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
+ufo@^0.8.3:
+  version "0.8.6"
+  resolved "https://registry.npmjs.org/ufo/-/ufo-0.8.6.tgz#c0ec89bc0e0c9fa59a683680feb0f28b55ec323b"
+  integrity sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==
+
 uglify-js@^3.1.4:
   version "3.19.3"
   resolved "https://registry.npmmirror.com/uglify-js/-/uglify-js-3.19.3.tgz#82315e9bbc6f2b25888858acd1fff8441035b77f"
@@ -11893,6 +11902,17 @@ vite-plugin-compression@^0.5.1:
     chalk "^4.1.2"
     debug "^4.3.3"
     fs-extra "^10.0.0"
+
+vite-plugin-glob@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.npmjs.org/vite-plugin-glob/-/vite-plugin-glob-0.3.2.tgz#e7b4c4d0d7cd1149c03d25df09967704e232db1e"
+  integrity sha512-RoOm67e9eQ7bbWfnVbErjMcqnWCLjNtLy/fhOu8eqWbNi8Pz4T/co2j8uF9v2/P6KaGz02+4jFL83lDCAZ5StQ==
+  dependencies:
+    acorn "^8.7.1"
+    fast-glob "^3.2.11"
+    magic-string "^0.26.1"
+    micromatch "^4.0.5"
+    ufo "^0.8.3"
 
 vite-plugin-html@^3.2.0:
   version "3.2.2"

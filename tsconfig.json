@@ -5,10 +5,19 @@
       "api/*": ["./src/api/*"],
       "assets/*": ["./src/assets/*"],
       "components/*": ["./src/components/*"],
+      "design/*": ["./src/design/*"],
+      "directives/*": ["./src/directives/*"],
+      "enums/*": ["./src/enums/*"],
       "hooks/*": ["./src/hooks/*"],
+      "layouts/*": ["./src/layouts/*"],
+      "locales/*": ["./src/locales/*"],
+      "logics/*": ["./src/logics/*"],
       "plugins/*": ["./src/plugins/*"],
       "router/*": ["./src/router/*"],
+      "settings/*": ["./src/settings/*"],
       "store/*": ["./src/store/*"],
+      "styles/*": ["./src/styles/*"],
+      "types/*": ["./src/types/*"],
       "utils/*": ["./src/utils/*"],
       "views/*": ["./src/views/*"]
     }
@@ -18,7 +27,9 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "tests/**/*.jsx",
+    "tests/**/*.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

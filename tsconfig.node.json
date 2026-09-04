@@ -16,6 +16,7 @@
 
     /* Linting */
     "strict": true,
+    "jsx": "preserve", // 添加这一行
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,

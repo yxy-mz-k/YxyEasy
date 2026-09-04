@@ -1,0 +1,220 @@
+<template>
+  <Dropdown
+    placement="bottomLeft"
+    :overlayClassName="`${prefixCls}-dropdown-overlay`"
+  >
+    <span :class="[prefixCls, `${prefixCls}--${theme}`]" class="flex">
+      <img :class="`${prefixCls}__header`" :src="getUserInfo.avatar" />
+      <span :class="`${prefixCls}__info hidden md:block`">
+        <span :class="`${prefixCls}__name  `" class="truncate">
+          {{ getUserInfo.realname }}
+        </span>
+      </span>
+    </span>
+
+    <template #overlay>
+      <Menu @click="handleMenuClick">
+        <!-- <MenuItem
+          key="doc"
+          :text="t('layout.header.dropdownItemDoc')"
+          icon="ion:document-text-outline"
+          v-if="getShowDoc"
+        />
+        <MenuDivider v-if="getShowDoc" /> -->
+        <MenuItem
+          v-if="getUseLockPage"
+          key="lock"
+          :text="t('layout.header.tooltipLock')"
+          icon="ion:lock-closed-outline"
+        />
+        <!-- <MenuItem key="settings" text="项目配置" icon="ion:settings-outline" /> -->
+        <MenuItem
+          key="edit"
+          :text="t('layout.header.editPassword')"
+          icon="ion:document-text-outline"
+        />
+        <MenuItem
+          key="logout"
+          :text="t('layout.header.dropdownItemLoginOut')"
+          icon="ion:power-outline"
+        />
+      </Menu>
+    </template>
+  </Dropdown>
+  <LockAction @register="register" />
+  <editPasswordModal @register="register1" />
+  <SettingDrawer @register="register11" />
+</template>
+<script lang="ts">
+// components
+import { Dropdown, Menu } from "ant-design-vue";
+
+import { defineComponent, computed } from "vue";
+import SettingDrawer from "../../../setting/SettingDrawer";
+
+import { DOC_URL } from "settings/siteSetting";
+
+import { useUserStore } from "store/modules/user";
+import { useHeaderSetting } from "hooks/setting/useHeaderSetting";
+import { useI18n } from "hooks/web/useI18n";
+import { useDesign } from "hooks/web/useDesign";
+import { useModal } from "components/Modal";
+
+import headerImg from "assets/images/header.jpg";
+import { propTypes } from "utils/propTypes";
+import { openWindow } from "utils/index";
+
+import { createAsyncComponent } from "utils/factory/createAsyncComponent";
+import { useDrawer } from "components/Drawer";
+
+type MenuEvent = "logout" | "doc" | "lock" | "edit";
+
+export default defineComponent({
+  name: "UserDropdown",
+  components: {
+    Dropdown,
+    Menu,
+    SettingDrawer,
+    MenuItem: createAsyncComponent(() => import("./DropMenuItem.vue")),
+    MenuDivider: Menu.Divider,
+    LockAction: createAsyncComponent(() => import("../lock/LockModal.vue")),
+    editPasswordModal: createAsyncComponent(
+      () => import("./editPasswordModal.vue"),
+    ),
+  },
+  props: {
+    theme: propTypes.oneOf(["dark", "light"]),
+  },
+  setup() {
+    const [register11, { openDrawer }] = useDrawer();
+    const { prefixCls } = useDesign("header-user-dropdown");
+    const { t } = useI18n();
+    const { getShowDoc, getUseLockPage } = useHeaderSetting();
+    const userStore = useUserStore();
+
+    const getUserInfo = computed(() => {
+      const { realname = "", avatar } = userStore.getUserInfo || {};
+      return { realname, avatar: avatar || headerImg };
+    });
+
+    const [register, { openModal }] = useModal();
+    const [register1, { openModal: editPasswordModal }] = useModal();
+
+    function handleLock() {
+      openModal(true);
+    }
+
+    //  login out
+    function handleLoginOut() {
+      userStore.confirmLoginOut();
+    }
+
+    // open doc
+    function openDoc() {
+      openWindow(DOC_URL);
+    }
+    function editPassword() {
+      editPasswordModal(true, {});
+    }
+    function handleMenuClick(e: { key: MenuEvent }) {
+      switch (e.key) {
+        case "logout":
+          handleLoginOut();
+          break;
+        case "doc":
+          openDoc();
+          break;
+        case "lock":
+          handleLock();
+          break;
+        case "edit":
+          editPassword();
+          break;
+        case "settings":
+          openDrawer(true);
+          break;
+      }
+    }
+
+    return {
+      prefixCls,
+      t,
+      getUserInfo,
+      handleMenuClick,
+      getShowDoc,
+      register,
+      register1,
+      getUseLockPage,
+      register11,
+      openDrawer,
+    };
+  },
+});
+</script>
+<style lang="less">
+@prefix-cls: ~"@{namespace}-header-user-dropdown";
+
+.@{prefix-cls} {
+  height: @header-height;
+  padding: 0 0 0 6px;
+  // padding-right: 10px;
+  overflow: hidden;
+  font-size: 12px;
+  cursor: pointer;
+  align-items: center;
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+  }
+
+  &__header {
+    border-radius: 50%;
+  }
+
+  &__name {
+    font-size: 14px;
+  }
+
+  &--dark {
+    display: flex;
+
+    &:hover {
+      // background-color: @header-dark-bg-hover-color;
+      background-color: rgba(#fff, 0.2);
+    }
+  }
+
+  &--light {
+    display: flex;
+
+    &:hover {
+      // background-color: @header-dark-bg-hover-color;
+      background-color: rgba(#fff, 0.2);
+    }
+
+    .@{prefix-cls}__name {
+      color: @text-color-base;
+    }
+
+    .@{prefix-cls}__desc {
+      color: @header-light-desc-color;
+    }
+  }
+
+  &-dropdown-overlay {
+    // padding-right: 36px;
+    z-index: 520;
+
+    .ant-dropdown-menu-item {
+      // min-width: 160px;
+    }
+  }
+
+  .truncate {
+    color: #fff;
+    font-size: 15px;
+  }
+}
+</style>
