@@ -1,4 +1,4 @@
 import { withInstall } from "utils/index";
-import description from "./index.vue";
+import divideTitle from "./index.vue";
 
-export const Description = withInstall(description);
+export const DivideTitle = withInstall(divideTitle);

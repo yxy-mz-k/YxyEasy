@@ -313,7 +313,7 @@ export const { Description } = CropperComponents;
 export { useDescription } from "./Description";
 export * from "./Description/src/typing";
 
-export const { Description } = DivideTitleComponents;
+export const { DivideTitle } = DivideTitleComponents;
 
 export const { BasicDrawer } = DrawerComponents;
 export { useDrawer, useDrawerInner } from "./Drawer";
