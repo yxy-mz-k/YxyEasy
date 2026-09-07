@@ -18,8 +18,6 @@ import {
 
 import { useRootSetting } from "hooks/setting/useRootSetting";
 
-const { getShowFooter, getFullContent } = useRootSetting();
-
 export function useTableScroll(
   propsRef: ComputedRef<BasicTableProps>,
   tableElRef: Ref<ComponentRef>,
@@ -29,6 +27,7 @@ export function useTableScroll(
   wrapRef: Ref<HTMLElement | null>,
   formRef: Ref<ComponentRef>,
 ) {
+  const { getShowFooter, getFullContent } = useRootSetting();
   const tableHeightRef: Ref<Nullable<number | string>> = ref(167);
   const modalFn = useModalContext();
 
