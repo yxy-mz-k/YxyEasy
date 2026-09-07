@@ -8,6 +8,7 @@ export const useConfigStore = defineStore("EASYCONFIG", {
       appId: <any>"",
       suffixApi: <any>"",
       name: <any>"",
+      VITE_GLOB_APP_SHORT_NAME: "vue_vben_admin",
     };
   },
   // 类似 computed

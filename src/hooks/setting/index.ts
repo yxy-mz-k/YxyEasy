@@ -20,11 +20,11 @@ export const useGlobSetting = (): Readonly<GlobConfig> => {
   const VITE_GLOB_APP_TITLE = EASYCONFIG?.name;
   const {
     // VITE_GLOB_APP_TITLE,
-    VITE_GLOB_APP_SHORT_NAME,
+    // VITE_GLOB_APP_SHORT_NAME,
     // VITE_GLOB_API_URL_PREFIX,
   } = getAppEnvConfig();
 
-  if (!/[a-zA-Z\_]*/.test(VITE_GLOB_APP_SHORT_NAME)) {
+  if (!/[a-zA-Z\_]*/.test(EASYCONFIG?.VITE_GLOB_APP_SHORT_NAME)) {
     warn(
       `VITE_GLOB_APP_SHORT_NAME Variables can only be characters/underscores, please modify in the environment variables and re-running.`,
     );
@@ -34,7 +34,7 @@ export const useGlobSetting = (): Readonly<GlobConfig> => {
   const glob: Readonly<GlobConfig> = {
     title: VITE_GLOB_APP_TITLE,
     apiUrl: VITE_GLOB_API_URL,
-    shortName: VITE_GLOB_APP_SHORT_NAME,
+    shortName: EASYCONFIG?.VITE_GLOB_APP_SHORT_NAME,
     urlPrefix: VITE_GLOB_API_URL_PREFIX,
     uploadUrl: VITE_GLOB_UPLOAD_URL,
   };
