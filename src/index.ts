@@ -6,8 +6,7 @@ import * as components from "./components";
 import "./styles/index.scss";
 
 // 导入配置
-import { setGlobalConfig } from "utils/env";
-import { setProjectKey } from "enums/cacheEnum";
+import { setGlobalConfig } from "utils/global";
 import { useConfigStore } from "store/modules/config";
 
 // 导出所有内容
@@ -26,16 +25,12 @@ const install = (app: App, options?: YxyEasyOptions) => {
   // 1. 先设置全局配置（在任何 store 使用之前）
   if (options) {
     setGlobalConfig(options);
-    setProjectKey(options);
   }
 
   // 2. 初始化 Pinia
   const pinia = createPinia();
   setActivePinia(pinia);
   app.use(pinia);
-
-  // 3. 保存 pinia 到全局（供后续使用）
-  // (window as any).__PINIA__ = pinia;
 
   const EASYCONFIG = useConfigStore();
   EASYCONFIG.setConfig(options);
@@ -48,10 +43,6 @@ const install = (app: App, options?: YxyEasyOptions) => {
       app.component(component.name, component);
     }
   });
-
-  // 7. 注入全局配置
-  app.provide("YXY_EASY_CONFIG", options);
-  app.config.globalProperties.$yxyEasy = options;
 };
 
 export default {

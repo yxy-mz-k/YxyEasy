@@ -1,12 +1,10 @@
 let projectKey = "";
 
-export function setProjectKey(options: any) {
-  projectKey = `/${options?.key}/`;
-}
+import { globalConfig } from "utils/global";
 
 export const cacheKeys = {
   get TOKEN_KEY() {
-    return "TOKEN__" + projectKey;
+    return "TOKEN__" + globalConfig?.project;
   },
   get LOCALE_KEY() {
     return "LOCALE__" + projectKey;

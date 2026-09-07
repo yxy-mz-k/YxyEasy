@@ -14,7 +14,7 @@ import { triggerWindowResize } from "utils/event";
 import { useRoute } from "vue-router";
 import { useAppStore } from "store/modules/app";
 import Mitt from "utils/myMitt";
-import { useConfigStore } from "store/modules/config";
+import { globalConfig } from "utils/global";
 
 export default defineComponent({
   name: "FoldButton",
@@ -36,7 +36,6 @@ export default defineComponent({
     const route = useRoute();
 
     function handleFold(exitFold: any = null) {
-      const EASYCONFIG = useConfigStore();
       let isUnFold: any = null;
       if (typeof exitFold == "boolean") {
         isUnFold = exitFold;
@@ -51,7 +50,7 @@ export default defineComponent({
       setHeaderSetting({ show: isUnFold });
       triggerWindowResize();
 
-      if (route.name == `${EASYCONFIG.key}_home`) {
+      if (route.name == `${globalConfig.key}_home`) {
         appStore.setProjectConfig({
           fullContent: !isUnFold,
           showSettingButton: isUnFold,

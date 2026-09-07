@@ -2,7 +2,7 @@
 import { useUserStore } from "store/modules/user";
 import { defHttp } from "utils/http/index";
 import axios from "axios";
-import { useConfigStore } from "store/modules/config";
+import { globalConfig } from "utils/global";
 const isEnv = import.meta.env["MODE"] === "development" ? true : false;
 enum Api {
   deleteFile = getUrlRelativePath() + "/api/file/delete",
@@ -31,7 +31,6 @@ export const uploadFileApi = ({
   onUploadProgress,
   moreoverParams = null,
 }) => {
-  const EASYCONFIG = useConfigStore();
   const formData = new FormData();
   formData.append("file", file);
   formData.append("fileName", file.name || "file");
@@ -44,7 +43,7 @@ export const uploadFileApi = ({
   // @ts-ignore
   return axios({
     url: isEnv
-      ? `${EASYCONFIG?.suffixApi}-center` +
+      ? `${globalConfig?.suffixApi}-center` +
         getUrlRelativePath() +
         "/api/file/upload"
       : getUrlRelativePath() + "/api/file/upload",

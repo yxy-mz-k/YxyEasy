@@ -1,14 +1,12 @@
 import { defHttp } from "utils/http/index";
-import { useConfigStore } from "store/modules/config";
-
+import { globalConfig } from "utils/global";
 enum Api {
   getDic = "/api/sys/dictTree",
 }
 
 export const getDictTreeByDictCode = (dictCode) => {
-  const EASYCONFIG = useConfigStore();
   return defHttp.post<any>({
-    url: `${EASYCONFIG?.suffixApi}${Api.getDic}`,
+    url: `${globalConfig?.suffixApi}${Api.getDic}`,
     params: { dictCode: dictCode },
   });
 };

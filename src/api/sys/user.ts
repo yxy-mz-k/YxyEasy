@@ -8,7 +8,7 @@ import {
 
 import { ErrorMessageMode } from "types/axios";
 import { useUserStoreWithOut } from "store/modules/user";
-import { useConfigStore } from "store/modules/config";
+import { globalConfig } from "utils/global";
 
 enum Api {
   Login = "/uauth/sys/login",
@@ -26,9 +26,8 @@ enum Api {
  * @description: user login api
  */
 export function userInfoApi() {
-  const EASYCONFIG = useConfigStore();
   return defHttp.post<any>({
-    url: `${EASYCONFIG?.suffixApi}${Api.userInfo}`,
+    url: `${globalConfig?.suffixApi}${Api.userInfo}`,
   });
 }
 
@@ -86,17 +85,15 @@ export function getPermCode() {
 
 export function doLogout() {
   const userStore = useUserStoreWithOut();
-  const EASYCONFIG = useConfigStore();
   return defHttp.get({
-    url: `${EASYCONFIG?.suffixApi}${Api.Logout}`,
+    url: `${globalConfig?.suffixApi}${Api.Logout}`,
     headers: { "X-Access-Token": userStore.getToken },
   });
 }
 
 export function getTokenByApi() {
-  const EASYCONFIG = useConfigStore();
   return defHttp.get({
-    url: `${EASYCONFIG?.suffixApi}${Api.Logout}`,
+    url: `${globalConfig?.suffixApi}${Api.Logout}`,
     headers: { "X-Access-Token": userStore.getToken },
   });
 }
@@ -115,25 +112,22 @@ export function testRetry() {
 }
 //修改密码
 export const EditPasswordApi = (params: any) => {
-  const EASYCONFIG = useConfigStore();
   return defHttp.post<any>({
     url: Api.EditPassword,
     params: params,
-    headers: { appId: EASYCONFIG?.appId },
+    headers: { appId: globalConfig?.appId },
   });
 };
 
 export const getUserOrgList = (params) => {
-  const EASYCONFIG = useConfigStore();
   return defHttp.post<any>({
-    url: `${EASYCONFIG?.suffixApi}${Api.getUserOrgList}`,
+    url: `${globalConfig?.suffixApi}${Api.getUserOrgList}`,
     params,
   });
 };
 export const getAppData = (params: any) => {
-  const EASYCONFIG = useConfigStore();
   return defHttp.post<any>({
-    url: `${EASYCONFIG?.suffixApi}${Api.getAppData}`,
+    url: `${globalConfig?.suffixApi}${Api.getAppData}`,
     params: params,
   });
 };

@@ -26,7 +26,7 @@ import { useMessage } from "hooks/web/useMessage";
 import { PageEnum } from "enums/pageEnum";
 import { getFormatMenusByData } from "utils/menusUtil";
 import { SysSourceTypeEnum } from "enums/sysEnum";
-import { useConfigStore } from "store/modules/config";
+import { globalConfig } from "utils/global";
 
 interface PermissionState {
   // Permission code list
@@ -111,7 +111,6 @@ export const usePermissionStore = defineStore({
       // this.setPermCodeList(codeList);
     },
     async buildRoutesAction(): Promise<AppRouteRecordRaw[]> {
-      const EASYCONFIG = useConfigStore();
       const { t } = useI18n();
       const userStore = useUserStore();
       const appStore = useAppStoreWithOut();
@@ -214,7 +213,7 @@ export const usePermissionStore = defineStore({
             // }
 
             getMenuData.forEach((item) => {
-              if (item.parentCode == EASYCONFIG?.appId) {
+              if (item.parentCode == globalConfig?.appId) {
                 item.parentId = undefined;
               }
             });

@@ -4,12 +4,7 @@ import { warn } from "utils/log";
 import pkg from "../../package.json";
 import { getConfigFileName } from "utils/getConfigFileName";
 
-let globalConfig: any = {
-  VITE_GLOB_APP_SHORT_NAME: "vue_vben_admin",
-};
-export function setGlobalConfig(config: any) {
-  globalConfig = config;
-}
+import { globalConfig } from "utils/global";
 
 export function getCommonStoragePrefix() {
   return `${globalConfig?.VITE_GLOB_APP_SHORT_NAME}__${getEnv()}`.toUpperCase();

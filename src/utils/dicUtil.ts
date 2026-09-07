@@ -1,6 +1,6 @@
 import { defHttp } from "utils/http/index";
 import { useDictStore } from "store/modules/dic";
-import { useConfigStore } from "store/modules/config";
+import { globalConfig } from "utils/global";
 
 enum Api {
   getDic = "/api/sys/dictTree",
@@ -47,17 +47,15 @@ export const updateOptionsByDictCode = async (dictCode) => {
 };
 
 export const getDicListByDictCode = (dictCode) => {
-  const EASYCONFIG = useConfigStore();
   return defHttp.post<any>({
-    url: `${EASYCONFIG?.suffixApi}${Api.getDic}`,
+    url: `${globalConfig?.suffixApi}${Api.getDic}`,
     params: { dictCode: dictCode },
   });
 };
 //从接口中读取dicname
 export const getDictNameByDicCode = async (dictCode, dictValue) => {
-  const EASYCONFIG = useConfigStore();
   const result = defHttp.post<any[]>({
-    url: `${EASYCONFIG?.suffixApi}${Api.getDic}`,
+    url: `${globalConfig?.suffixApi}${Api.getDic}`,
     params: { dictCode: dictCode },
   });
   if (result) {

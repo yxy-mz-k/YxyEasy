@@ -33,7 +33,7 @@ import { PageEnum } from "enums/pageEnum";
 import { useUserStore } from "store/modules/user";
 import { getAppList } from "api/sys/menu";
 import { Icon } from "components/Icon";
-import { useConfigStore } from "store/modules/config";
+import { globalConfig } from "utils/global";
 const props = defineProps({
   /**
    * The theme of the current parent component
@@ -55,9 +55,8 @@ const icon: any = ref(null);
 const type = ref("2");
 const title = ref(null);
 onMounted(async () => {
-  const EASYCONFIG = useConfigStore();
   var dataInfo = await getAppList({
-    code: EASYCONFIG?.appId,
+    code: globalConfig?.appId,
     pageNo: 1,
     pageSize: 99,
   });

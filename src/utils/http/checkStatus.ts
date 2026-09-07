@@ -10,7 +10,7 @@ const { createMessage, createErrorModal } = useMessage();
 const error = createMessage.error!;
 const stp = projectSetting.sessionTimeoutProcessing;
 import { doLogout, getUserInfo, loginApi } from "api/sys/user";
-import { useConfigStore } from "store/modules/config";
+import { globalConfig } from "utils/global";
 // * @description: logout
 // */
 
@@ -20,7 +20,6 @@ export function checkStatus(
   result: any,
   errorMessageMode: ErrorMessageMode = "message",
 ): void {
-  const EASYCONFIG = useConfigStore();
   const { t } = useI18n();
   const userStore = useUserStoreWithOut();
   let errMessage = "";
@@ -52,7 +51,7 @@ export function checkStatus(
           userStore.setToken(user_token);
           window.location.href =
             window.location.origin +
-            EASYCONFIG?.project +
+            globalConfig?.project +
             window.location.href.substring(
               window.location.href.lastIndexOf("#"),
               window.location.href.length,

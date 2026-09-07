@@ -6,7 +6,7 @@ import { PageEnum } from "enums/pageEnum";
 import { useUserStoreWithOut } from "store/modules/user";
 import { PAGE_NOT_FOUND_ROUTE } from "router/routes/basic";
 import { RootRoute } from "router/routes";
-import { useConfigStore } from "store/modules/config";
+import { globalConfig } from "utils/global";
 
 import { getMenuList } from "api/sys/menu";
 const LOGIN_PATH = PageEnum.BASE_LOGIN;
@@ -16,7 +16,6 @@ const ROOT_PATH = RootRoute.path;
 const whitePathList: PageEnum[] = [LOGIN_PATH];
 
 export function createPermissionGuard(router: Router) {
-  const EASYCONFIG = useConfigStore();
   const userStore = useUserStoreWithOut();
   const permissionStore = usePermissionStoreWithOut();
   router.beforeEach(async (to, from, next) => {
@@ -64,7 +63,7 @@ export function createPermissionGuard(router: Router) {
           window.location.href.lastIndexOf("?"),
         );
         window.location.href =
-          window.location.origin + EASYCONFIG?.project + href;
+          window.location.origin + globalConfig?.project + href;
       }
 
       await getMenuList();

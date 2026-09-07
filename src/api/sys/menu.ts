@@ -1,6 +1,6 @@
 import { defHttp } from "utils/http/index";
-import { useConfigStore } from "store/modules/config";
 // import { getMenuListResultModel } from './model/menuModel';
+import { globalConfig } from "utils/global";
 
 enum Api {
   // GetMenuList = '/uauth/sys/user/appMenu', //能请
@@ -12,9 +12,8 @@ enum Api {
  * @description: Get user menu based on id
  */
 export const getMenuList = (params) => {
-  const EASYCONFIG = useConfigStore();
   return defHttp.post<any>({
-    url: `${EASYCONFIG?.suffixApi}${Api.GetMenuList}`,
+    url: `${globalConfig?.suffixApi}${Api.GetMenuList}`,
     params,
   });
 };
