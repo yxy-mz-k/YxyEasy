@@ -3,8 +3,6 @@ import { useUserStore } from "store/modules/user";
 import Mitt from "utils/myMitt";
 import { useUserStoreWithOut } from "store/modules/user";
 // import {getWsBaseURL} from "/@utils/baseUrl"; //获取ws接口的方法,可自行换掉
-const userStore = useUserStoreWithOut();
-const { createMessage } = useMessage();
 const websocket: any = {
   websocket: null,
   // connectURL: getWsBaseURL(),
@@ -26,6 +24,8 @@ const websocket: any = {
   reconnect_interval: 5 * 1000,
 
   init: (receiveMessage: Function | null) => {
+    const userStore = useUserStoreWithOut();
+    const { createMessage } = useMessage();
     const useUserInfo: any = useUserStore().getUserInfo;
     const isEnv = import.meta.env["MODE"] === "development" ? true : false;
     const host = isEnv ? import.meta.env["VITE_HOST"] : window.location.host;
@@ -81,6 +81,7 @@ const websocket: any = {
     };
   },
   heartbeat: () => {
+    const userStore = useUserStoreWithOut();
     websocket.hearbeat_timer && clearInterval(websocket.hearbeat_timer);
 
     websocket.hearbeat_timer = setInterval(() => {
@@ -91,6 +92,7 @@ const websocket: any = {
     }, websocket.hearbeat_interval);
   },
   send: (data: any, callback = null) => {
+    const { createMessage } = useMessage();
     // 开启状态直接发送
     if (websocket.websocket.readyState === websocket.websocket.OPEN) {
       websocket.websocket.send(JSON.stringify(data));

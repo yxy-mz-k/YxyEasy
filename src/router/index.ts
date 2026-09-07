@@ -3,8 +3,6 @@ import type { App } from "vue";
 
 import { createRouter, createWebHashHistory } from "vue-router";
 import { basicRoutes } from "./routes";
-import { useUserStore } from "../store/modules/user";
-// import store from '../store/index'
 // 白名单应该包含基本静态路由
 const WHITE_NAME_LIST: string[] = [];
 const getRouteNames = (array: any[]) =>
