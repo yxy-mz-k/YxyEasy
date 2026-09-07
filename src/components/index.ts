@@ -1,5 +1,5 @@
 import type { App } from "vue";
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import { componentRegistry } from "utils/registry";
 
 import YCharts from "./Y-Charts";

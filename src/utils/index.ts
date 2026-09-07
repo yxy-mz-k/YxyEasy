@@ -1,3 +1,5 @@
+export { withInstall } from "./withInstall";
+export type { WithInstall, CustomComponent } from "./withInstall";
 import type {
   RouteLocationNormalized,
   RouteRecordNormalized,
@@ -144,34 +146,34 @@ export function getRawRoute(
 }
 
 // https://github.com/vant-ui/vant/issues/8302
-type EventShim = {
-  new (...args: any[]): {
-    $props: {
-      onClick?: (...args: any[]) => void;
-    };
-  };
-};
+// type EventShim = {
+//   new (...args: any[]): {
+//     $props: {
+//       onClick?: (...args: any[]) => void;
+//     };
+//   };
+// };
 
-export type WithInstall<T> = T & {
-  install(app: App): void;
-} & EventShim;
+// export type WithInstall<T> = T & {
+//   install(app: App): void;
+// } & EventShim;
 
-export type CustomComponent = Component & { displayName?: string };
+// export type CustomComponent = Component & { displayName?: string };
 
-export const withInstall = <T extends CustomComponent>(
-  component: T,
-  alias?: string,
-) => {
-  (component as Record<string, unknown>).install = (app: App) => {
-    const compName = component.name || component.displayName;
-    if (!compName) return;
-    app.component(compName, component);
-    if (alias) {
-      app.config.globalProperties[alias] = component;
-    }
-  };
-  return component as WithInstall<T>;
-};
+// export const withInstall = <T extends CustomComponent>(
+//   component: T,
+//   alias?: string,
+// ) => {
+//   (component as Record<string, unknown>).install = (app: App) => {
+//     const compName = component.name || component.displayName;
+//     if (!compName) return;
+//     app.component(compName, component);
+//     if (alias) {
+//       app.config.globalProperties[alias] = component;
+//     }
+//   };
+//   return component as WithInstall<T>;
+// };
 
 /**
  * @description 父子关系的数组转换成树形结构数据

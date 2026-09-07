@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import cropperImage from "./src/Cropper.vue";
 import avatarCropper from "./src/CropperAvatar.vue";
 

@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import icon from "./src/Icon.vue";
 import svgIcon from "./src/SvgIcon.vue";
 import iconPicker from "./src/IconPicker.vue";

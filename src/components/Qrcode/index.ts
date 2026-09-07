@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import qrCode from "./src/Qrcode.vue";
 
 export const QrCode = withInstall(qrCode);

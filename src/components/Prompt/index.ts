@@ -1,5 +1,5 @@
 import { createVNode, VNode, defineComponent, h, render, reactive } from "vue";
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import { PromptProps, genFormSchemas } from "./state";
 export * from "./state";
 import dialog from "./dialog.vue";

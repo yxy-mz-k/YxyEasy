@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import markDown from "./src/Markdown.vue";
 import markDownViewer from "./src/MarkdownViewer.vue";
 

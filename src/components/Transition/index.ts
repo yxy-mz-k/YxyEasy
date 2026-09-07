@@ -1,6 +1,6 @@
 // export { default as CollapseTransition } from "./src/CollapseTransition.vue";
 
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import {
   createSimpleTransition,
   createJavascriptTransition,

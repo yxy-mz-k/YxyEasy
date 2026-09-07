@@ -4,7 +4,7 @@ export * from "./src/typing";
 
 import type { App, Plugin } from "vue";
 import contextMenu from "./src/ContextMenu.vue";
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 
 // 导出函数式方法
 import { createContextMenu, destroyContextMenu } from "./src/createContextMenu";

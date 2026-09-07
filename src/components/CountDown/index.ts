@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import countButton from "./src/CountButton.vue";
 import countdownInput from "./src/CountdownInput.vue";
 

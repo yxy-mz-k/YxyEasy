@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import type { ExtractPropTypes } from "vue";
 import button from "./src/BasicButton.vue";
 import popConfirmButton from "./src/PopConfirmButton.vue";

@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import basicTree from "./src/BasicTree.vue";
 import "./style";
 

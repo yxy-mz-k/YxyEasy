@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import simpleMenu from "./src/SimpleMenu.vue";
 import simpleMenuTag from "./src/SimpleMenuTag.vue";
 

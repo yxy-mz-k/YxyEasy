@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import codeEditor from "./src/CodeEditor.vue";
 import jsonPreview from "./src/json-preview/JsonPreview.vue";
 import highJsonView from "./src/json-preview/HighJsonView.vue";

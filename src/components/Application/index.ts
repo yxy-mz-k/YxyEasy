@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 
 import appLogo from "./src/AppLogo.vue";
 import appLogoHeader from "./src/AppLogoHeader.vue";

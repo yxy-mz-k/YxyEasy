@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 
 export * from "./src/types/form";
 export * from "./src/types/formItem";

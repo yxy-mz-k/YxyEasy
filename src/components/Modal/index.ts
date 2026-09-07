@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import "./src/index.less";
 import basicModal from "./src/BasicModal.vue";
 

@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 
 import pageFooter from "./src/PageFooter.vue";
 import pageWrapper from "./src/PageWrapper.vue";

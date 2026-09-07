@@ -1,4 +1,4 @@
-import { withInstall } from "utils/index";
+import { withInstall } from "utils/withInstall";
 import basicTable from "./src/BasicTable.vue";
 import tableAction from "./src/components/TableAction.vue";
 import editTableHeaderIcon from "./src/components/EditTableHeaderIcon.vue";
