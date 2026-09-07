@@ -21,6 +21,8 @@ export const useConfigStore = defineStore("EASYCONFIG", {
       this.appId = `app_${options?.key}`;
       this.suffixApi = `/${options?.key}`;
       this.name = options?.name;
+      this.VITE_GLOB_APP_SHORT_NAME =
+        options?.VITE_GLOB_APP_SHORT_NAME ?? "vue_vben_admin";
     },
     getConfig() {
       return {
@@ -29,6 +31,7 @@ export const useConfigStore = defineStore("EASYCONFIG", {
         appId: this.appId,
         suffixApi: this.suffixApi,
         name: this.name,
+        VITE_GLOB_APP_SHORT_NAME: this.VITE_GLOB_APP_SHORT_NAME,
       };
     },
   },
