@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 import { store } from "store/index";
 import { RoleEnum } from "enums/roleEnum";
 import { PageEnum } from "enums/pageEnum";
-import { ROLES_KEY, TOKEN_KEY, USER_INFO_KEY } from "enums/cacheEnum";
+import { cacheKeys } from "enums/cacheEnum";
 import { getAuthCache, setAuthCache, clearAuthCache } from "utils/auth";
 import { GetUserInfoModel, LoginParams } from "api/sys/model/userModel";
 import { doLogout, getUserInfo, loginApi } from "api/sys/user";
@@ -44,15 +44,17 @@ export const useUserStore = defineStore({
   }),
   getters: {
     getUserInfo(): UserInfo {
-      return this.userInfo || getAuthCache<UserInfo>(USER_INFO_KEY) || {};
+      return (
+        this.userInfo || getAuthCache<UserInfo>(cacheKeys?.USER_INFO_KEY) || {}
+      );
     },
     getToken(): string {
-      return this.token || getAuthCache<string>(TOKEN_KEY);
+      return this.token || getAuthCache<string>(cacheKeys?.TOKEN_KEY);
     },
     getRoleList(): RoleEnum[] {
       return this.roleList.length > 0
         ? this.roleList
-        : getAuthCache<RoleEnum[]>(ROLES_KEY);
+        : getAuthCache<RoleEnum[]>(cacheKeys?.ROLES_KEY);
     },
     getSessionTimeout(): boolean {
       return !!this.sessionTimeout;
@@ -65,16 +67,16 @@ export const useUserStore = defineStore({
     setToken(info: string | undefined) {
       this.token = info ? info : ""; // for null or undefined value
 
-      setAuthCache(TOKEN_KEY, info);
+      setAuthCache(cacheKeys?.TOKEN_KEY, info);
     },
     setRoleList(roleList: RoleEnum[]) {
       this.roleList = roleList;
-      setAuthCache(ROLES_KEY, roleList);
+      setAuthCache(cacheKeys?.ROLES_KEY, roleList);
     },
     setUserInfo(info: UserInfo | null) {
       this.userInfo = info;
       this.lastUpdateTime = new Date().getTime();
-      setAuthCache(USER_INFO_KEY, info);
+      setAuthCache(cacheKeys?.USER_INFO_KEY, info);
     },
     setSessionTimeout(flag: boolean) {
       this.sessionTimeout = flag;

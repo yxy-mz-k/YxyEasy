@@ -4,35 +4,25 @@ import type { RouteLocationNormalized } from "vue-router";
 
 import { createLocalStorage, createSessionStorage } from "utils/cache";
 import { Memory } from "./memory";
-import {
-  TOKEN_KEY,
-  USER_INFO_KEY,
-  ROLES_KEY,
-  LOCK_INFO_KEY,
-  PROJ_CFG_KEY,
-  APP_LOCAL_CACHE_KEY,
-  APP_SESSION_CACHE_KEY,
-  MULTIPLE_TABS_KEY,
-  APP_LOCAL_CACHETOKEN_KEY,
-} from "enums/cacheEnum";
+import { cacheKeys } from "enums/cacheEnum";
 import { DEFAULT_CACHE_TIME } from "settings/encryptionSetting";
 import { toRaw } from "vue";
 import { pick, omit } from "lodash-es";
 
-interface BasicStore {
-  [TOKEN_KEY]: string | number | null | undefined;
-  [USER_INFO_KEY]: UserInfo;
-  [ROLES_KEY]: string[];
-  [LOCK_INFO_KEY]: LockInfo;
-  [PROJ_CFG_KEY]: ProjectConfig;
-  [MULTIPLE_TABS_KEY]: RouteLocationNormalized[];
-}
+// interface BasicStore {
+//   [TOKEN_KEY]: string | number | null | undefined;
+//   [USER_INFO_KEY]: UserInfo;
+//   [ROLES_KEY]: string[];
+//   [LOCK_INFO_KEY]: LockInfo;
+//   [PROJ_CFG_KEY]: ProjectConfig;
+//   [MULTIPLE_TABS_KEY]: RouteLocationNormalized[];
+// }
 
-type LocalStore = BasicStore;
+type LocalStore = any;
 
-type SessionStore = BasicStore;
+type SessionStore = any;
 
-export type BasicKeys = keyof BasicStore;
+export type BasicKeys = any;
 type LocalKeys = keyof LocalStore;
 type SessionKeys = keyof SessionStore;
 
@@ -43,9 +33,9 @@ const localMemory = new Memory(DEFAULT_CACHE_TIME);
 const sessionMemory = new Memory(DEFAULT_CACHE_TIME);
 const localTokenMemory = new Memory(DEFAULT_CACHE_TIME);
 function initPersistentMemory() {
-  const localCache = ls.get(APP_LOCAL_CACHE_KEY);
-  const localTokenCache = ls.get(APP_LOCAL_CACHETOKEN_KEY);
-  const sessionCache = ss.get(APP_SESSION_CACHE_KEY);
+  const localCache = ls.get(cacheKeys?.APP_LOCAL_CACHE_KEY);
+  const localTokenCache = ls.get(cacheKeys?.APP_LOCAL_CACHETOKEN_KEY);
+  const sessionCache = ss.get(cacheKeys?.APP_SESSION_CACHE_KEY);
   localCache && localMemory.resetCache(localCache);
   sessionCache && sessionMemory.resetCache(sessionCache);
   localTokenCache && localTokenMemory.resetCache(localTokenCache);
@@ -66,7 +56,7 @@ export class Persistent {
     immediate = false,
   ): void {
     localMemory.set(key, toRaw(value));
-    immediate && ls.set(APP_LOCAL_CACHE_KEY, localMemory.getCache);
+    immediate && ls.set(cacheKeys?.APP_LOCAL_CACHE_KEY, localMemory.getCache);
   }
 
   static setTokenLocal(
@@ -75,12 +65,13 @@ export class Persistent {
     immediate = false,
   ): void {
     localTokenMemory.set(key, toRaw(value));
-    immediate && ls.set(APP_LOCAL_CACHETOKEN_KEY, localTokenMemory.getCache);
+    immediate &&
+      ls.set(cacheKeys?.APP_LOCAL_CACHETOKEN_KEY, localTokenMemory.getCache);
   }
 
   static removeLocal(key: LocalKeys, immediate = false): void {
     localMemory.remove(key);
-    immediate && ls.set(APP_LOCAL_CACHE_KEY, localMemory.getCache);
+    immediate && ls.set(cacheKeys?.APP_LOCAL_CACHE_KEY, localMemory.getCache);
   }
 
   static clearLocal(immediate = false): void {
@@ -98,12 +89,14 @@ export class Persistent {
     immediate = false,
   ): void {
     sessionMemory.set(key, toRaw(value));
-    immediate && ss.set(APP_SESSION_CACHE_KEY, sessionMemory.getCache);
+    immediate &&
+      ss.set(cacheKeys?.APP_SESSION_CACHE_KEY, sessionMemory.getCache);
   }
 
   static removeSession(key: SessionKeys, immediate = false): void {
     sessionMemory.remove(key);
-    immediate && ss.set(APP_SESSION_CACHE_KEY, sessionMemory.getCache);
+    immediate &&
+      ss.set(cacheKeys?.APP_SESSION_CACHE_KEY, sessionMemory.getCache);
   }
   static clearSession(immediate = false): void {
     sessionMemory.clear();
@@ -123,20 +116,20 @@ export class Persistent {
 window.addEventListener("beforeunload", function () {
   // TOKEN_KEY 在登录或注销时已经写入到storage了，此处为了解决同时打开多个窗口时token不同步的问题
   // LOCK_INFO_KEY 在锁屏和解锁时写入，此处也不应修改
-  ls.set(APP_LOCAL_CACHE_KEY, {
-    ...omit(localMemory.getCache, LOCK_INFO_KEY),
-    ...pick(ls.get(APP_LOCAL_CACHE_KEY), [
-      TOKEN_KEY,
-      USER_INFO_KEY,
-      LOCK_INFO_KEY,
+  ls.set(cacheKeys?.APP_LOCAL_CACHE_KEY, {
+    ...omit(localMemory.getCache, cacheKeys?.LOCK_INFO_KEY),
+    ...pick(ls.get(cacheKeys?.APP_LOCAL_CACHE_KEY), [
+      cacheKeys?.TOKEN_KEY,
+      cacheKeys?.USER_INFO_KEY,
+      cacheKeys?.LOCK_INFO_KEY,
     ]),
   });
-  ss.set(APP_SESSION_CACHE_KEY, {
-    ...omit(sessionMemory.getCache, LOCK_INFO_KEY),
-    ...pick(ss.get(APP_SESSION_CACHE_KEY), [
-      TOKEN_KEY,
-      USER_INFO_KEY,
-      LOCK_INFO_KEY,
+  ss.set(cacheKeys?.APP_SESSION_CACHE_KEY, {
+    ...omit(sessionMemory.getCache, cacheKeys?.LOCK_INFO_KEY),
+    ...pick(ss.get(cacheKeys?.APP_SESSION_CACHE_KEY), [
+      cacheKeys?.TOKEN_KEY,
+      cacheKeys?.USER_INFO_KEY,
+      cacheKeys?.LOCK_INFO_KEY,
     ]),
   });
 });
@@ -150,10 +143,10 @@ function storageChange(e: any) {
   }
 
   if (!!newValue && !!oldValue) {
-    if (APP_LOCAL_CACHE_KEY === key) {
+    if (cacheKeys?.APP_LOCAL_CACHE_KEY === key) {
       Persistent.clearLocal();
     }
-    if (APP_SESSION_CACHE_KEY === key) {
+    if (cacheKeys?.APP_SESSION_CACHE_KEY === key) {
       Persistent.clearSession();
     }
   }

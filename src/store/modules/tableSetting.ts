@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import { TABLE_SETTING_KEY } from "enums/cacheEnum";
+import { cacheKeys } from "enums/cacheEnum";
 
 import { Persistent } from "utils/cache/persistent";
 
@@ -17,7 +17,7 @@ interface TableSettingState {
 export const useTableSettingStore = defineStore({
   id: "table-setting",
   state: (): TableSettingState => ({
-    setting: Persistent.getLocal(TABLE_SETTING_KEY),
+    setting: Persistent.getLocal(cacheKeys?.TABLE_SETTING_KEY),
   }),
   getters: {
     getTableSetting(state): Nullable<Partial<TableSetting>> {
@@ -51,10 +51,10 @@ export const useTableSettingStore = defineStore({
   actions: {
     setTableSetting(setting: Partial<TableSetting>) {
       this.setting = Object.assign({}, this.setting, setting);
-      Persistent.setLocal(TABLE_SETTING_KEY, this.setting, true);
+      Persistent.setLocal(cacheKeys?.TABLE_SETTING_KEY, this.setting, true);
     },
     resetTableSetting() {
-      Persistent.removeLocal(TABLE_SETTING_KEY, true);
+      Persistent.removeLocal(cacheKeys?.TABLE_SETTING_KEY, true);
       this.setting = null;
     },
     //

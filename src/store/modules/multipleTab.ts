@@ -14,7 +14,7 @@ import { Persistent } from "utils/cache/persistent";
 import { PageEnum } from "enums/pageEnum";
 import { PAGE_NOT_FOUND_ROUTE, REDIRECT_ROUTE } from "router/routes/basic";
 import { getRawRoute } from "utils/index";
-import { MULTIPLE_TABS_KEY } from "enums/cacheEnum";
+import { cacheKeys } from "enums/cacheEnum";
 
 import projectSetting from "settings/projectSetting";
 import { useUserStore } from "store/modules/user";
@@ -47,7 +47,9 @@ export const useMultipleTabStore = defineStore({
     // Tabs that need to be cached
     cacheTabList: new Set(),
     // multiple tab list
-    tabList: cacheTab ? Persistent.getLocal(MULTIPLE_TABS_KEY) || [] : [],
+    tabList: cacheTab
+      ? Persistent.getLocal(cacheKeys?.MULTIPLE_TABS_KEY) || []
+      : [],
     // Index of the last moved tab
     lastDragEndIndex: 0,
   }),
@@ -177,7 +179,8 @@ export const useMultipleTabStore = defineStore({
         this.tabList.push(route);
       }
       this.updateCacheTab();
-      cacheTab && Persistent.setLocal(MULTIPLE_TABS_KEY, this.tabList);
+      cacheTab &&
+        Persistent.setLocal(cacheKeys?.MULTIPLE_TABS_KEY, this.tabList);
     },
 
     async closeTab(tab: RouteLocationNormalized, router: Router) {
