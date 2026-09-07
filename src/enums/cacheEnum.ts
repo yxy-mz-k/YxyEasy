@@ -1,48 +1,48 @@
-import { useConfigStore } from "store/modules/config";
-// 获取配置的函数
-function getProject() {
-  const EASYCONFIG = useConfigStore();
-  return EASYCONFIG?.project || "default";
+let projectKey = "";
+
+export function setProjectKey(options: any) {
+  projectKey = `/${options?.key}/`;
 }
+
 export const cacheKeys = {
   get TOKEN_KEY() {
-    return "TOKEN__" + getProject();
+    return "TOKEN__" + projectKey;
   },
   get LOCALE_KEY() {
-    return "LOCALE__" + getProject();
+    return "LOCALE__" + projectKey;
   },
   get USER_INFO_KEY() {
-    return "USER__INFO__" + getProject();
+    return "USER__INFO__" + projectKey;
   },
   get ROLES_KEY() {
-    return "ROLES__KEY__" + getProject();
+    return "ROLES__KEY__" + projectKey;
   },
   get PROJ_CFG_KEY() {
-    return "PROJ__CFG__KEY__" + getProject();
+    return "PROJ__CFG__KEY__" + projectKey;
   },
   get API_ADDRESS() {
-    return "API_ADDRESS__" + getProject();
+    return "API_ADDRESS__" + projectKey;
   },
   get LOCK_INFO_KEY() {
-    return "LOCK__INFO__KEY__" + getProject();
+    return "LOCK__INFO__KEY__" + projectKey;
   },
   get MULTIPLE_TABS_KEY() {
-    return "MULTIPLE_TABS__KEY__" + getProject();
+    return "MULTIPLE_TABS__KEY__" + projectKey;
   },
   get APP_DARK_MODE_KEY_() {
-    return "__APP__DARK__MODE__" + getProject();
+    return "__APP__DARK__MODE__" + projectKey;
   },
   get APP_LOCAL_CACHE_KEY() {
-    return "COMMON__LOCAL__KEY__" + getProject();
+    return "COMMON__LOCAL__KEY__" + projectKey;
   },
   get APP_LOCAL_CACHETOKEN_KEY() {
-    return "COMMON__LOCALTOKEN__KEY__" + getProject();
+    return "COMMON__LOCALTOKEN__KEY__" + projectKey;
   },
   get APP_SESSION_CACHE_KEY() {
-    return "COMMON__SESSION__KEY__" + getProject();
+    return "COMMON__SESSION__KEY__" + projectKey;
   },
   get TABLE_SETTING_KEY() {
-    return "TABLE__SETTING__KEY__" + getProject();
+    return "TABLE__SETTING__KEY__" + projectKey;
   },
 };
 export enum CacheTypeEnum {
