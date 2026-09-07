@@ -30,7 +30,7 @@ import { extendSlots, getSlot } from "utils/helper/tsxHelper";
 import { filter, treeToList, eachTree } from "utils/helper/treeHelper";
 import { useTree } from "./hooks/useTree";
 import { useContextMenu } from "hooks/web/useContextMenu";
-import { CreateContextOptions } from "components/ContextMenu";
+import { ContextOptions } from "components/ContextMenu";
 import { treeEmits, treeProps } from "./types/tree";
 import { createBEM } from "utils/bem";
 import type { TreeProps } from "ant-design-vue/es/tree/Tree";
@@ -141,7 +141,7 @@ export default defineComponent({
 
     async function handleRightClick({ event, node }: Recordable) {
       const { rightMenuList: menuList = [], beforeRightClick } = props;
-      let contextMenuOptions: CreateContextOptions = { event, items: [] };
+      let contextMenuOptions: ContextOptions = { event, items: [] };
 
       if (beforeRightClick && isFunction(beforeRightClick)) {
         let result = await beforeRightClick(node, event);
