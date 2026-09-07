@@ -1,5 +1,4 @@
 import type { AppRouteRecordRaw } from "router/types";
-import { t } from "hooks/web/useI18n";
 import {
   REDIRECT_NAME,
   LAYOUT,
@@ -70,7 +69,7 @@ export const ERROR_LOG_ROUTE: AppRouteRecordRaw = {
       name: "ErrorLogList",
       component: () => import("views/sys/error-log/index.vue"),
       meta: {
-        title: t("routes.basic.errorLogList"),
+        title: "routes.basic.errorLogList",
         hideBreadcrumb: true,
         currentActiveMenu: "/error-log",
       },
