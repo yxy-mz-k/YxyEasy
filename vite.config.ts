@@ -5,6 +5,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx"; // 添加这个
 import { resolve } from "path";
 import glob from "vite-plugin-glob";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import { viteThemePlugin } from "vite-plugin-theme";
 
 // https://vite.dev/config/
 
@@ -22,6 +23,10 @@ export default defineConfig({
       inject: "body-last",
       // 自定义 domId
       customDomId: "__svg__icons__dom__",
+    }),
+    viteThemePlugin({
+      // 配置主题
+      colorVariables: ["@primary-color"],
     }),
   ],
   resolve: {
