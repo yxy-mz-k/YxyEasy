@@ -5,8 +5,8 @@ import { globalConfig } from "utils/global";
 enum Api {
   getDic = "/api/sys/dictTree",
 }
-const dictStore = useDictStore();
 export const getOptionsByDictCode = async (dictCode) => {
+  const dictStore = useDictStore();
   let result: any = null;
   result = dictStore.getDicList.filter(
     (ditem) => ditem.dictCode.toString() == dictCode,
@@ -30,6 +30,7 @@ export const getOptionsByDictCode = async (dictCode) => {
   }
 };
 export const updateOptionsByDictCode = async (dictCode) => {
+  const dictStore = useDictStore();
   let result: any = null;
   result = dictStore.getDicList.filter(
     (ditem) => ditem.dictCode.toString() == dictCode,
@@ -73,6 +74,7 @@ export const getDictNameByDicCode = async (dictCode, dictValue) => {
 };
 //从缓存中读取dicname----获取反向字典值
 export const getDictName = (dictCode, dictValue) => {
+  const dictStore = useDictStore();
   const storeInfo = dictStore.getDicList.filter(
     (ditem) => ditem.dictCode.toString() == dictCode,
   );
