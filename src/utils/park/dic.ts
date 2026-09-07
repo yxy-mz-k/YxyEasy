@@ -1,13 +1,9 @@
 import { defHttp } from "utils/http/index";
 
-enum Api {
-  //字典值得接口
-  dictCode = getUrlRelativePath() + "/api/sys/dictTree",
-}
 /**
  * 获取当前上下文路径
  */
-var contextPath;
+let contextPath;
 function getUrlRelativePath() {
   if (contextPath) {
     return contextPath;
@@ -21,6 +17,10 @@ function getUrlRelativePath() {
   }
   contextPath = "/" + relUrl.split("/")[1];
   return contextPath;
+}
+enum Api {
+  //字典值得接口
+  dictCode = getUrlRelativePath() + "/api/sys/dictTree",
 }
 // 获取字典值
 export const getdictCode = (params: any) => {

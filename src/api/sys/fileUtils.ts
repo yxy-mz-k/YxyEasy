@@ -4,13 +4,7 @@ import { defHttp } from "utils/http/index";
 import axios from "axios";
 import { globalConfig } from "utils/global";
 const isEnv = import.meta.env["MODE"] === "development" ? true : false;
-enum Api {
-  deleteFile = getUrlRelativePath() + "/api/file/delete",
-  queryFileById = getUrlRelativePath() + "/api/file/queryById",
-  queryByIds = getUrlRelativePath() + "/api/file/queryByIds",
-  download = getUrlRelativePath() + "/api/file/download?id=",
-}
-var contextPath;
+let contextPath;
 function getUrlRelativePath() {
   if (contextPath) {
     return contextPath;
@@ -26,6 +20,12 @@ function getUrlRelativePath() {
   return contextPath;
 }
 
+enum Api {
+  deleteFile = getUrlRelativePath() + "/api/file/delete",
+  queryFileById = getUrlRelativePath() + "/api/file/queryById",
+  queryByIds = getUrlRelativePath() + "/api/file/queryByIds",
+  download = getUrlRelativePath() + "/api/file/download?id=",
+}
 export const uploadFileApi = ({
   file,
   onUploadProgress,
