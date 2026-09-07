@@ -9,7 +9,7 @@ import { updateGrayMode } from "logics/theme/updateGrayMode";
 import { useAppStore } from "store/modules/app";
 import { ProjectConfig } from "types/config";
 import { changeTheme } from "logics/theme";
-import { updateDarkTheme } from "logics/theme/dark";
+// import { updateDarkTheme } from "logics/theme/dark";
 import { useRootSetting } from "hooks/setting/useRootSetting";
 
 export function baseHandler(event: HandlerEnum, value: any) {
@@ -49,7 +49,7 @@ export function handler(
       if (getThemeColor.value === value) {
         return {};
       }
-      changeTheme(value);
+      // changeTheme(value);
 
       return { themeColor: value };
 
@@ -57,7 +57,7 @@ export function handler(
       if (getDarkMode.value === value) {
         return {};
       }
-      updateDarkTheme(value);
+      // updateDarkTheme(value);
 
       return {};
 

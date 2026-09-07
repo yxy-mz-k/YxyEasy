@@ -11,7 +11,7 @@ import { SvgIcon } from "components/Icon";
 import { ThemeEnum } from "enums/appEnum";
 import { useRootSetting } from "hooks/setting/useRootSetting";
 import { useDesign } from "hooks/web/useDesign";
-import { updateDarkTheme } from "logics/theme/dark";
+// import { updateDarkTheme } from "logics/theme/dark";
 import {
   updateHeaderBgColor,
   updateSidebarBgColor,
@@ -33,7 +33,7 @@ function toggleDarkMode() {
   const darkMode =
     getDarkMode.value === ThemeEnum.DARK ? ThemeEnum.LIGHT : ThemeEnum.DARK;
   setDarkMode(darkMode);
-  updateDarkTheme(darkMode);
+  // updateDarkTheme(darkMode);
   updateHeaderBgColor();
   updateSidebarBgColor();
 }

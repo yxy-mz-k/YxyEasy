@@ -12,7 +12,7 @@ import {
 } from "logics/theme/updateBackground";
 import { updateColorWeak } from "logics/theme/updateColorWeak";
 import { updateGrayMode } from "logics/theme/updateGrayMode";
-import { updateDarkTheme } from "logics/theme/dark";
+// import { updateDarkTheme } from "logics/theme/dark";
 import { changeTheme } from "logics/theme";
 
 import { useAppStore } from "store/modules/app";
@@ -44,7 +44,7 @@ export function initAppConfigStore() {
   } = projCfg;
   try {
     if (themeColor && themeColor !== primaryColor) {
-      changeTheme(themeColor);
+      // changeTheme(themeColor);
     }
 
     grayMode && updateGrayMode(grayMode);
@@ -55,7 +55,7 @@ export function initAppConfigStore() {
   appStore.setProjectConfig(projCfg);
 
   // init dark mode
-  updateDarkTheme(darkMode);
+  // updateDarkTheme(darkMode);
   if (darkMode === ThemeEnum.DARK) {
     updateHeaderBgColor();
     updateSidebarBgColor();

@@ -1,21 +1,21 @@
-import { PluginOption } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
-import legacy from '@vitejs/plugin-legacy';
-import purgeIcons from 'vite-plugin-purge-icons';
-import windiCSS from 'vite-plugin-windicss';
-import VitePluginCertificate from 'vite-plugin-mkcert';
-import vueSetupExtend from 'vite-plugin-vue-setup-extend';
-import { configHtmlPlugin } from './html';
-import { configPwaConfig } from './pwa';
+import { PluginOption } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import legacy from "@vitejs/plugin-legacy";
+import purgeIcons from "vite-plugin-purge-icons";
+import windiCSS from "vite-plugin-windicss";
+import VitePluginCertificate from "vite-plugin-mkcert";
+import vueSetupExtend from "vite-plugin-vue-setup-extend";
+import { configHtmlPlugin } from "./html";
+import { configPwaConfig } from "./pwa";
 // import { configMockPlugin } from './mock';
-import { configCompressPlugin } from './compress';
-import { configStyleImportPlugin } from './styleImport';
-import { configVisualizerConfig } from './visualizer';
-import { configThemePlugin } from './theme';
-import { configImageminPlugin } from './imagemin';
-import { configSvgIconsPlugin } from './svgSprite';
-import cesium from 'vite-plugin-cesium';
+import { configCompressPlugin } from "./compress";
+import { configStyleImportPlugin } from "./styleImport";
+import { configVisualizerConfig } from "./visualizer";
+// import { configThemePlugin } from './theme';
+import { configImageminPlugin } from "./imagemin";
+import { configSvgIconsPlugin } from "./svgSprite";
+import cesium from "vite-plugin-cesium";
 
 // import topLevelAwait from 'vite-plugin-top-level-await';
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
@@ -35,7 +35,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     // support name
     vueSetupExtend(),
     VitePluginCertificate({
-      source: 'coding',
+      source: "coding",
     }),
 
     cesium(),
@@ -72,7 +72,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   vitePlugins.push(configVisualizerConfig());
 
   // vite-plugin-theme
-  vitePlugins.push(configThemePlugin(isBuild));
+  // vitePlugins.push(configThemePlugin(isBuild));
 
   // The following plugins only work in the production environment
   if (isBuild) {
@@ -81,7 +81,10 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 
     // rollup-plugin-gzip
     vitePlugins.push(
-      configCompressPlugin(VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE),
+      configCompressPlugin(
+        VITE_BUILD_COMPRESS,
+        VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE,
+      ),
     );
 
     // vite-plugin-pwa
