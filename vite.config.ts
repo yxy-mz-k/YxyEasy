@@ -5,7 +5,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx"; // 添加这个
 import { resolve } from "path";
 import glob from "vite-plugin-glob";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-import { viteThemePlugin } from "vite-plugin-theme";
+// import { viteThemePlugin } from "vite-plugin-theme";
 
 // https://vite.dev/config/
 
@@ -24,10 +24,11 @@ export default defineConfig({
       // 自定义 domId
       customDomId: "__svg__icons__dom__",
     }),
-    viteThemePlugin({
-      // 配置主题
-      colorVariables: ["@primary-color"],
-    }),
+    // viteThemePlugin({
+    //   // 配置主题
+    //   colorVariables: ["@primary-color", "@success-color", "@warning-color"],
+    //   themeFile: "src/styles/variables.less",
+    // }),
   ],
   resolve: {
     alias: {
@@ -112,5 +113,9 @@ export default defineConfig({
         additionalData: `@import "styles/variables.less";`, // 自动注入
       },
     },
+  },
+  define: {
+    __COLOR_PLUGIN_OUTPUT_FILE_NAME__: JSON.stringify(""),
+    __COLOR_PLUGIN_OPTIONS__: JSON.stringify({}),
   },
 });

@@ -20,7 +20,7 @@ import { useLocaleStore } from "store/modules/locale";
 
 import { getCommonStoragePrefix, getStorageShortName } from "utils/env";
 
-import { primaryColor } from "../../build/config/themeConfig";
+import { primaryColor } from "utils/themeConfig";
 import { Persistent } from "utils/cache/persistent";
 import { deepMerge } from "utils/index";
 import { ThemeEnum } from "enums/appEnum";
