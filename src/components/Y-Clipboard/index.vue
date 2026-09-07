@@ -27,7 +27,7 @@ import {
 } from "vue";
 const attrs: any = useAttrs();
 
-import { useMessage } from "hooks/useMessage";
+import { useMessage } from "hooks/web/useMessage";
 const { createMessage } = useMessage();
 
 import useClipboard from "vue-clipboard3";

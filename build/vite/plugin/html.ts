@@ -6,8 +6,10 @@ import type { PluginOption } from "vite";
 import { createHtmlPlugin } from "vite-plugin-html";
 import pkg from "../../../package.json";
 import { GLOB_CONFIG_FILE_NAME } from "../../constant";
+import { useConfigStore } from "store/modules/config";
 
 export function configHtmlPlugin(env: ViteEnv, isBuild: boolean) {
+  const EASYCONFIG = useConfigStore();
   const { VITE_GLOB_APP_TITLE, VITE_PUBLIC_PATH } = env;
 
   const path = VITE_PUBLIC_PATH.endsWith("/")
@@ -24,7 +26,7 @@ export function configHtmlPlugin(env: ViteEnv, isBuild: boolean) {
     inject: {
       // Inject data into ejs template
       data: {
-        title: VITE_GLOB_APP_TITLE,
+        title: EASYCONFIG?.name,
       },
       // Embed the generated app.config.js file
       tags: isBuild

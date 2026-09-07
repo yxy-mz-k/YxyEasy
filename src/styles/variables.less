@@ -1,0 +1,261 @@
+@primary-color: #0960bd;
+@error-color: #ed6f6f;
+@success-color: #55d187;
+@warning-color: #efbd47;
+@font-size-base: 14px;
+@border-radius-base: 2px;
+@app-content-background: #f7f7f7;
+@text-color-help-dark: #909399;
+@link-color: #0960bd;
+@info-color: #0960bd;
+@processing-color: #0960bd;
+@namespace: vben;
+@text-color: #c9d1d9;
+@text-color-base: @text-color;
+@component-background: #fff;
+@border-color-base: #303030;
+// tabs
+@multiple-height: 30px;
+
+// headers
+// @header-height: 48px;
+@header-height: 56px;
+
+// logo width
+// @logo-width: 32px;
+@logo-width: 40px;
+
+//
+@side-drag-z-index: 200;
+
+@page-loading-z-index: 10000;
+
+@lock-page-z-index: 3000;
+
+@layout-header-fixed-z-index: 500;
+
+@multiple-tab-fixed-z-index: 505;
+
+@layout-sider-fixed-z-index: 510;
+
+@layout-mix-sider-fixed-z-index: 550;
+
+@preview-comp-z-index: 1000;
+
+@page-footer-z-index: 99;
+
+.bem(@n; @content) {
+  @{namespace}-@{n} {
+    @content();
+  }
+}
+@text-color-secondary: #8b949e;
+@primary-1: #0960bd36;
+@heading-color: #eff1f3;
+@item-active-bg: #111b26;
+@app-content-background: "#1e1e1e";
+@tree-node-selected-bg: "#11263c";
+@alert-success-border-color: "#274916";
+@alert-success-bg-color: "#162312";
+@alert-success-icon-color: "#49aa19";
+@alert-info-border-color: "#153450";
+@alert-info-bg-color: "#111b26";
+@alert-info-icon-color: "#177ddc";
+@alert-warning-border-color: "#594214";
+@alert-warning-bg-color: "#2b2111";
+@alert-warning-icon-color: "#d89614";
+@alert-error-border-color: "#58181c";
+@alert-error-bg-color: "#2a1215";
+@alert-error-icon-color: "#a61d24";
+@item-hover-bg: @primary-1;
+@modal-mask-bg: #00000073;
+
+@top-menu-active-bg-color: #273352;
+@disabled-color: #f5f5f5;
+
+@ease-base-out: cubic-bezier(0.7, 0.3, 0.1, 1);
+@ease-base-in: cubic-bezier(0.9, 0, 0.3, 0.7);
+@ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+@ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+@ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+@ease-out-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+@ease-in-back: cubic-bezier(0.71, -0.46, 0.88, 0.6);
+@ease-in-out-back: cubic-bezier(0.71, -0.46, 0.29, 1.46);
+@ease-out-circ: cubic-bezier(0.08, 0.82, 0.17, 1);
+@ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+@ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+@ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+@ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+@ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+@sider-dark-darken-bg-color: #e6eefc;
+html {
+  // header
+  --header-bg-color: #394664;
+  --header-bg-hover-color: #273352;
+  --header-active-menu-bg-color: #273352;
+
+  // sider
+  --sider-dark-bg-color: #273352;
+  // --sider-dark-bg-color: #e6eefc;
+  --sider-dark-darken-bg-color: #273352;
+  --sider-dark-lighten-bg-color: #273352;
+}
+
+@white: #fff;
+
+@content-bg: #f4f7f9;
+
+// :export {
+//   name: "less";
+//   mainColor: @mainColor;
+//   fontSize: @fontSize;
+// }
+@iconify-bg-color: #5551;
+
+// =================================
+// ==============border-color=======
+// =================================
+
+// Dark-dark
+@border-color-dark: #b6b7b9;
+
+// Dark-light
+@border-color-shallow-dark: #cececd;
+
+// Light-dark
+@border-color-light: @border-color-base;
+
+// =================================
+// ==============message==============
+// =================================
+
+// success-bg-color
+@success-background-color: #f1f9ec;
+// info-bg-color
+@info-background-color: #e8eff8;
+// warn-bg-color
+@warning-background-color: #fdf6ed;
+// danger-bg-color
+@danger-background-color: #fef0f0;
+
+// =================================
+// ==============Header=============
+// =================================
+
+@header-dark-bg-color: var(--header-bg-color);
+@header-dark-bg-hover-color: var(--header-bg-hover-color);
+@header-light-bg-hover-color: #f6f6f6;
+@header-light-desc-color: #7c8087;
+@header-light-bottom-border-color: #eee;
+// top-menu
+@top-menu-active-bg-color: var(--header-active-menu-bg-color);
+
+// =================================
+// ==============Menu============
+// =================================
+
+// let -menu
+@sider-dark-bg-color: var(--sider-dark-bg-color);
+@sider-dark-darken-bg-color: var(--sider-dark-darken-bg-color);
+@sider-dark-lighten-bg-color: var(--sider-dark-lighten-bg-color);
+
+// trigger
+@trigger-dark-hover-bg-color: rgba(255, 255, 255, 0.2);
+@trigger-dark-bg-color: rgba(255, 255, 255, 0.1);
+
+// =================================
+// ==============tree============
+// =================================
+// tree item hover background
+@tree-hover-background-color: #f5f7fa;
+// tree item hover font color
+@tree-hover-font-color: #f5f7fa;
+
+// =================================
+// ==============link============
+// =================================
+@link-hover-color: @primary-color;
+@link-active-color: darken(@primary-color, 10%);
+
+// =================================
+// ==============Text color-=============
+// =================================
+
+// Main text color
+@text-color-base: @text-color;
+
+// Label color
+@text-color-call-out: #606266;
+
+// Auxiliary information color-dark
+@text-color-help-dark: #909399;
+
+// =================================
+// ==============breadcrumb=========
+// =================================
+@breadcrumb-item-normal-color: #999;
+// =================================
+// ==============button=============
+// =================================
+
+@button-primary-color: @primary-color;
+@button-primary-hover-color: lighten(@primary-color, 5%);
+@button-primary-active-color: darken(@primary-color, 5%);
+
+@button-ghost-color: @white;
+@button-ghost-hover-color: lighten(@white, 10%);
+@button-ghost-hover-bg-color: #e1ebf6;
+@button-ghost-active-color: darken(@white, 10%);
+
+@button-success-color: @success-color;
+@button-success-hover-color: lighten(@success-color, 10%);
+@button-success-active-color: darken(@success-color, 10%);
+
+@button-warn-color: @warning-color;
+@button-warn-hover-color: lighten(@warning-color, 10%);
+@button-warn-active-color: darken(@warning-color, 10%);
+
+@button-error-color: @error-color;
+@button-error-hover-color: lighten(@error-color, 10%);
+@button-error-active-color: darken(@error-color, 10%);
+
+@button-cancel-color: @text-color-call-out;
+@button-cancel-bg-color: @white;
+@button-cancel-border-color: @border-color-shallow-dark;
+
+// Mouse over
+@button-cancel-hover-color: @primary-color;
+@button-cancel-hover-bg-color: @white;
+@button-cancel-hover-border-color: @primary-color;
+@bakground-color-light: #f5f5f5;
+
+@screen-xs: 480px;
+@screen-xs-min: @screen-xs;
+
+// Small screen / tablet
+@screen-sm: 576px;
+@screen-sm-min: @screen-sm;
+
+// Medium screen / desktop
+@screen-md: 768px;
+@screen-md-min: @screen-md;
+
+// Large screen / wide desktop
+@screen-lg: 992px;
+@screen-lg-min: @screen-lg;
+
+// Extra large screen / full hd
+@screen-xl: 1200px;
+@screen-xl-min: @screen-xl;
+
+// Extra extra large screen / large desktop
+@screen-2xl: 1600px;
+@screen-2xl-min: @screen-2xl;
+
+@screen-xs-max: (@screen-sm-min - 1px);
+@screen-sm-max: (@screen-md-min - 1px);
+@screen-md-max: (@screen-lg-min - 1px);
+@screen-lg-max: (@screen-xl-min - 1px);
+@screen-xl-max: (@screen-2xl-min - 1px);
+
+@background-color-light: #fff;

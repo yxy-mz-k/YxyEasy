@@ -1,5 +1,5 @@
 //RGB转十六进制
-export const colorHex = function(color){
+export const colorHex = function (color) {
   var that = color;
   //十六进制颜色值的正则表达式
   var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
@@ -7,10 +7,10 @@ export const colorHex = function(color){
   if (/^(rgb|RGB)/.test(that)) {
     var aColor = that.replace(/(?:\(|\)|rgb|RGB)*/g, "").split(",");
     var strHex = "#";
-    for (var i=0; i<aColor.length; i++) {
+    for (var i = 0; i < aColor.length; i++) {
       var hex = Number(aColor[i]).toString(16);
       if (hex.length < 2) {
-        hex = '0' + hex;
+        hex = "0" + hex;
       }
       strHex += hex;
     }
@@ -19,13 +19,13 @@ export const colorHex = function(color){
     }
     return strHex;
   } else if (reg.test(that)) {
-    var aNum = that.replace(types/,"").split("");
+    var aNum = that.replace(/#/, "").split("");
     if (aNum.length === 6) {
       return that;
-    } else if(aNum.length === 3) {
+    } else if (aNum.length === 3) {
       var numHex = "#";
-      for (var i=0; i<aNum.length; i+=1) {
-        numHex += (aNum[i] + aNum[i]);
+      for (var i = 0; i < aNum.length; i += 1) {
+        numHex += aNum[i] + aNum[i];
       }
       return numHex;
     }
@@ -33,7 +33,7 @@ export const colorHex = function(color){
   return that;
 };
 //十六进制转化为RGB颜色
-export const colorRgb = function(sColor){
+export const colorRgb = function (sColor) {
   sColor = sColor.toLowerCase();
   //十六进制颜色值的正则表达式
   var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
@@ -41,61 +41,86 @@ export const colorRgb = function(sColor){
   if (sColor && reg.test(sColor)) {
     if (sColor.length === 4) {
       var sColorNew = "#";
-      for (var i=1; i<4; i+=1) {
-        sColorNew += sColor.slice(i, i+1).concat(sColor.slice(i, i+1));
+      for (var i = 1; i < 4; i += 1) {
+        sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1));
       }
       sColor = sColorNew;
     }
     //处理六位的颜色值
     var sColorChange = [];
-    for (var i=1; i<7; i+=2) {
-      sColorChange.push(parseInt("0x"+sColor.slice(i, i+2)));
+    for (var i = 1; i < 7; i += 2) {
+      sColorChange.push(parseInt("0x" + sColor.slice(i, i + 2)));
     }
     return "RGB(" + sColorChange.join(",") + ")";
   }
   return sColor;
 };
 
-
-export const  rgbToHex=function(val){  //RGB(A)颜色转换为HEX十六进制的颜色值
-  var r, g, b, a,
-    regRgba = /rgba?\((\d{1,3}),(\d{1,3}),(\d{1,3})(,([.\d]+))?\)/,    //判断rgb颜色值格式的正则表达式，如rgba(255,20,10,.54)
-    rsa = val.replace(/\s+/g,'').match(regRgba);
-  if(!!rsa){
+export const rgbToHex = function (val) {
+  //RGB(A)颜色转换为HEX十六进制的颜色值
+  var r,
+    g,
+    b,
+    a,
+    regRgba = /rgba?\((\d{1,3}),(\d{1,3}),(\d{1,3})(,([.\d]+))?\)/, //判断rgb颜色值格式的正则表达式，如rgba(255,20,10,.54)
+    rsa = val.replace(/\s+/g, "").match(regRgba);
+  if (!!rsa) {
     r = parseInt(rsa[1]).toString(16);
-    r = r.length == 1 ? '0' + r : r;
+    r = r.length == 1 ? "0" + r : r;
     g = (+rsa[2]).toString(16);
-    g = g.length == 1 ? '0' + g : g;
+    g = g.length == 1 ? "0" + g : g;
     b = (+rsa[3]).toString(16);
-    b = b.length == 1 ? '0' + b : b;
-    a = (+(rsa[5] ? rsa[5] : 1)) * 100;
-    return {hex:'#' + r + g + b, alpha: Math.ceil(a)};
-  }else{
-    return {hex:val, alpha:100};
+    b = b.length == 1 ? "0" + b : b;
+    a = +(rsa[5] ? rsa[5] : 1) * 100;
+    return { hex: "#" + r + g + b, alpha: Math.ceil(a) };
+  } else {
+    return { hex: val, alpha: 100 };
   }
 };
 
-export const hexToRgb=function(val){   //HEX十六进制颜色值转换为RGB(A)颜色值
-  var a,b,c;
-  if((/^#/g).test(val)){
-    a = val.slice(1,3);
-    b = val.slice(3,5);
-    c = val.slice(5,7);
-    return {rgba:'rgb(' + parseInt(a,16) + ',' + parseInt(b,16) + ',' + parseInt(c,16) + ')'};
-  }else{
-    return {rgba:'无效值：' + val};
+export const hexToRgb = function (val) {
+  //HEX十六进制颜色值转换为RGB(A)颜色值
+  var a, b, c;
+  if (/^#/g.test(val)) {
+    a = val.slice(1, 3);
+    b = val.slice(3, 5);
+    c = val.slice(5, 7);
+    return {
+      rgba:
+        "rgb(" +
+        parseInt(a, 16) +
+        "," +
+        parseInt(b, 16) +
+        "," +
+        parseInt(c, 16) +
+        ")",
+    };
+  } else {
+    return { rgba: "无效值：" + val };
   }
 };
 
-export const hexToRgba=function(val,alpha){   //HEX十六进制颜色值转换为RGB(A)颜色值
-  var a,b,c;
-  if((/^#/g).test(val)){
-    a = val.slice(1,3);
-    b = val.slice(3,5);
-    c = val.slice(5,7);
-    return {rgba:'rgba(' + parseInt(a,16) + ',' + parseInt(b,16) + ',' + parseInt(c,16) +','+alpha+ ')'};
-  }else{
-    return {rgba:null};
+export const hexToRgba = function (val, alpha) {
+  //HEX十六进制颜色值转换为RGB(A)颜色值
+  var a, b, c;
+  if (/^#/g.test(val)) {
+    a = val.slice(1, 3);
+    b = val.slice(3, 5);
+    c = val.slice(5, 7);
+    return {
+      rgba:
+        "rgba(" +
+        parseInt(a, 16) +
+        "," +
+        parseInt(b, 16) +
+        "," +
+        parseInt(c, 16) +
+        "," +
+        alpha +
+        ")",
+    };
+  } else {
+    return { rgba: null };
   }
 };
 
@@ -113,28 +138,27 @@ export const hexToRgba=function(val,alpha){   //HEX十六进制颜色值转换�
 export function hslToRgb(h, s, l) {
   var r, g, b;
 
-  if(s == 0) {
+  if (s == 0) {
     r = g = b = l; // achromatic
   } else {
     var hue2rgb = function hue2rgb(p, q, t) {
-      if(t < 0) t += 1;
-      if(t > 1) t -= 1;
-      if(t < 1/6) return p + (q - p) * 6 * t;
-      if(t < 1/2) return q;
-      if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
       return p;
-    }
+    };
 
     var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
     var p = 2 * l - q;
-    r = hue2rgb(p, q, h + 1/3);
+    r = hue2rgb(p, q, h + 1 / 3);
     g = hue2rgb(p, q, h);
-    b = hue2rgb(p, q, h - 1/3);
+    b = hue2rgb(p, q, h - 1 / 3);
   }
 
   return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
-
 
 /**
  * RGB 颜色值转换为 HSL.
@@ -148,19 +172,28 @@ export function hslToRgb(h, s, l) {
  * @return  Array           HSL各值数组
  */
 export function rgbToHsl(r, g, b) {
-  r /= 255, g /= 255, b /= 255;
-  var max = Math.max(r, g, b), min = Math.min(r, g, b);
-  var h, s, l = (max + min) / 2;
+  (r /= 255), (g /= 255), (b /= 255);
+  var max = Math.max(r, g, b),
+    min = Math.min(r, g, b);
+  var h,
+    s,
+    l = (max + min) / 2;
 
-  if (max == min){
+  if (max == min) {
     h = s = 0; // achromatic
   } else {
     var d = max - min;
     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    switch(max) {
-      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-      case g: h = (b - r) / d + 2; break;
-      case b: h = (r - g) / d + 4; break;
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
     }
     h /= 6;
   }

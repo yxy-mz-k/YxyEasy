@@ -7,6 +7,7 @@ export const useConfigStore = defineStore("EASYCONFIG", {
       project: <any>"",
       appId: <any>"",
       suffixApi: <any>"",
+      name: <any>"",
     };
   },
   // 类似 computed
@@ -18,6 +19,7 @@ export const useConfigStore = defineStore("EASYCONFIG", {
       this.project = `/${options?.key}/`;
       this.appId = `app_${options?.key}`;
       this.suffixApi = `/${options?.key}`;
+      this.name = options?.name;
     },
     getConfig() {
       return {
@@ -25,6 +27,7 @@ export const useConfigStore = defineStore("EASYCONFIG", {
         project: this.project,
         appId: this.appId,
         suffixApi: this.suffixApi,
+        name: this.name,
       };
     },
   },

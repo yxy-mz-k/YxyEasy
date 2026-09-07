@@ -16,8 +16,10 @@ export const useGlobSetting = (): Readonly<GlobConfig> => {
       getUrlRelativePath() +
       "/api/file/upload"
     : getUrlRelativePath() + "/api/file/upload";
+
+  const VITE_GLOB_APP_TITLE = EASYCONFIG?.name;
   const {
-    VITE_GLOB_APP_TITLE,
+    // VITE_GLOB_APP_TITLE,
     VITE_GLOB_APP_SHORT_NAME,
     // VITE_GLOB_API_URL_PREFIX,
   } = getAppEnvConfig();

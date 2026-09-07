@@ -4,6 +4,7 @@ import type { YxyEasyOptions } from "./types";
 
 export const defaultOptions: YxyEasyOptions = {
   key: "uauth",
+  name: "统一认证",
 };
 
 /**

@@ -24,7 +24,7 @@ const attrs: any = useAttrs();
 
 const playWndRef = ref();
 
-import Mitt from "utils/Mitt";
+import Mitt from "utils/myMitt";
 import $ from "jquery";
 const playWnd = document.getElementById("playWnd");
 
