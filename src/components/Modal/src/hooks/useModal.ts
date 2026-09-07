@@ -2,7 +2,7 @@ import type {
   UseModalReturnType,
   ModalMethods,
   ModalProps,
-  ReturnMethods,
+  ReturnMethodsModal,
   UseModalInnerReturnType,
 } from "../typing";
 import {
@@ -64,7 +64,7 @@ export function useModal(): UseModalReturnType {
     return instance;
   };
 
-  const methods: ReturnMethods = {
+  const methods: ReturnMethodsModal = {
     setModalProps: (props: Partial<ModalProps>): void => {
       getInstance()?.setModalProps(props);
     },

@@ -1,5 +1,5 @@
-import type { ButtonProps } from 'ant-design-vue/lib/button/buttonTypes';
-import type { CSSProperties, VNodeChild, ComputedRef } from 'vue';
+import type { ButtonProps } from "ant-design-vue/lib/button/buttonTypes";
+import type { CSSProperties, VNodeChild, ComputedRef } from "vue";
 /**
  * @description: 弹窗对外暴露的方法
  */
@@ -9,17 +9,20 @@ export interface ModalMethods {
   redoModalHeight?: () => void;
 }
 
-export type RegisterFn = (modalMethods: ModalMethods, uuid?: string) => void;
+export type RegisterFnModal = (
+  modalMethods: ModalMethods,
+  uuid?: string,
+) => void;
 
-export interface ReturnMethods extends ModalMethods {
+export interface ReturnMethodsModal extends ModalMethods {
   openModal: <T = any>(props?: boolean, data?: T, openOnSet?: boolean) => void;
   closeModal: () => void;
   getVisible?: ComputedRef<boolean>;
 }
 
-export type UseModalReturnType = [RegisterFn, ReturnMethods];
+export type UseModalReturnType = [RegisterFnModal, ReturnMethodsModal];
 
-export interface ReturnInnerMethods extends ModalMethods {
+export interface ReturnInnerMethodsModal extends ModalMethods {
   closeModal: () => void;
   changeLoading: (loading: boolean) => void;
   changeOkLoading: (loading: boolean) => void;
@@ -27,7 +30,10 @@ export interface ReturnInnerMethods extends ModalMethods {
   redoModalHeight: () => void;
 }
 
-export type UseModalInnerReturnType = [RegisterFn, ReturnInnerMethods];
+export type UseModalInnerReturnType = [
+  RegisterFnModal,
+  ReturnInnerMethodsModal,
+];
 
 export interface ModalProps {
   minHeight?: number;
@@ -50,7 +56,7 @@ export interface ModalProps {
   loading: boolean;
   loadingTip?: string;
 
-  wrapperProps: Omit<ModalWrapperProps, 'loading'>;
+  wrapperProps: Omit<ModalWrapperProps, "loading">;
 
   showOkBtn: boolean;
   showCancelBtn: boolean;
@@ -155,7 +161,7 @@ export interface ModalProps {
    * @default 'primary'
    * @type string
    */
-  okType?: 'primary' | 'danger' | 'dashed' | 'ghost' | 'default';
+  okType?: "primary" | "danger" | "dashed" | "ghost" | "default";
 
   /**
    * The ok button props, follow jsx rules

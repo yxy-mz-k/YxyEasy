@@ -86,6 +86,16 @@ Object.values(ContainerComponents).forEach((comp) => {
   }
 });
 
+import ContextMenuModule, {
+  createContextMenu,
+  destroyContextMenu,
+  ContextMenu,
+} from "./ContextMenu";
+// 添加 ContextMenu 组件
+if (ContextMenu) {
+  allComponents.push(ContextMenu);
+}
+
 import * as CountDownComponents from "./CountDown";
 // 处理 Application 组件（已经有 install）
 Object.values(CountDownComponents).forEach((comp) => {
@@ -166,9 +176,41 @@ Object.values(FlowChartComponents).forEach((comp) => {
   }
 });
 
+import * as FormComponents from "./Form";
+// 处理 Application 组件（已经有 install）
+Object.values(FormComponents).forEach((comp) => {
+  if (typeof comp === "object" && comp !== null) {
+    allComponents.push(comp);
+  }
+});
+
+import * as IconComponents from "./Icon";
+// 处理 Application 组件（已经有 install）
+Object.values(IconComponents).forEach((comp) => {
+  if (typeof comp === "object" && comp !== null) {
+    allComponents.push(comp);
+  }
+});
+
+import * as LoadingComponents from "./Loading";
+// 处理 Application 组件（已经有 install）
+Object.values(LoadingComponents).forEach((comp) => {
+  if (typeof comp === "object" && comp !== null) {
+    allComponents.push(comp);
+  }
+});
+
 import * as MarkdownComponents from "./Markdown";
 // 处理 Application 组件（已经有 install）
 Object.values(MarkdownComponents).forEach((comp) => {
+  if (typeof comp === "object" && comp !== null) {
+    allComponents.push(comp);
+  }
+});
+
+import * as MenuComponents from "./Menu";
+// 处理 Application 组件（已经有 install）
+Object.values(MenuComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
   }
@@ -190,6 +232,20 @@ Object.values(PageComponents).forEach((comp) => {
   }
 });
 
+import * as PreviewComponents from "./Preview";
+// 处理 Application 组件（已经有 install）
+Object.values(PreviewComponents).forEach((comp) => {
+  if (typeof comp === "object" && comp !== null) {
+    allComponents.push(comp);
+  }
+});
+
+import PromptModule, { createPrompt, genFormSchemas, Dialog } from "./Prompt";
+// 添加 Prompt 的 Dialog 组件
+if (Dialog) {
+  allComponents.push(Dialog);
+}
+
 import * as QrcodeComponents from "./Qrcode";
 // 处理 Application 组件（已经有 install）
 Object.values(QrcodeComponents).forEach((comp) => {
@@ -198,11 +254,36 @@ Object.values(QrcodeComponents).forEach((comp) => {
   }
 });
 
+import * as ScrollbarComponents from "./Scrollbar";
+export type { ScrollbarType } from "./Scrollbar/src/types";
+// 处理 Application 组件（已经有 install）
+Object.values(ScrollbarComponents).forEach((comp) => {
+  if (typeof comp === "object" && comp !== null) {
+    allComponents.push(comp);
+  }
+});
+
+import * as SimpleMenuComponents from "./SimpleMenu";
+// 处理 Application 组件（已经有 install）
+Object.values(SimpleMenuComponents).forEach((comp: any) => {
+  if (typeof comp === "object" && comp !== null) {
+    allComponents.push(comp as any);
+  }
+});
+
 import * as StrengthMeterComponents from "./StrengthMeter";
 // 处理 Application 组件（已经有 install）
 Object.values(StrengthMeterComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
+  }
+});
+
+import * as TableComponents from "./Table";
+// 处理 Application 组件（已经有 install）
+Object.values(TableComponents).forEach((comp: any) => {
+  if (typeof comp === "object" && comp !== null) {
+    allComponents.push(comp as any);
   }
 });
 
@@ -219,6 +300,16 @@ import * as TinymceComponents from "./Tinymce";
 Object.values(TinymceComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
+  }
+});
+
+import { transitionComponents } from "./Transition";
+
+import * as TreeComponents from "./Tree";
+// 处理 Application 组件（已经有 install）
+Object.values(TreeComponents).forEach((comp: any) => {
+  if (typeof comp === "object" && comp !== null) {
+    allComponents.push(comp as any);
   }
 });
 
@@ -260,6 +351,21 @@ componentRegistry.registerAll(normalizedComponents);
 // 定义 install 方法
 const install = (app: App) => {
   componentRegistry.install(app);
+
+  // 注册 ContextMenu 到全局属性
+  app.config.globalProperties.$contextMenu = {
+    create: createContextMenu,
+    destroy: destroyContextMenu,
+  };
+
+  // 额外注册 Transition 组件（确保名称正确）
+  transitionComponents.forEach((component: any) => {
+    if (component.name && !app.component(component.name)) {
+      app.component(component.name, component);
+    }
+  });
+
+  app.config.globalProperties.$prompt = createPrompt;
 };
 
 export {
@@ -302,6 +408,10 @@ export const { CollapseContainer, ScrollContainer, LazyContainer } =
   ContainerComponents;
 export * from "./Container/src/typing";
 
+export { ContextMenu } from "./ContextMenu";
+export { createContextMenu, destroyContextMenu } from "./ContextMenu";
+export * from "./ContextMenu/src/typing";
+
 export const { CountdownInput, CountButton } = CountDownComponents;
 
 export const { CountTo } = CountToComponents;
@@ -309,7 +419,7 @@ export const { CountTo } = CountToComponents;
 export const { CropperImage, CropperAvatar } = CropperComponents;
 export * from "./Cropper/src/typing";
 
-export const { Description } = CropperComponents;
+export const { Description } = DescriptionComponents;
 export { useDescription } from "./Description";
 export * from "./Description/src/typing";
 
@@ -330,8 +440,30 @@ export * from "./Excel/src/typing";
 
 export const { FlowChart } = FlowChartComponents;
 
+export const {
+  BasicForm,
+  ApiSelect,
+  ApiMulSelect,
+  RadioButtonGroup,
+  ApiTreeSelect,
+  ApiTree,
+  ApiRadioGroup,
+  ApiCascader,
+  ApiTransfer,
+} = FormComponents;
+export * from "./Form/src/types/form";
+export * from "./Form/src/types/formItem";
+export { useComponentRegister, useForm } from "./Form";
+
+export const { Icon, SvgIcon, IconPicker } = IconComponents;
+
+export const { Loading } = LoadingComponents;
+export { useLoading, createLoading } from "./Loading";
+
 export const { MarkDown, MarkdownViewer } = MarkdownComponents;
 export * from "./Markdown/src/typing";
+
+export const { BasicMenu } = MenuComponents;
 
 export const { BasicModal } = ModalComponents;
 export { useModalContext, useModal, useModalInner } from "./Modal";
@@ -339,14 +471,53 @@ export * from "./Modal/src/typing";
 
 export const { PageFooter, PageWrapper } = PageComponents;
 
+export const { ImagePreview } = PreviewComponents;
+export { createImgPreview } from "./Preview";
+
+export { Dialog } from "./Prompt";
+export { createPrompt, genFormSchemas } from "./Prompt";
+export * from "./Prompt/state";
+
 export const { QrCode } = QrcodeComponents;
 export * from "./Qrcode/src/typing";
 
+export const { Scrollbar } = ScrollbarComponents;
+export * from "./Qrcode/src/typing";
+
+export const { SimpleMenu, SimpleMenuTag } = SimpleMenuComponents;
+
 export const { StrengthMeter } = StrengthMeterComponents;
+
+export const { BasicTable, TableAction, EditTableHeaderIcon, TableImg } =
+  TableComponents;
+export * from "./Table/src/types/table";
+export * from "./Table/src/types/pagination";
+export * from "./Table/src/types/tableAction";
+export { useTable } from "./Table";
 
 export const { Time } = TimeComponents;
 
 export const { Tinymce } = TinymceComponents;
+
+export {
+  CollapseTransition,
+  FadeTransition,
+  ScaleTransition,
+  SlideYTransition,
+  ScrollYTransition,
+  SlideYReverseTransition,
+  ScrollYReverseTransition,
+  SlideXTransition,
+  ScrollXTransition,
+  SlideXReverseTransition,
+  ScrollXReverseTransition,
+  ScaleRotateTransition,
+  ExpandXTransition,
+  ExpandTransition,
+} from "./Transition";
+
+export const { BasicTree } = TreeComponents;
+export * from "./Tree/src/types/tree";
 
 export const { ImageUpload, BasicUpload } = UploadComponents;
 

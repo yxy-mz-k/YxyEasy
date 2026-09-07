@@ -1,6 +1,9 @@
-import { createVNode, VNode, defineComponent, h, render, reactive } from 'vue';
-import { PromptProps, genFormSchemas } from './state';
-import Dialog from './dialog.vue';
+import { createVNode, VNode, defineComponent, h, render, reactive } from "vue";
+import { withInstall } from "utils/index";
+import { PromptProps, genFormSchemas } from "./state";
+export * from "./state";
+import dialog from "./dialog.vue";
+export const Dialog = withInstall(dialog);
 
 export function createPrompt(props: PromptProps) {
   let vm: Nullable<VNode> = null;
@@ -21,7 +24,7 @@ export function createPrompt(props: PromptProps) {
 
   vm = createVNode(DialogWrap);
 
-  render(vm, document.createElement('div'));
+  render(vm, document.createElement("div"));
 
   function close() {
     if (vm?.el && vm.el.parentNode) {
@@ -37,3 +40,13 @@ export function createPrompt(props: PromptProps) {
     },
   };
 }
+export default {
+  createPrompt,
+  genFormSchemas,
+  component: Dialog,
+  install: (app: any) => {
+    app.use(Dialog);
+    // 注册全局方法
+    app.config.globalProperties.$prompt = createPrompt;
+  },
+};

@@ -52,9 +52,9 @@ export interface FormActionType {
   resetDefaultField: (name?: NamePath[]) => void;
 }
 
-export type RegisterFn = (formInstance: FormActionType) => void;
+export type RegisterFnForm = (formInstance: FormActionType) => void;
 
-export type UseFormReturnType = [RegisterFn, FormActionType];
+export type UseFormReturnType = [RegisterFnForm, FormActionType];
 
 export interface FormProps {
   name?: string;

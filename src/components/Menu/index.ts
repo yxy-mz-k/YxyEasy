@@ -1,3 +1,4 @@
-import BasicMenu from './src/BasicMenu.vue';
+import { withInstall } from "utils/index";
+import basicMenu from "./src/BasicMenu.vue";
 
-export { BasicMenu };
+export const BasicMenu = withInstall(basicMenu);

@@ -7,7 +7,7 @@ export interface DrawerInstance {
   emitVisible?: (visible: boolean, uid: number) => void;
 }
 
-export interface ReturnMethods extends DrawerInstance {
+export interface ReturnMethodsDrawer extends DrawerInstance {
   openDrawer: <T = any>(
     visible?: boolean,
     data?: T,
@@ -17,21 +17,24 @@ export interface ReturnMethods extends DrawerInstance {
   getVisible?: ComputedRef<boolean>;
 }
 
-export type RegisterFn = (
+export type RegisterFnDrawer = (
   drawerInstance: DrawerInstance,
   uuid?: number,
 ) => void;
 
-export interface ReturnInnerMethods extends DrawerInstance {
+export interface ReturnInnerMethodsDrawer extends DrawerInstance {
   closeDrawer: () => void;
   changeLoading: (loading: boolean) => void;
   changeOkLoading: (loading: boolean) => void;
   getVisible?: ComputedRef<boolean>;
 }
 
-export type UseDrawerReturnType = [RegisterFn, ReturnMethods];
+export type UseDrawerReturnType = [RegisterFnDrawer, ReturnMethodsDrawer];
 
-export type UseDrawerInnerReturnType = [RegisterFn, ReturnInnerMethods];
+export type UseDrawerInnerReturnType = [
+  RegisterFnDrawer,
+  ReturnInnerMethodsDrawer,
+];
 
 export interface DrawerFooterProps {
   showOkBtn: boolean;

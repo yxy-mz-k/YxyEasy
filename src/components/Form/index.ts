@@ -1,18 +1,39 @@
-import BasicForm from './src/BasicForm.vue';
+import { withInstall } from "utils/index";
 
-export * from './src/types/form';
-export * from './src/types/formItem';
+export * from "./src/types/form";
+export * from "./src/types/formItem";
 
-export { useComponentRegister } from './src/hooks/useComponentRegister';
-export { useForm } from './src/hooks/useForm';
+export { useComponentRegister } from "./src/hooks/useComponentRegister";
+export { useForm } from "./src/hooks/useForm";
 
-export { default as ApiSelect } from './src/components/ApiSelect.vue';
-export { default as ApiMulSelect } from './src/components/ApiMulSelect.vue';
-export { default as RadioButtonGroup } from './src/components/RadioButtonGroup.vue';
-export { default as ApiTreeSelect } from './src/components/ApiTreeSelect.vue';
-export { default as ApiTree } from './src/components/ApiTree.vue';
-export { default as ApiRadioGroup } from './src/components/ApiRadioGroup.vue';
-export { default as ApiCascader } from './src/components/ApiCascader.vue';
-export { default as ApiTransfer } from './src/components/ApiTransfer.vue';
+import basicForm from "./src/BasicForm.vue";
+import apiSelect from "./src/components/ApiSelect.vue";
+import apiMulSelect from "./src/components/ApiMulSelect.vue";
+import radioButtonGroup from "./src/components/RadioButtonGroup.vue";
+import apiTreeSelect from "./src/components/ApiTreeSelect.vue";
+import apiTree from "./src/components/ApiTree.vue";
+import apiRadioGroup from "./src/components/ApiRadioGroup.vue";
+import apiCascader from "./src/components/ApiCascader.vue";
+import apiTransfer from "./src/components/ApiTransfer.vue";
 
-export { BasicForm };
+export const BasicForm = withInstall(basicForm);
+export const ApiSelect = withInstall(apiSelect);
+export const ApiMulSelect = withInstall(apiMulSelect);
+export const RadioButtonGroup = withInstall(radioButtonGroup);
+export const ApiTreeSelect = withInstall(apiTreeSelect);
+export const ApiTree = withInstall(apiTree);
+export const ApiRadioGroup = withInstall(apiRadioGroup);
+export const ApiCascader = withInstall(apiCascader);
+export const ApiTransfer = withInstall(apiTransfer);
+
+// 默认导出
+export default {
+  ApiSelect,
+  ApiMulSelect,
+  RadioButtonGroup,
+  ApiTreeSelect,
+  ApiTree,
+  ApiRadioGroup,
+  ApiCascader,
+  ApiTransfer,
+};

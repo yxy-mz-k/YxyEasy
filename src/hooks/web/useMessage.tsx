@@ -1,9 +1,8 @@
 import type { ModalFunc, ModalFuncProps } from 'ant-design-vue/lib/modal/Modal';
-
 import { Modal, message as Message, notification } from 'ant-design-vue';
 import { InfoCircleFilled, CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons-vue';
-
-import { NotificationArgsProps, ConfigProps } from 'ant-design-vue/lib/notification';
+import type { NotificationArgsProps, ConfigProps } from 'ant-design-vue/lib/notification';
+// 修改导入路径
 import { useI18n } from './useI18n';
 import { isString } from 'utils/is';
 

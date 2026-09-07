@@ -1,7 +1,8 @@
 /**
  * copy from element-ui
  */
-import Scrollbar from './src/Scrollbar.vue';
+import { withInstall } from "utils/index";
+import scrollbar from "./src/Scrollbar.vue";
 
-export { Scrollbar };
-export type { ScrollbarType } from './src/types';
+export const Scrollbar = withInstall(scrollbar);
+export type { ScrollbarType } from "./src/types";

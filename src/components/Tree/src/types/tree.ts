@@ -111,13 +111,13 @@ export const treeProps = buildProps({
 
   beforeRightClick: {
     type: Function as PropType<
-      (...arg: any) => Promise<ContextMenuItem[] | ContextMenuOptions>
+      (...arg: any) => Promise<ContextMenuItemTree[] | ContextMenuOptions>
     >,
     default: undefined,
   },
 
   rightMenuList: {
-    type: Array as PropType<ContextMenuItem[]>,
+    type: Array as PropType<ContextMenuItemTree[]>,
   },
   // 自定义数据过滤判断方法(注: 不是整个过滤方法，而是内置过滤的判断方法，用于增强原本仅能通过title进行过滤的方式)
   filterFn: {
@@ -146,20 +146,20 @@ export const treeProps = buildProps({
 
 export type TreeProps = ExtractPropTypes<typeof treeProps>;
 
-export interface ContextMenuItem {
+export interface ContextMenuItemTree {
   label: string;
   icon?: string;
   hidden?: boolean;
   disabled?: boolean;
   handler?: Fn;
   divider?: boolean;
-  children?: ContextMenuItem[];
+  children?: ContextMenuItemTree[];
 }
 
 export interface ContextMenuOptions {
   icon?: string;
   styles?: any;
-  items?: ContextMenuItem[];
+  items?: ContextMenuItemTree[];
 }
 
 export interface TreeItem extends TreeDataItem {
