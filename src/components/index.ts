@@ -10,6 +10,14 @@ import YSplitpanes from "./Y-Splitpanes";
 import YClipboard from "./Y-Clipboard";
 import YPageLayout from "./Y-PageLayout";
 import YLeftProjectTree from "./Y-LeftProjectTree";
+import YAttachCom from "./Y-AttachCom";
+import YAttachment from "./Y-Attachment";
+import YFlowModal from "./Y-FlowModal";
+import YHandleFile from "./Y-HandleFile";
+import YHandleFixed from "./Y-HandleFixed";
+import YLeafletMap from "./Y-LeafletMap";
+import YMapModal from "./Y-MapModal";
+import YVideoCom from "./Y-VideoCom";
 // 按需引入
 const allComponents = [
   YCharts,
@@ -20,6 +28,14 @@ const allComponents = [
   YSplitpanes,
   YToolTip,
   YWebWinVideo,
+  YAttachCom,
+  YAttachment,
+  YFlowModal,
+  YHandleFile,
+  YHandleFixed,
+  YLeafletMap,
+  YMapModal,
+  YVideoCom,
 ];
 
 import * as ApplicationComponents from "./Application";
@@ -332,13 +348,21 @@ const install = (app: App) => {
 
 export {
   YCharts,
-  YToolTip,
-  YSortableList,
-  YWebWinVideo,
-  YSplitpanes,
   YClipboard,
-  YPageLayout,
   YLeftProjectTree,
+  YPageLayout,
+  YSortableList,
+  YSplitpanes,
+  YToolTip,
+  YWebWinVideo,
+  YAttachCom,
+  YAttachment,
+  YFlowModal,
+  YHandleFile,
+  YHandleFixed,
+  YLeafletMap,
+  YMapModal,
+  YVideoCom,
 };
 
 export type { ButtonProps };

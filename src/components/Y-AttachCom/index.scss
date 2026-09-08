@@ -1,0 +1,15 @@
+.video-title {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.attach-com-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: calc(100% - 60px);
+}
+.video-attch {
+  width: 100%;
+  min-height: 600px;
+}

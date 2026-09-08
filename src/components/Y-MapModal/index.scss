@@ -1,0 +1,36 @@
+@import '/@/assets/scss/index.scss';
+
+.modal-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  // flex-direction: column;
+}
+
+.modal-form {
+  height: calc(100% - 50px);
+
+  :deep(.ant-form) {
+    height: 100%;
+    // max-height: 610px;
+    // max-height: calc(100vh - 310px - 56px);
+    overflow: auto;
+
+    .row-form {
+      // height: 100%;
+      // @include RowForm;
+      align-items: start;
+      align-content: start;
+      .ant-form-item {
+        margin: 0;
+        align-items: center;
+        padding: 12px 24px;
+      }
+    }
+  }
+}
+
+.history-title {
+  display: flex;
+  justify-content: space-between;
+}
