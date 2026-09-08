@@ -13,7 +13,7 @@ import {
 import { updateColorWeak } from "logics/theme/updateColorWeak";
 import { updateGrayMode } from "logics/theme/updateGrayMode";
 // import { updateDarkTheme } from "logics/theme/dark";
-import { changeTheme } from "logics/theme";
+// import { changeTheme } from "logics/theme";
 
 import { useAppStore } from "store/modules/app";
 import { useLocaleStore } from "store/modules/locale";

@@ -13,6 +13,7 @@ import { setupStore } from "store/index";
 import { setupI18n } from "locales/setupI18n";
 import { router, setupRouter } from "router/index";
 import { setupRouterGuard } from "router/guard/index";
+import { initAppConfigStore } from "logics/initAppConfig";
 // import { registerGlobComp } from "components/registerGlobComp";
 
 // 导出所有内容
@@ -22,6 +23,7 @@ export * from "./components";
 export * from "./enums";
 export * from "./hooks";
 export * from "./settings";
+export * from "./locales";
 export * from "./store";
 export * from "./utils";
 export type * from "./types";
@@ -40,6 +42,7 @@ const install = async (app: App, options?: YxyEasyOptions) => {
   // app.use(pinia);
 
   setupStore(app);
+  initAppConfigStore();
   // registerGlobComp(app);
   await setupI18n(app);
   setupRouter(app);
