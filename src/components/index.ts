@@ -30,7 +30,6 @@ Object.values(ApplicationComponents).forEach((comp) => {
 });
 
 import * as AuthorityComponents from "./Authority";
-// 处理 Application 组件（已经有 install）
 Object.values(AuthorityComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -38,7 +37,6 @@ Object.values(AuthorityComponents).forEach((comp) => {
 });
 
 import * as BasicComponents from "./Basic";
-// 处理 Application 组件（已经有 install）
 Object.values(BasicComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -47,7 +45,6 @@ Object.values(BasicComponents).forEach((comp) => {
 
 import * as ButtonComponents from "./Button";
 import { type ButtonProps } from "./Button";
-// 处理 Application 组件（已经有 install）
 Object.values(ButtonComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -55,7 +52,6 @@ Object.values(ButtonComponents).forEach((comp) => {
 });
 
 import * as CardListComponents from "./CardList";
-// 处理 Application 组件（已经有 install）
 Object.values(CardListComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -63,7 +59,6 @@ Object.values(CardListComponents).forEach((comp) => {
 });
 
 import * as ClickOutSideComponents from "./ClickOutSide";
-// 处理 Application 组件（已经有 install）
 Object.values(ClickOutSideComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -71,7 +66,6 @@ Object.values(ClickOutSideComponents).forEach((comp) => {
 });
 
 import * as CodeEditorComponents from "./CodeEditor";
-// 处理 Application 组件（已经有 install）
 Object.values(CodeEditorComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -79,7 +73,6 @@ Object.values(CodeEditorComponents).forEach((comp) => {
 });
 
 import * as ContainerComponents from "./Container";
-// 处理 Application 组件（已经有 install）
 Object.values(ContainerComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -91,13 +84,11 @@ import ContextMenuModule, {
   destroyContextMenu,
   ContextMenu,
 } from "./ContextMenu";
-// 添加 ContextMenu 组件
 if (ContextMenu) {
   allComponents.push(ContextMenu);
 }
 
 import * as CountDownComponents from "./CountDown";
-// 处理 Application 组件（已经有 install）
 Object.values(CountDownComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -105,7 +96,6 @@ Object.values(CountDownComponents).forEach((comp) => {
 });
 
 import * as CountToComponents from "./CountTo";
-// 处理 Application 组件（已经有 install）
 Object.values(CountToComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -113,7 +103,6 @@ Object.values(CountToComponents).forEach((comp) => {
 });
 
 import * as CropperComponents from "./Cropper";
-// 处理 Application 组件（已经有 install）
 Object.values(CropperComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -121,7 +110,6 @@ Object.values(CropperComponents).forEach((comp) => {
 });
 
 import * as DescriptionComponents from "./Description";
-// 处理 Application 组件（已经有 install）
 Object.values(DescriptionComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -129,7 +117,6 @@ Object.values(DescriptionComponents).forEach((comp) => {
 });
 
 import * as DivideTitleComponents from "./DivideTitle";
-// 处理 Application 组件（已经有 install）
 Object.values(DivideTitleComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -137,7 +124,6 @@ Object.values(DivideTitleComponents).forEach((comp) => {
 });
 
 import * as DrawerComponents from "./Drawer";
-// 处理 Application 组件（已经有 install）
 Object.values(DrawerComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -145,7 +131,6 @@ Object.values(DrawerComponents).forEach((comp) => {
 });
 
 import * as DropdownComponents from "./Dropdown";
-// 处理 Application 组件（已经有 install）
 Object.values(DropdownComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -153,7 +138,6 @@ Object.values(DropdownComponents).forEach((comp) => {
 });
 
 import * as EllipsisTextComponents from "./EllipsisText";
-// 处理 Application 组件（已经有 install）
 Object.values(EllipsisTextComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -161,7 +145,6 @@ Object.values(EllipsisTextComponents).forEach((comp) => {
 });
 
 import * as ExcelComponents from "./Excel";
-// 处理 Application 组件（已经有 install）
 Object.values(ExcelComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -169,7 +152,6 @@ Object.values(ExcelComponents).forEach((comp) => {
 });
 
 import * as FlowChartComponents from "./FlowChart";
-// 处理 Application 组件（已经有 install）
 Object.values(FlowChartComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -177,7 +159,6 @@ Object.values(FlowChartComponents).forEach((comp) => {
 });
 
 import * as FormComponents from "./Form";
-// 处理 Application 组件（已经有 install）
 Object.values(FormComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -185,7 +166,6 @@ Object.values(FormComponents).forEach((comp) => {
 });
 
 import * as IconComponents from "./Icon";
-// 处理 Application 组件（已经有 install）
 Object.values(IconComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -193,7 +173,6 @@ Object.values(IconComponents).forEach((comp) => {
 });
 
 import * as LoadingComponents from "./Loading";
-// 处理 Application 组件（已经有 install）
 Object.values(LoadingComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -201,7 +180,6 @@ Object.values(LoadingComponents).forEach((comp) => {
 });
 
 import * as MarkdownComponents from "./Markdown";
-// 处理 Application 组件（已经有 install）
 Object.values(MarkdownComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -209,7 +187,6 @@ Object.values(MarkdownComponents).forEach((comp) => {
 });
 
 import * as MenuComponents from "./Menu";
-// 处理 Application 组件（已经有 install）
 Object.values(MenuComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -217,7 +194,6 @@ Object.values(MenuComponents).forEach((comp) => {
 });
 
 import * as ModalComponents from "./Modal";
-// 处理 Application 组件（已经有 install）
 Object.values(ModalComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -225,7 +201,6 @@ Object.values(ModalComponents).forEach((comp) => {
 });
 
 import * as PageComponents from "./Page";
-// 处理 Application 组件（已经有 install）
 Object.values(PageComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -233,7 +208,6 @@ Object.values(PageComponents).forEach((comp) => {
 });
 
 import * as PreviewComponents from "./Preview";
-// 处理 Application 组件（已经有 install）
 Object.values(PreviewComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -241,13 +215,11 @@ Object.values(PreviewComponents).forEach((comp) => {
 });
 
 import PromptModule, { createPrompt, genFormSchemas, Dialog } from "./Prompt";
-// 添加 Prompt 的 Dialog 组件
 if (Dialog) {
   allComponents.push(Dialog);
 }
 
 import * as QrcodeComponents from "./Qrcode";
-// 处理 Application 组件（已经有 install）
 Object.values(QrcodeComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -256,7 +228,6 @@ Object.values(QrcodeComponents).forEach((comp) => {
 
 import * as ScrollbarComponents from "./Scrollbar";
 export type { ScrollbarType } from "./Scrollbar/src/types";
-// 处理 Application 组件（已经有 install）
 Object.values(ScrollbarComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -264,7 +235,6 @@ Object.values(ScrollbarComponents).forEach((comp) => {
 });
 
 import * as SimpleMenuComponents from "./SimpleMenu";
-// 处理 Application 组件（已经有 install）
 Object.values(SimpleMenuComponents).forEach((comp: any) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp as any);
@@ -272,7 +242,6 @@ Object.values(SimpleMenuComponents).forEach((comp: any) => {
 });
 
 import * as StrengthMeterComponents from "./StrengthMeter";
-// 处理 Application 组件（已经有 install）
 Object.values(StrengthMeterComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -280,7 +249,6 @@ Object.values(StrengthMeterComponents).forEach((comp) => {
 });
 
 import * as TableComponents from "./Table";
-// 处理 Application 组件（已经有 install）
 Object.values(TableComponents).forEach((comp: any) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp as any);
@@ -288,7 +256,6 @@ Object.values(TableComponents).forEach((comp: any) => {
 });
 
 import * as TimeComponents from "./Time";
-// 处理 Application 组件（已经有 install）
 Object.values(TimeComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -296,7 +263,6 @@ Object.values(TimeComponents).forEach((comp) => {
 });
 
 import * as TinymceComponents from "./Tinymce";
-// 处理 Application 组件（已经有 install）
 Object.values(TinymceComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -306,7 +272,6 @@ Object.values(TinymceComponents).forEach((comp) => {
 import { transitionComponents } from "./Transition";
 
 import * as TreeComponents from "./Tree";
-// 处理 Application 组件（已经有 install）
 Object.values(TreeComponents).forEach((comp: any) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp as any);
@@ -314,7 +279,6 @@ Object.values(TreeComponents).forEach((comp: any) => {
 });
 
 import * as UploadComponents from "./Upload";
-// 处理 Application 组件（已经有 install）
 Object.values(UploadComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -322,7 +286,6 @@ Object.values(UploadComponents).forEach((comp) => {
 });
 
 import * as VerifyComponents from "./Verify";
-// 处理 Application 组件（已经有 install）
 Object.values(VerifyComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
@@ -330,7 +293,6 @@ Object.values(VerifyComponents).forEach((comp) => {
 });
 
 import * as VirtualScrollComponents from "./VirtualScroll";
-// 处理 Application 组件（已经有 install）
 Object.values(VirtualScrollComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);

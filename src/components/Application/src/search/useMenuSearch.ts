@@ -4,7 +4,6 @@ import { getMenus } from "router/menus";
 import { type Menu } from "router/types";
 import { filter, forEach } from "utils/helper/treeHelper";
 import { useScrollTo } from "hooks/event/useScrollTo";
-// import { type AnyFunction } from '@vben/types';
 import { onKeyStroke, useDebounceFn } from "@vueuse/core";
 import { cloneDeep } from "lodash-es";
 import { Ref, nextTick, onBeforeMount, ref, unref } from "vue";

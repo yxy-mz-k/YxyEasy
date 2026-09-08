@@ -20,7 +20,6 @@ import {
   unref,
   nextTick,
 } from "vue";
-// import type { Nullable } from '@vben/types';
 import { useWindowSizeFn } from "hooks/event/useWindowSizeFn";
 import { useDebounceFn } from "@vueuse/core";
 import { useAppStore } from "store/modules/app";

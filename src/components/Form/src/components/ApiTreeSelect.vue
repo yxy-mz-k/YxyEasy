@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-// import { type Recordable } from '@vben/types';
 import {
   type PropType,
   computed,

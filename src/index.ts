@@ -1,6 +1,6 @@
 // src/index.ts
 import type { App } from "vue";
-import { createPinia, setActivePinia } from "pinia";
+// import { createPinia, setActivePinia } from "pinia";
 import type { YxyEasyOptions } from "./types";
 import * as components from "./components";
 import "styles/index.scss";
@@ -14,6 +14,7 @@ import { setupStore } from "store/index";
 import { setupI18n } from "locales/setupI18n";
 import { router, setupRouter } from "router/index";
 import { setupRouterGuard } from "router/guard/index";
+// import { registerGlobComp } from "components/registerGlobComp";
 
 // 导出所有内容
 export * from "./api";
@@ -39,6 +40,7 @@ const install = async (app: App, options?: YxyEasyOptions) => {
   // app.use(pinia);
 
   setupStore(app);
+  // registerGlobComp(app);
   await setupI18n(app);
   setupRouter(app);
   setupRouterGuard(router);

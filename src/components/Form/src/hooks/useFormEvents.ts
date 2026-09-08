@@ -165,8 +165,6 @@ export function useFormEvents({
         }
         validKeys.push(key);
       } else {
-        // key not exist
-        // refer:https://github.com/vbenjs/vue-vben-admin/issues/3795
       }
     });
     validateFields(validKeys).catch((_) => {});

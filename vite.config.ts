@@ -7,7 +7,13 @@ import glob from "vite-plugin-glob";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { generateModifyVars } from "./src/utils/generateModifyVars";
 // https://vite.dev/config/
+// import pkg from "./package.json";
 
+// const { dependencies, devDependencies, name, version } = pkg;
+// const __APP_INFO__ = {
+//   pkg: { dependencies, devDependencies, name, version },
+//   lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+// };
 export default defineConfig({
   plugins: [
     vue(),
@@ -113,13 +119,23 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       less: {
-        javascriptEnabled: true,
         modifyVars: generateModifyVars(),
+        javascriptEnabled: true,
       },
     },
   },
-  // define: {
-  //   __COLOR_PLUGIN_OUTPUT_FILE_NAME__: JSON.stringify(""),
-  //   __COLOR_PLUGIN_OPTIONS__: JSON.stringify({}),
-  // },
+  define: {
+    __INTLIFY_PROD_DEVTOOLS__: false,
+    // __APP_INFO__: JSON.stringify(__APP_INFO__),
+  },
+  optimizeDeps: {
+    // @iconify/iconify: The dependency is dynamically and virtually loaded by @purge-icons/generated, so it needs to be specified explicitly
+    include: [
+      "@vue/runtime-core",
+      "@vue/shared",
+      "@iconify/iconify",
+      "ant-design-vue/es/locale/zh_CN",
+      "ant-design-vue/es/locale/en_US",
+    ],
+  },
 });

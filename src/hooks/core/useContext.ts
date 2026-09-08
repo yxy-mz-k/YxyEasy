@@ -6,7 +6,9 @@ import {
   readonly as defineReadonly,
   // defineComponent,
   UnwrapRef,
-} from 'vue';
+  ref,
+} from "vue";
+import { getGlobalConfig } from "utils/global";
 
 export interface CreateContextOptions {
   readonly?: boolean;
@@ -35,11 +37,20 @@ export function createContext<T>(
 }
 
 export function useContext<T>(key: InjectionKey<T>, native?: boolean): T;
-export function useContext<T>(key: InjectionKey<T>, defaultValue?: any, native?: boolean): T;
+export function useContext<T>(
+  key: InjectionKey<T>,
+  defaultValue?: any,
+  native?: boolean,
+): T;
 
 export function useContext<T>(
   key: InjectionKey<T> = Symbol(),
   defaultValue?: any,
 ): ShallowUnwrap<T> {
-  return inject(key, defaultValue || {});
+  // 提供默认值
+  const defaultContext = {
+    prefixCls: ref(getGlobalConfig().prefixCls || "vben"),
+    isMobile: ref(false),
+  };
+  return inject(key, defaultValue || defaultContext);
 }
