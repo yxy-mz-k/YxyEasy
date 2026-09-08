@@ -5,7 +5,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx"; // 添加这个
 import { resolve } from "path";
 import glob from "vite-plugin-glob";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-import { generateModifyVars } from "src/utils/generateModifyVars";
+import { generateModifyVars } from "./src/utils/generateModifyVars";
 // https://vite.dev/config/
 
 export default defineConfig({
