@@ -1,4 +1,4 @@
-import { defHttp } from "utils/http/axios";
+import { defHttp } from "utils/http/index";
 
 /**
  * 获取当前上下文路径
