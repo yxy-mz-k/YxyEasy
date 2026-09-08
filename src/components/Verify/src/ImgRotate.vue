@@ -152,12 +152,12 @@ export default defineComponent({
               >
                 {state.isPassing
                   ? `验证校验成功,耗时${time.toFixed(1)}秒！`
-                  : '验证失败！'
+                  : "验证失败！"}
               </span>
             )}
             {!state.showTip && !state.draged && (
               <span class={[`ir-dv-img__tip`, "normal"]}>
-                {'点击图片可刷新'}
+                {"点击图片可刷新"}
               </span>
             )}
           </div>
