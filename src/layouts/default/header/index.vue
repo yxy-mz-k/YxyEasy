@@ -134,6 +134,8 @@ import { userInfoApi } from "api/sys/user";
 import { getMenuList } from "api/sys/menu";
 import { router } from "router/index";
 
+import { globalConfig } from "utils/global";
+
 export default defineComponent({
   name: "LayoutHeader",
   components: {
@@ -279,11 +281,8 @@ export default defineComponent({
             (i: any) => i.extKey == "path",
           )?.extValue;
           activeKey.value = 0;
-          const isEnv =
-            import.meta.env["MODE"] === "development" ? true : false;
-          const origin = isEnv
-            ? import.meta.env["VITE_ORIGIN"]
-            : window.location.origin;
+
+          const origin = globalConfig?.VITE_ORIGIN;
           window.location.href = origin + extValue + window.location.hash;
         }
       }

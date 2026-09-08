@@ -255,8 +255,7 @@ export function handleTreeData(data) {
   return data;
 }
 
-const isEnv = import.meta.env["MODE"] === "development" ? true : false;
-const origin = isEnv ? import.meta.env["VITE_ORIGIN"] : window.location.origin;
+import { globalConfig } from "utils/global";
 import { queryByIds } from "api/sys/fileUtils";
 
 export async function getFileList(ids?: string) {
@@ -285,7 +284,7 @@ export async function getFileList(ids?: string) {
                 },
                 r?.contentType?.includes("svg")
                   ? {
-                      svgSrc: `${origin}/ioe/api/file/imgFile/${r?.id}`,
+                      svgSrc: `${globalConfig?.VITE_ORIGIN}/ioe/api/file/imgFile/${r?.id}`,
                     }
                   : null,
               ),

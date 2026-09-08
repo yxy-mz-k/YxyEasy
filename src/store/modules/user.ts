@@ -189,15 +189,6 @@ export const useUserStore = defineStore({
       this.setUserInfo(null);
       clearAuthCache();
       await getMenuList({});
-      // router.go(0);
-      // location.href = `${
-      //   import.meta.env['VITE_ORIGIN']
-      // }/uauth/toLogin?redirect_uri=https://192.168.6.153:3100/homstypes/home``${
-      //   import.meta.env['VITE_ORIGIN']
-      // }/uauth/toLogin?appId=uauth&&redirect_uri=https://192.168.6.153:3101/centertypes/uauth/resmanage/collection`;
-      // window.location.href =
-      //   result.login_page + '?appId=' + result.appId + '&redirect_uri=' + window.location.href;
-      // window.location.href =
     },
 
     /**

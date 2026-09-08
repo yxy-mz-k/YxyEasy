@@ -2,6 +2,7 @@ import { useMessage } from "hooks/web/useMessage";
 import { useUserStore } from "store/modules/user";
 import Mitt from "utils/myMitt";
 import { useUserStoreWithOut } from "store/modules/user";
+import { globalConfig } from "utils/global";
 // import {getWsBaseURL} from "/@utils/baseUrl"; //获取ws接口的方法,可自行换掉
 const websocket: any = {
   websocket: null,
@@ -27,8 +28,7 @@ const websocket: any = {
     const userStore = useUserStoreWithOut();
     const { createMessage } = useMessage();
     const useUserInfo: any = useUserStore().getUserInfo;
-    const isEnv = import.meta.env["MODE"] === "development" ? true : false;
-    const host = isEnv ? import.meta.env["VITE_HOST"] : window.location.host;
+    const host = globalConfig?.VITE_HOST;
     if (!("WebSocket" in window)) {
       // message.warning('浏览器不支持WebSocket')
       createMessage.warn("浏览器不支持WebSocket");

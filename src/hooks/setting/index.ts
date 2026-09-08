@@ -4,8 +4,6 @@ import { warn } from "utils/log";
 import { getAppEnvConfig } from "utils/env";
 import { globalConfig } from "utils/global";
 
-const isEnv = import.meta.env["MODE"] === "development" ? true : false;
-
 let contextPath;
 
 function getUrlRelativePath() {
@@ -23,9 +21,11 @@ function getUrlRelativePath() {
   return contextPath;
 }
 export const useGlobSetting = (): Readonly<GlobConfig> => {
-  const VITE_GLOB_API_URL = isEnv ? `${globalConfig?.suffixApi}-center` : "../";
+  const VITE_GLOB_API_URL = globalConfig?.isEnv
+    ? `${globalConfig?.suffixApi}-center`
+    : "../";
   const VITE_GLOB_API_URL_PREFIX = null;
-  const VITE_GLOB_UPLOAD_URL = isEnv
+  const VITE_GLOB_UPLOAD_URL = globalConfig?.isEnv
     ? `${globalConfig?.suffixApi}-center` +
       getUrlRelativePath() +
       "/api/file/upload"

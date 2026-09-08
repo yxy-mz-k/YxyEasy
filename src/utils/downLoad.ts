@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { globalConfig } from "utils/global";
 export function exporFile(
   res: any,
   fileName = "file",
@@ -29,13 +30,8 @@ export function exporFile(
 }
 export function preView(url: string) {
   // window.open(url, '_blank');
-  const isEnv = import.meta.env["MODE"] === "development" ? true : false;
-  const origin = isEnv
-    ? import.meta.env["VITE_ORIGIN"]
-    : window.location.origin;
-  const originSrc = isEnv
-    ? import.meta.env["VITE_ORIGIN"]
-    : window.location.origin;
+  const origin = globalConfig?.VITE_ORIGIN;
+  const originSrc = globalConfig?.VITE_ORIGIN;
   const encodeUrl = encodeURIComponent(
     window.btoa(window.encodeURIComponent(originSrc + url)),
   );
@@ -48,13 +44,8 @@ export function preView(url: string) {
 }
 export function downLoad() {}
 export function getPreViewUrl(url: string) {
-  const isEnv = import.meta.env["MODE"] === "development" ? true : false;
-  const origin = isEnv
-    ? import.meta.env["VITE_ORIGIN"]
-    : window.location.origin;
-  const originSrc = isEnv
-    ? import.meta.env["VITE_ORIGIN"]
-    : window.location.origin;
+  const origin = globalConfig?.VITE_ORIGIN;
+  const originSrc = globalConfig?.VITE_ORIGIN;
   const encodeUrl = encodeURIComponent(
     window.btoa(window.encodeURIComponent(originSrc + url)),
   );

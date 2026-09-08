@@ -8,7 +8,6 @@ import "design/index.less";
 
 // 导入配置
 import { setGlobalConfig } from "utils/global";
-// import { useConfigStore } from "store/modules/config";
 
 import { setupStore } from "store/index";
 import { setupI18n } from "locales/setupI18n";

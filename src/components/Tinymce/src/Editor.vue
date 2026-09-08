@@ -76,6 +76,7 @@ import { useDesign } from "hooks/web/useDesign";
 import { isNumber } from "utils/is";
 import { useLocale } from "locales/useLocale";
 import { useAppStore } from "store/modules/app";
+import { globalConfig } from "utils/global";
 
 defineOptions({ name: "Tinymce", inheritAttrs: false });
 
@@ -151,7 +152,7 @@ const langName = computed(() => {
 
 const initOptions = computed((): RawEditorSettings => {
   const { height, options, toolbar, plugins } = props;
-  const publicPath = import.meta.env.VITE_PUBLIC_PATH || "/";
+  const publicPath = globalConfig?.VITE_PUBLIC_PATH || "/";
   return {
     selector: `#${unref(tinymceId)}`,
     height,

@@ -3,7 +3,6 @@ import { useUserStore } from "store/modules/user";
 import { defHttp } from "utils/http/index";
 import axios from "axios";
 import { globalConfig } from "utils/global";
-const isEnv = import.meta.env["MODE"] === "development" ? true : false;
 let contextPath;
 function getUrlRelativePath() {
   if (contextPath) {
@@ -42,7 +41,7 @@ export const uploadFileApi = ({
   // ... 略，formData 其他实现逻辑
   // @ts-ignore
   return axios({
-    url: isEnv
+    url: globalConfig?.isEnv
       ? `${globalConfig?.suffixApi}-center` +
         getUrlRelativePath() +
         "/api/file/upload"
