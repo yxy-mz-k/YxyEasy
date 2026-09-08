@@ -3,7 +3,7 @@
  * https://github.com/antfu/vite-plugin-pwa
  */
 import { VitePWA } from "vite-plugin-pwa";
-import { globalConfig } from "utils/global";
+import { globalConfig } from "../global";
 
 export function configPwaConfig() {
   if (globalConfig?.VITE_USE_PWA) {

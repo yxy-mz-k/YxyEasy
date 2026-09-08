@@ -12,7 +12,7 @@ import { configStyleImportPlugin } from "./styleImport";
 import { configImageminPlugin } from "./imagemin";
 import { configPwaConfig } from "./pwa";
 
-import { globalConfig } from "utils/global";
+import { globalConfig } from "../global";
 export function createVitePlugins() {
   const isBuild = !globalConfig?.isEnv;
 

@@ -5,7 +5,7 @@
 import type { PluginOption } from "vite";
 import { createHtmlPlugin } from "vite-plugin-html";
 import pkg from "../../../package.json";
-import { globalConfig } from "utils/global";
+import { globalConfig } from "../global";
 
 export function configHtmlPlugin() {
   // const path = VITE_PUBLIC_PATH.endsWith('/') ? VITE_PUBLIC_PATH : `${VITE_PUBLIC_PATH}/`;

@@ -5,7 +5,7 @@
 
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import path from "path";
-import { globalConfig } from "utils/global";
+import { globalConfig } from "../global";
 
 export function configSvgIconsPlugin() {
   const isBuild = !globalConfig?.isEnv;
