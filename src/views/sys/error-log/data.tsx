@@ -3,9 +3,9 @@ import { BasicColumn } from 'components/Table/index';
 import { ErrorTypeEnum } from 'enums/exceptionEnum';
 import { useI18n } from 'hooks/web/useI18n';
 
-const { t } = useI18n();
 
 export function getColumns(): BasicColumn[] {
+const { t } = useI18n();
   return [
     {
       dataIndex: 'type',

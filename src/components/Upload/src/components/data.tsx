@@ -7,10 +7,10 @@ import ThumbUrl from './ThumbUrl.vue';
 import { useI18n } from 'hooks/web/useI18n';
 import { previewColumnsFnType } from '../props';
 
-const { t } = useI18n();
 
 // 文件上传列表
 export function createTableColumns(): FileBasicColumn[] {
+const { t } = useI18n();
   return [
     {
       dataIndex: 'thumbUrl',
@@ -72,6 +72,7 @@ export function createTableColumns(): FileBasicColumn[] {
   ];
 }
 export function createActionColumn(handleRemove: Function): FileBasicColumn {
+const { t } = useI18n();
   return {
     width: 120,
     title: t('component.upload.operating'),
@@ -95,6 +96,7 @@ export function createActionColumn(handleRemove: Function): FileBasicColumn {
 }
 // 文件预览列表
 export function createPreviewColumns(): BasicColumn[] {
+const { t } = useI18n();
   return [
     {
       dataIndex: 'url',
@@ -120,6 +122,7 @@ export function createPreviewActionColumn({
   handleRemove: previewColumnsFnType['handleRemove'];
   handleDownload: Fn;
 }): BasicColumn {
+const { t } = useI18n();
   return {
     width: 160,
     title: t('component.upload.operating'),

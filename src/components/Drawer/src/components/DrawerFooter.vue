@@ -34,6 +34,8 @@ import type { CSSProperties } from "vue";
 import { computed } from "vue";
 import { useDesign } from "hooks/web/useDesign";
 import { footerProps } from "../props";
+import { useI18n } from "hooks/web/useI18n";
+const { t } = useI18n();
 
 defineOptions({ name: "BasicDrawerFooter" });
 
@@ -43,6 +45,8 @@ const props = defineProps({
     type: String,
     default: "60px",
   },
+  cancelText: { type: String, default: t("common.cancelText") },
+  okText: { type: String, default: t("common.okText") },
 });
 
 const emit = defineEmits(["ok", "close"]);

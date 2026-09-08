@@ -39,11 +39,11 @@ import {
   APP_PRESET_COLOR_LIST,
 } from 'settings/designSetting';
 
-const { t } = useI18n();
 
 export default defineComponent({
   name: 'SettingDrawer',
   setup(_, { attrs }) {
+    const { t } = useI18n();
     const {
       getContentMode,
       getShowFooter,
