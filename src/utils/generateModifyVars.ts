@@ -1,10 +1,7 @@
+// src/utils/generateModifyVars.ts
 import { generateAntColors, primaryColor } from "./themeConfig";
-import { getThemeVariables } from "ant-design-vue/dist/theme";
-import { resolve } from "path";
+import { getThemeVariables } from "ant-design-vue/dist/theme.js";
 
-/**
- * less global variable
- */
 export function generateModifyVars(dark = false) {
   const palettes = generateAntColors(primaryColor);
   const primary = palettes[5];
@@ -18,22 +15,18 @@ export function generateModifyVars(dark = false) {
   const modifyVars = getThemeVariables({ dark });
   return {
     ...modifyVars,
-    // Used for global import to avoid the need to import each style file separately
-    // reference:  Avoid repeated references
-    hack: `${modifyVars.hack} @import (reference) "${resolve(
-      "src/design/config.less",
-    )}";`,
+    // 使用相对路径字符串
+    hack: `${modifyVars.hack} @import (reference) "./src/design/config.less";`,
     "primary-color": primary,
     ...primaryColorObj,
     "info-color": primary,
     "processing-color": primary,
-    "success-color": "#55D187", //  Success color
-    "error-color": "#ED6F6F", //  False color
-    "warning-color": "#EFBD47", //   Warning color
-    //'border-color-base': '#EEEEEE',
-    "font-size-base": "14px", //  Main font size
-    "border-radius-base": "2px", //  Component/float fillet
-    "link-color": primary, //   Link color
-    "app-content-background": "#f7f7f7", //   Link color
+    "success-color": "#55D187",
+    "error-color": "#ED6F6F",
+    "warning-color": "#EFBD47",
+    "font-size-base": "14px",
+    "border-radius-base": "2px",
+    "link-color": primary,
+    "app-content-background": "#f7f7f7",
   };
 }
