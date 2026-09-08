@@ -6,7 +6,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import { globalConfig } from "utils/global";
 
 export function configPwaConfig(env: ViteEnv) {
-  const { VITE_USE_PWA, VITE_GLOB_APP_TITLE } = env;
+  const { VITE_USE_PWA } = env;
 
   if (VITE_USE_PWA) {
     // vite-plugin-pwa

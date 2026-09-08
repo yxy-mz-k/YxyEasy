@@ -9,7 +9,7 @@ import { GLOB_CONFIG_FILE_NAME } from "../../constant";
 import { globalConfig } from "utils/global";
 
 export function configHtmlPlugin(env: ViteEnv, isBuild: boolean) {
-  const { VITE_GLOB_APP_TITLE, VITE_PUBLIC_PATH } = env;
+  const { VITE_PUBLIC_PATH } = env;
 
   const path = VITE_PUBLIC_PATH.endsWith("/")
     ? VITE_PUBLIC_PATH
