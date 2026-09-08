@@ -123,6 +123,10 @@ export default defineConfig({
           __dirname,
           "src/styles/variables.less",
         )}";`,
+        globalVars: {
+          namespace: "vben",
+          "primary-color": "#0960bd",
+        },
       },
     },
   },
