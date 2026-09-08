@@ -1,4 +1,4 @@
-import { generateAntColors, primaryColor } from "utils/themeConfig";
+import { generateAntColors, primaryColor } from "./themeConfig";
 import { getThemeVariables } from "ant-design-vue/dist/theme";
 import { resolve } from "path";
 
