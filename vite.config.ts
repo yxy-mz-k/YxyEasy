@@ -110,7 +110,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       less: {
-        additionalData: `@import "design/index.less";`, // 自动注入
+        additionalData: `@import "styles/variables.less";`, // 自动注入
       },
     },
   },
