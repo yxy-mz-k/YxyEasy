@@ -293,9 +293,7 @@ export async function getFileList(ids?: string) {
         });
         fileList.push(...(files || []));
       })
-      .catch((err: any) => {
-        console.log("err", err);
-      });
+      .catch((err: any) => {});
     return fileList;
   } else {
     return [];

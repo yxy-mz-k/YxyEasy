@@ -76,9 +76,7 @@ const websocket: any = {
       // websocket.heartbeat()
     };
     // 连接发生错误
-    websocket.websocket.onerror = function () {
-      console.error("websocket 连接发生错误");
-    };
+    websocket.websocket.onerror = function () {};
   },
   heartbeat: () => {
     const userStore = useUserStoreWithOut();

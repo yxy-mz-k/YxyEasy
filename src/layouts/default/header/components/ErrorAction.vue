@@ -1,6 +1,6 @@
 <template>
   <Tooltip
-    :title="t('layout.header.tooltipErrorLog')"
+    title="错误日志"
     placement="bottom"
     :mouseEnterDelay="0.5"
     @click="handleToErrorList"
@@ -15,7 +15,6 @@ import { defineComponent, computed } from "vue";
 import { Tooltip, Badge } from "ant-design-vue";
 import Icon from "components/Icon";
 
-import { useI18n } from "hooks/web/useI18n";
 import { useErrorLogStore } from "store/modules/errorLog";
 import { PageEnum } from "enums/pageEnum";
 
@@ -26,7 +25,6 @@ export default defineComponent({
   components: { Icon, Tooltip, Badge },
 
   setup() {
-    const { t } = useI18n();
     const { push } = useRouter();
     const errorLogStore = useErrorLogStore();
 
@@ -39,7 +37,6 @@ export default defineComponent({
     }
 
     return {
-      t,
       getCount,
       handleToErrorList,
     };

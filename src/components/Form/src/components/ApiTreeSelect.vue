@@ -116,9 +116,7 @@ async function fetch() {
     if (afterFetch && isFunction(afterFetch)) {
       res = (await afterFetch(res)) || res;
     }
-  } catch (e) {
-    console.error(e);
-  }
+  } catch (e) {}
   loading.value = false;
   if (!res) return;
   if (resultField) {

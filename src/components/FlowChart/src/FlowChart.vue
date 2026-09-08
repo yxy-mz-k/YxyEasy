@@ -136,7 +136,6 @@ async function init() {
 
   const lf = unref(lfInstance)!;
   lf.on("node:click,edge:click", (data) => {
-    //  console.log("==============",data);
     handlePreview();
   });
   lf?.setDefaultEdgeType("line");

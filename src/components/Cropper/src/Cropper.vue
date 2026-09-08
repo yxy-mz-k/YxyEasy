@@ -14,7 +14,7 @@
       <slot name="preTool"></slot>
     </div>
     <Space>
-      <Tooltip :title="t('component.cropper.btn_reset')" placement="bottom">
+      <Tooltip title="重置" placement="bottom">
         <a-button
           type="primary"
           size="small"
@@ -26,10 +26,7 @@
           </template>
         </a-button>
       </Tooltip>
-      <Tooltip
-        :title="t('component.cropper.btn_rotate_left')"
-        placement="bottom"
-      >
+      <Tooltip title="逆时针旋转" placement="bottom">
         <a-button
           type="primary"
           size="small"
@@ -41,10 +38,7 @@
           </template>
         </a-button>
       </Tooltip>
-      <Tooltip
-        :title="t('component.cropper.btn_rotate_right')"
-        placement="bottom"
-      >
+      <Tooltip title="顺时针旋转" placement="bottom">
         <a-button
           type="primary"
           size="small"
@@ -56,7 +50,7 @@
           </template>
         </a-button>
       </Tooltip>
-      <Tooltip :title="t('component.cropper.btn_scale_x')" placement="bottom">
+      <Tooltip title="水平翻转" placement="bottom">
         <a-button
           type="primary"
           size="small"
@@ -68,7 +62,7 @@
           </template>
         </a-button>
       </Tooltip>
-      <Tooltip :title="t('component.cropper.btn_scale_y')" placement="bottom">
+      <Tooltip title="垂直翻转" placement="bottom">
         <a-button
           type="primary"
           size="small"
@@ -80,7 +74,7 @@
           </template>
         </a-button>
       </Tooltip>
-      <Tooltip :title="t('component.cropper.btn_zoom_in')" placement="bottom">
+      <Tooltip title="放大" placement="bottom">
         <a-button
           type="primary"
           size="small"
@@ -92,7 +86,7 @@
           </template>
         </a-button>
       </Tooltip>
-      <Tooltip :title="t('component.cropper.btn_zoom_out')" placement="bottom">
+      <Tooltip title="缩小" placement="bottom">
         <a-button
           type="primary"
           size="small"
@@ -116,8 +110,6 @@ import { useDesign } from "hooks/web/useDesign";
 import { useDebounceFn } from "@vueuse/core";
 import { Space, Tooltip } from "ant-design-vue";
 import { Icon } from "components/Icon";
-import { useI18n } from "hooks/web/useI18n";
-const { t } = useI18n();
 
 type Options = Cropper.Options;
 

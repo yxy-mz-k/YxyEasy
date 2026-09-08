@@ -6,7 +6,7 @@
           <div :class="`${prefixCls}-input__wrapper`">
             <a-input
               :class="`${prefixCls}-input`"
-              :placeholder="t('common.searchText')"
+              placeholder="搜索"
               ref="inputRef"
               allow-clear
               @change="handleSearch"
@@ -16,12 +16,12 @@
               </template>
             </a-input>
             <span :class="`${prefixCls}-cancel`" @click="handleClose">
-              {{ t("common.cancelText") }}
+              取消
             </span>
           </div>
 
           <div :class="`${prefixCls}-not-data`" v-show="getIsNotData">
-            {{ t("component.app.searchNotData") }}
+            暂无搜索结果
           </div>
 
           <ul
@@ -77,7 +77,6 @@ import vClickOutside from "directives/clickOutside";
 import { useDesign } from "hooks/web/useDesign";
 import { useRefs } from "hooks/core/useRefs";
 import { useMenuSearch } from "./useMenuSearch";
-import { useI18n } from "hooks/web/useI18n";
 import { useAppInject } from "hooks/web/useAppInject";
 
 const props = defineProps({
@@ -89,7 +88,6 @@ const emit = defineEmits(["close"]);
 const scrollWrap = ref(null);
 const inputRef = ref<HTMLElement | null>(null);
 
-const { t } = useI18n();
 const { prefixCls } = useDesign("app-search-modal");
 const { refs, setRefs } = useRefs();
 const { getIsMobile } = useAppInject();

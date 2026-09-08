@@ -26,13 +26,13 @@
             />
             <div class="mt-10 font-medium text-white -enter-x">
               <span class="inline-block mt-4 text-3xl">
-                {{ t("sys.login.signInTitle") }}</span
-              >
+                开箱即用的中后台管理系统
+              </span>
             </div>
             <div
               class="mt-5 font-normal text-white text-md dark:text-gray-500 -enter-x"
             >
-              {{ t("sys.login.signInDesc") }}
+              输入您的个人详细信息开始使用！
             </div>
           </div>
         </div>
@@ -64,7 +64,6 @@ import RegisterForm from "./RegisterForm.vue";
 import MobileForm from "./MobileForm.vue";
 import QrCodeForm from "./QrCodeForm.vue";
 import { useGlobSetting } from "hooks/setting";
-import { useI18n } from "hooks/web/useI18n";
 import { useDesign } from "hooks/web/useDesign";
 import { useLocaleStore } from "store/modules/locale";
 
@@ -76,7 +75,6 @@ defineProps({
 
 const globSetting = useGlobSetting();
 const { prefixCls } = useDesign("login");
-const { t } = useI18n();
 const localeStore = useLocaleStore();
 const showLocale = localeStore.getShowPicker;
 const title = computed(() => globSetting?.title ?? "");

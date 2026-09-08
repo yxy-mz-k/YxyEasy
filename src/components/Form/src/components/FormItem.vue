@@ -22,7 +22,6 @@ import {
 } from "../helper";
 import { cloneDeep, upperFirst } from "lodash-es";
 import { useItemLabelWidth } from "../hooks/useLabelWidth";
-import { useI18n } from "hooks/web/useI18n";
 
 export default defineComponent({
   name: "BasicFormItem",
@@ -61,8 +60,6 @@ export default defineComponent({
     },
   },
   setup(props, { slots }) {
-    const { t } = useI18n();
-
     const { schema, formProps } = toRefs(props) as {
       schema: Ref<FormSchema>;
       formProps: Ref<FormProps>;
@@ -274,9 +271,7 @@ export default defineComponent({
       if (characterInx !== -1 && !rules[characterInx].validator) {
         rules[characterInx].message =
           rules[characterInx].message ||
-          t("component.form.maxTip", [
-            rules[characterInx].max,
-          ] as Recordable<any>);
+          `字符数应小于${rules[characterInx].max}位`;
       }
       return rules;
     }

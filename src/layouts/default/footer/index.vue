@@ -30,7 +30,6 @@ import { GithubFilled } from "@ant-design/icons-vue";
 import { DOC_URL, GITHUB_URL, SITE_URL } from "settings/siteSetting";
 import { openWindow } from "utils/index";
 
-import { useI18n } from "hooks/web/useI18n";
 import { useRootSetting } from "hooks/setting/useRootSetting";
 import { useRouter } from "vue-router";
 import { useDesign } from "hooks/web/useDesign";
@@ -40,7 +39,6 @@ export default defineComponent({
   name: "LayoutFooter",
   components: { Footer: Layout.Footer, GithubFilled },
   setup() {
-    const { t } = useI18n();
     const { getShowFooter } = useRootSetting();
     const { currentRoute } = useRouter();
     const { prefixCls } = useDesign("layout-footer");
@@ -61,7 +59,6 @@ export default defineComponent({
     return {
       getShowLayoutFooter,
       prefixCls,
-      t,
       DOC_URL,
       GITHUB_URL,
       SITE_URL,

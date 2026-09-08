@@ -2,14 +2,14 @@
   <BasicModal
     v-bind="$attrs"
     @register="register"
-    :title="t('component.cropper.modalTitle')"
+    title="头像上传"
     width="800px"
     :canFullscreen="false"
     centered
     destroyOnClose
     @ok="handleOk"
     @cancel="handleCancel"
-    :okText="t('component.cropper.okText')"
+    okText="确认并上传"
   >
     <div :class="prefixCls">
       <div :class="`${prefixCls}-left`">
@@ -31,10 +31,7 @@
             accept="image/*"
             :beforeUpload="handleBeforeUpload"
           >
-            <Tooltip
-              :title="t('component.cropper.selectImage')"
-              placement="bottom"
-            >
+            <Tooltip title="选择图片" placement="bottom">
               <a-button size="small" type="primary">
                 <template #icon>
                   <UploadOutlined />
@@ -53,11 +50,7 @@
             },
           ]"
         >
-          <img
-            :src="previewSource"
-            v-if="previewSource"
-            :alt="t('component.cropper.preview')"
-          />
+          <img :src="previewSource" v-if="previewSource" alt="预览" />
         </div>
         <template v-if="previewSource && (propsData?.circled ?? true)">
           <div :class="`${prefixCls}-group`">
@@ -81,7 +74,6 @@ import { useDesign } from "hooks/web/useDesign";
 import { BasicModal, useModalInner } from "components/Modal";
 import { dataURLtoBlob } from "utils/file/base64Conver";
 import { isFunction } from "utils/is";
-import { useI18n } from "hooks/web/useI18n";
 import { useMessage } from "hooks/web/useMessage";
 const { createMessage } = useMessage();
 
@@ -112,12 +104,11 @@ const propsData = ref<any>(null);
 const [register, { closeModal, setModalProps }] = useModalInner((data: any) => {
   propsData.value = data;
 });
-const { t } = useI18n();
 
 // Block upload
 const handleBeforeUpload = (file: File) => {
   if (props.size && file.size > 1024 * 1024 * props.size) {
-    emit("uploadError", { msg: t("component.cropper.imageTooBig") });
+    emit("uploadError", { msg: "图片过大" });
     return false;
   }
   const reader = new FileReader();

@@ -16,7 +16,7 @@
       <Menu @click="handleMenuClick">
         <!-- <MenuItem
           key="doc"
-          :text="t('layout.header.dropdownItemDoc')"
+          text="文档"
           icon="ion:document-text-outline"
           v-if="getShowDoc"
         />
@@ -24,20 +24,12 @@
         <MenuItem
           v-if="getUseLockPage"
           key="lock"
-          :text="t('layout.header.tooltipLock')"
+          text="锁定屏幕"
           icon="ion:lock-closed-outline"
         />
         <!-- <MenuItem key="settings" text="项目配置" icon="ion:settings-outline" /> -->
-        <MenuItem
-          key="edit"
-          :text="t('layout.header.editPassword')"
-          icon="ion:document-text-outline"
-        />
-        <MenuItem
-          key="logout"
-          :text="t('layout.header.dropdownItemLoginOut')"
-          icon="ion:power-outline"
-        />
+        <MenuItem key="edit" text="修改密码" icon="ion:document-text-outline" />
+        <MenuItem key="logout" text="退出系统" icon="ion:power-outline" />
       </Menu>
     </template>
   </Dropdown>
@@ -56,7 +48,6 @@ import { DOC_URL } from "settings/siteSetting";
 
 import { useUserStore } from "store/modules/user";
 import { useHeaderSetting } from "hooks/setting/useHeaderSetting";
-import { useI18n } from "hooks/web/useI18n";
 import { useDesign } from "hooks/web/useDesign";
 import { useModal } from "components/Modal";
 
@@ -88,7 +79,6 @@ export default defineComponent({
   setup() {
     const [register11, { openDrawer }] = useDrawer();
     const { prefixCls } = useDesign("header-user-dropdown");
-    const { t } = useI18n();
     const { getShowDoc, getUseLockPage } = useHeaderSetting();
     const userStore = useUserStore();
 
@@ -138,7 +128,6 @@ export default defineComponent({
 
     return {
       prefixCls,
-      t,
       getUserInfo,
       handleMenuClick,
       getShowDoc,

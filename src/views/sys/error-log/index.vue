@@ -7,20 +7,20 @@
     <BasicTable @register="register" class="error-handle-table">
       <template #toolbar>
         <a-button @click="fireVueError" type="primary">
-          {{ t("sys.errorLog.fireVueError") }}
+          点击触发vue错误
         </a-button>
         <a-button @click="fireResourceError" type="primary">
-          {{ t("sys.errorLog.fireResourceError") }}
+          点击触发资源加载错误
         </a-button>
         <a-button @click="fireAjaxError" type="primary">
-          {{ t("sys.errorLog.fireAjaxError") }}
+          点击触发ajax错误
         </a-button>
       </template>
       <template #action="{ record }">
         <TableAction
           :actions="[
             {
-              label: t('sys.errorLog.tableActionDesc'),
+              label: '详情',
               onClick: handleDetail.bind(null, record),
             },
           ]"
@@ -37,7 +37,6 @@ import DetailModal from "./DetailModal.vue";
 import { BasicTable, useTable, TableAction } from "components/Table/index";
 import { useModal } from "components/Modal";
 import { useMessage } from "hooks/web/useMessage";
-import { useI18n } from "hooks/web/useI18n";
 import { useErrorLogStore } from "store/modules/errorLog";
 // import { fireErrorApi } from 'api/demo/error';
 import { getColumns } from "./data";
@@ -47,10 +46,9 @@ import { globalConfig } from "utils/global";
 const rowInfo = ref<ErrorLogInfo>();
 const imgList = ref<string[]>([]);
 
-const { t } = useI18n();
 const errorLogStore = useErrorLogStore();
 const [register, { setTableData }] = useTable({
-  title: t("sys.errorLog.tableTitle"),
+  title: "错误日志列表",
   columns: getColumns(),
   actionColumn: {
     width: 80,
@@ -73,9 +71,7 @@ watch(
   },
 );
 const { createMessage } = useMessage();
-// if (globalConfig?.isEnv) {
-//   createMessage.info(t("sys.errorLog.enableMessage"));
-// }
+
 // 查看详情
 function handleDetail(row: ErrorLogInfo) {
   rowInfo.value = row;

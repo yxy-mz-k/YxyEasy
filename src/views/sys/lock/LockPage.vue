@@ -10,7 +10,7 @@
       v-show="showDate"
     >
       <LockOutlined />
-      <span>{{ t("sys.lock.unlock") }}</span>
+      <span>点击解锁</span>
     </div>
 
     <div class="flex w-screen h-screen justify-center items-center">
@@ -43,12 +43,12 @@
             </p>
           </div>
           <InputPassword
-            :placeholder="t('sys.lock.placeholder')"
+            placeholder="请输入锁屏密码或者用户密码"
             class="enter-x"
             v-model:value="password"
           />
           <span :class="`${prefixCls}-entry__err-msg enter-x`" v-if="errMsg">
-            {{ t("sys.lock.alert") }}
+            锁屏密码错误
           </span>
           <div :class="`${prefixCls}-entry__footer enter-x`">
             <a-button
@@ -58,7 +58,7 @@
               :disabled="loading"
               @click="handleShowForm(true)"
             >
-              {{ t("common.back") }}
+              返回
             </a-button>
             <a-button
               type="link"
@@ -67,7 +67,7 @@
               :disabled="loading"
               @click="goLogin"
             >
-              {{ t("sys.lock.backToLogin") }}
+              返回登录
             </a-button>
             <a-button
               class="mt-2"
@@ -76,7 +76,7 @@
               @click="unLock()"
               :loading="loading"
             >
-              {{ t("sys.lock.entry") }}
+              进入系统
             </a-button>
           </div>
         </div>
@@ -98,7 +98,6 @@ import { ref, computed } from "vue";
 import { Input } from "ant-design-vue";
 import { useUserStore } from "store/modules/user";
 import { useLockStore } from "store/modules/lock";
-import { useI18n } from "hooks/web/useI18n";
 import { useNow } from "./useNow";
 import { useDesign } from "hooks/web/useDesign";
 import { LockOutlined } from "@ant-design/icons-vue";
@@ -116,8 +115,6 @@ const lockStore = useLockStore();
 const userStore = useUserStore();
 
 const { hour, month, minute, meridiem, year, day, week } = useNow(true);
-
-const { t } = useI18n();
 
 const userinfo = computed(() => {
   return userStore.getUserInfo || {};

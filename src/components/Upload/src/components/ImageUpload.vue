@@ -15,7 +15,7 @@
     >
       <div v-if="fileList && fileList.length < maxNumber">
         <plus-outlined />
-        <div style="margin-top: 8px">{{ t("component.upload.upload") }}</div>
+        <div style="margin-top: 8px">上传</div>
       </div>
     </Upload>
     <Modal
@@ -38,7 +38,6 @@ import { UploadRequestOption } from "ant-design-vue/lib/vc-upload/interface";
 import { useMessage } from "hooks/web/useMessage";
 import { isArray, isFunction, isObject, isString } from "utils/is";
 import { warn } from "utils/log";
-import { useI18n } from "hooks/web/useI18n";
 import { useUploadType } from "../hooks/useUpload";
 import { uploadContainerProps } from "../props";
 import { checkFileType } from "../helper";
@@ -51,7 +50,6 @@ const emit = defineEmits(["change", "update:value", "delete"]);
 const props = defineProps({
   ...omit(uploadContainerProps, ["previewColumns", "beforePreviewData"]),
 });
-const { t } = useI18n();
 const { createMessage } = useMessage();
 const { accept, helpText, maxNumber, maxSize } = toRefs(props);
 const isInnerOperate = ref<boolean>(false);
@@ -154,14 +152,14 @@ const beforeUpload = (file: File) => {
   const { maxSize, accept } = props;
   const isAct = checkFileType(file, accept);
   if (!isAct) {
-    createMessage.error(t("component.upload.acceptUpload", [accept]));
+    createMessage.error(`只能上传${accept}格式文件`);
     isActMsg.value = false;
     // 防止弹出多个错误提示
     setTimeout(() => (isActMsg.value = true), 1000);
   }
   const isLt = file.size / 1024 / 1024 > maxSize;
   if (isLt) {
-    createMessage.error(t("component.upload.maxSizeMultiple", [maxSize]));
+    createMessage.error(`只能上传不超过${maxSize}MB的文件!`);
     isLtMsg.value = false;
     // 防止弹出多个错误提示
     setTimeout(() => (isLtMsg.value = true), 1000);
@@ -195,7 +193,6 @@ async function customRequest(info: UploadRequestOption<any>) {
     emit("update:value", value);
     emit("change", value);
   } catch (e: any) {
-    console.log(e);
     info.onError!(e);
   }
 }

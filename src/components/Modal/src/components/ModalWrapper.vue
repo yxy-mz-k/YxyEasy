@@ -184,9 +184,7 @@ async function setModalHeight() {
         : realHeight.value;
     }
     emit("height-change", unref(realHeightRef));
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 defineExpose({ scrollTop, setModalHeight });

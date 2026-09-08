@@ -9,7 +9,7 @@
       accept=".jpg,.jpeg,.gif,.png,.webp"
     >
       <a-button type="primary" v-bind="{ ...getButtonProps }">
-        {{ t("component.upload.imgUpload") }}
+        图片上传
       </a-button>
     </Upload>
   </div>
@@ -20,7 +20,6 @@ import { computed } from "vue";
 import { Upload } from "ant-design-vue";
 import { useDesign } from "hooks/web/useDesign";
 import { useGlobSetting } from "hooks/setting";
-import { useI18n } from "hooks/web/useI18n";
 
 defineOptions({ name: "TinymceImageUpload" });
 
@@ -39,7 +38,6 @@ const emit = defineEmits(["uploading", "done", "error"]);
 let uploading = false;
 
 const { uploadUrl } = useGlobSetting();
-const { t } = useI18n();
 const { prefixCls } = useDesign("tinymce-img-upload");
 
 const getButtonProps = computed(() => {

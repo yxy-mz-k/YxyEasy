@@ -5,7 +5,6 @@ import { Popconfirm } from "ant-design-vue";
 import { extendSlots } from "utils/helper/tsxHelper";
 import { omit } from "lodash-es";
 import { useAttrs } from "hooks/core/useAttrs";
-import { useI18n } from "hooks/web/useI18n";
 
 const props = {
   /**
@@ -23,15 +22,14 @@ export default defineComponent({
   inheritAttrs: false,
   props,
   setup(props, { slots }) {
-    const { t } = useI18n();
     const attrs = useAttrs();
 
     // get inherit binding value
     const getBindValues = computed(() => {
       return Object.assign(
         {
-          okText: t("common.okText"),
-          cancelText: t("common.cancelText"),
+          okText: "确认",
+          cancelText: "取消",
           cancelButtonProps: {
             size: "small",
             style: { marginLeft: "4px" },

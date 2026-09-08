@@ -32,7 +32,6 @@ import Icon from "components/Icon";
 import { useDesign } from "hooks/web/useDesign";
 import { useRootSetting } from "hooks/setting/useRootSetting";
 import { useGo } from "hooks/web/usePage";
-import { useI18n } from "hooks/web/useI18n";
 
 import { propTypes } from "utils/propTypes";
 import { isString } from "utils/is";
@@ -58,7 +57,6 @@ export default defineComponent({
     const go = useGo();
     const activeKey = ref("uauth");
     const appList: any = ref([]);
-    const { t } = useI18n();
     watchEffect(async () => {
       if (currentRoute.value.name === REDIRECT_NAME) return;
       const menus = await getMenus();
@@ -189,7 +187,6 @@ export default defineComponent({
 
     return {
       routes,
-      t,
       prefixCls,
       getIcon,
       getShowBreadCrumbIcon,

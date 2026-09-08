@@ -26,7 +26,6 @@ function initWebSocket(callback: any) {
   };
   // 连接发生错误的回调方法
   websock.onerror = function () {
-    console.error("WebSocket连接发生错误");
     //createWebSocket();啊，发现这样写会创建多个连接，加延时也不行
   };
 }

@@ -1,32 +1,25 @@
 <template>
   <a-alert type="info" showIcon :class="[prefixCls]">
     <template #message>
-      <span v-if="props.count > 0">
-        {{ t("component.table.selectionBarTips", { count: props.count }) }}
-      </span>
-      <span v-else>
-        {{ t("component.table.selectionBarEmpty") }}
-      </span>
+      <span v-if="props.count > 0"> 选择栏 {{ props.count }} 条 </span>
+      <span v-else> 未选择 </span>
       <a-button
         type="link"
         @click="clearSelectedRowKeys"
         size="small"
         v-show="props.count > 0"
       >
-        {{ t("component.table.selectionBarClear") }}
+        清空选择
       </a-button>
     </template>
   </a-alert>
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from "hooks/web/useI18n";
 import { useDesign } from "hooks/web/useDesign";
 
 import type { TableActionType } from "../types/table";
 import { Alert as AAlert } from "ant-design-vue";
-
-const { t } = useI18n();
 
 const { prefixCls } = useDesign("table-select-bar");
 

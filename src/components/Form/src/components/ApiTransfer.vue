@@ -95,8 +95,6 @@ function handleChange(
   moveKeys: string[],
 ) {
   _targetKeys.value = keys;
-  console.log(direction);
-  console.log(moveKeys);
   emit("change", keys);
 }
 
@@ -138,9 +136,7 @@ async function fetch() {
       _dataSource.value = get(res, resultField) || [];
     }
     emitChange();
-  } catch (error) {
-    console.warn(error);
-  }
+  } catch (error) {}
 }
 function emitChange() {
   emit("options-change", unref(getdataSource));

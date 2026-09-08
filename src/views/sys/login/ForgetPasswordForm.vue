@@ -11,7 +11,7 @@
         <Input
           size="large"
           v-model:value="formData.account"
-          :placeholder="t('sys.login.userName')"
+          placeholder="账号"
         />
       </FormItem>
 
@@ -19,14 +19,14 @@
         <Input
           size="large"
           v-model:value="formData.mobile"
-          :placeholder="t('sys.login.mobile')"
+          placeholder="手机号码"
         />
       </FormItem>
       <FormItem name="sms" class="enter-x">
         <CountdownInput
           size="large"
           v-model:value="formData.sms"
-          :placeholder="t('sys.login.smsCode')"
+          placeholder="短信验证码"
         />
       </FormItem>
 
@@ -38,10 +38,10 @@
           @click="handleReset"
           :loading="loading"
         >
-          {{ t("common.resetText") }}
+          重置
         </Button>
         <Button size="large" block class="mt-4" @click="handleBackLogin">
-          {{ t("sys.login.backSignIn") }}
+          返回
         </Button>
       </FormItem>
     </Form>
@@ -52,11 +52,9 @@ import { reactive, ref, computed, unref } from "vue";
 import LoginFormTitle from "./LoginFormTitle.vue";
 import { Form, Input, Button } from "ant-design-vue";
 import { CountdownInput } from "components/CountDown";
-import { useI18n } from "hooks/web/useI18n";
 import { useLoginState, useFormRules, LoginStateEnum } from "./useLogin";
 
 const FormItem = Form.Item;
-const { t } = useI18n();
 const { handleBackLogin, getLoginState } = useLoginState();
 const { getFormRules } = useFormRules();
 

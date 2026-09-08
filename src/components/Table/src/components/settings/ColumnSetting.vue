@@ -1,7 +1,7 @@
 <template>
   <Tooltip placement="top">
     <template #title>
-      <span>{{ t("component.table.settingColumn") }}</span>
+      <span>列设置</span>
     </template>
     <Popover
       placement="bottomLeft"
@@ -17,14 +17,14 @@
             v-model:checked="isColumnAllSelected"
             @change="onColumnAllSelectChange"
           >
-            {{ t("component.table.settingColumnShow") }}
+            列展示
           </Checkbox>
 
           <Checkbox
             v-model:checked="isIndexColumnShow"
             @change="onIndexColumnShowChange"
           >
-            {{ t("component.table.settingIndexColumnShow") }}
+            序号列
           </Checkbox>
           <!-- 设置了 rowSelection 才出现 -->
           <Checkbox
@@ -32,12 +32,10 @@
             @change="onRowSelectionShowChange"
             v-if="defaultIsRowSelectionShow"
           >
-            {{ t("component.table.settingSelectColumnShow") }}
+            勾选列
           </Checkbox>
 
-          <a-button size="small" type="link" @click="onReset">
-            {{ t("common.resetText") }}
-          </a-button>
+          <a-button size="small" type="link" @click="onReset"> 重置 </a-button>
         </div>
       </template>
 
@@ -59,9 +57,7 @@
                   :mouseLeaveDelay="0.4"
                   :getPopupContainer="getPopupContainer"
                 >
-                  <template #title>
-                    {{ t("component.table.settingFixedLeft") }}
-                  </template>
+                  <template #title> 固定到左侧 </template>
                   <Icon
                     icon="line-md:arrow-align-left"
                     :class="[
@@ -82,9 +78,7 @@
                   :mouseLeaveDelay="0.4"
                   :getPopupContainer="getPopupContainer"
                 >
-                  <template #title>
-                    {{ t("component.table.settingFixedRight") }}
-                  </template>
+                  <template #title> 固定到右侧 </template>
                   <Icon
                     icon="line-md:arrow-align-left"
                     :class="[
@@ -128,7 +122,6 @@ import type { CheckboxChangeEvent } from "ant-design-vue/lib/checkbox/interface"
 import { SettingOutlined, DragOutlined } from "@ant-design/icons-vue";
 import { Icon } from "components/Icon";
 import { ScrollContainer } from "components/Container";
-import { useI18n } from "hooks/web/useI18n";
 import { useTableContext } from "../../hooks/useTableContext";
 import { useDesign } from "hooks/web/useDesign";
 import { isFunction, isNil } from "utils/is";
@@ -149,7 +142,6 @@ const emit = defineEmits(["columns-change"]);
 
 const route = useRoute();
 
-const { t } = useI18n();
 const { prefixCls } = useDesign("basic-column-setting");
 
 const attrs = useAttrs();
@@ -642,7 +634,6 @@ onMounted(() => {
   watch([getColumns, getValues], () => {
     if (!isInnerChange) {
       isRestored = false;
-      console.log("onMounted isRestored");
       init();
     } else {
       isInnerChange = false;

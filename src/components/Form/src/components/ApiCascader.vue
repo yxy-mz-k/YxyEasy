@@ -13,7 +13,7 @@
     <template #notFoundContent v-if="loading">
       <span>
         <LoadingOutlined spin class="mr-1" />
-        {{ t("component.form.apiSelectNotFound") }}
+        请等待数据加载完成...
       </span>
     </template>
   </Cascader>
@@ -27,7 +27,6 @@ import { isFunction } from "utils/is";
 import { get, omit } from "lodash-es";
 import { useRuleFormItem } from "hooks/component/useFormItem";
 import { LoadingOutlined } from "@ant-design/icons-vue";
-import { useI18n } from "hooks/web/useI18n";
 
 interface Option {
   value?: string;
@@ -87,7 +86,6 @@ const options = ref<Option[]>([]);
 const loading = ref<boolean>(false);
 const emitData = ref<any[]>([]);
 const isFirstLoad = ref(true);
-const { t } = useI18n();
 // Embedded in the form, just use the hook binding to perform form verification
 const [state]: any = useRuleFormItem(props, "value", "change", emitData);
 
@@ -143,7 +141,6 @@ async function fetch() {
       apiData.value = get(res, resultField) || [];
     }
   } catch (error) {
-    console.warn(error);
   } finally {
     loading.value = false;
   }
@@ -175,7 +172,6 @@ const loadData: CascaderProps["loadData"] = async (selectedOptions) => {
       targetOption.children = children;
     }
   } catch (e) {
-    console.error(e);
   } finally {
     targetOption.loading = false;
   }

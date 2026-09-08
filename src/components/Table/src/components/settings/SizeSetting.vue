@@ -1,7 +1,7 @@
 <template>
   <Tooltip placement="top">
     <template #title>
-      <span>{{ t("component.table.settingDens") }}</span>
+      <span>密度</span>
     </template>
 
     <Dropdown
@@ -17,13 +17,13 @@
           v-model:selectedKeys="selectedKeysRef"
         >
           <Menu.Item key="default">
-            <span>{{ t("component.table.settingDensDefault") }}</span>
+            <span>默认</span>
           </Menu.Item>
           <Menu.Item key="middle">
-            <span>{{ t("component.table.settingDensMiddle") }}</span>
+            <span>中等</span>
           </Menu.Item>
           <Menu.Item key="small">
-            <span>{{ t("component.table.settingDensSmall") }}</span>
+            <span>紧凑</span>
           </Menu.Item>
         </Menu>
       </template>
@@ -35,7 +35,6 @@ import type { SizeType } from "../../types/table";
 import { ref, onMounted } from "vue";
 import { Tooltip, Dropdown, Menu, type MenuProps } from "ant-design-vue";
 import { ColumnHeightOutlined } from "@ant-design/icons-vue";
-import { useI18n } from "hooks/web/useI18n";
 import { useTableContext } from "../../hooks/useTableContext";
 import { getPopupContainer } from "utils/index";
 
@@ -46,7 +45,6 @@ const tableSettingStore = useTableSettingStore();
 defineOptions({ name: "SizeSetting" });
 
 const table = useTableContext();
-const { t } = useI18n();
 
 const selectedKeysRef = ref<SizeType[]>([table.getSize()]);
 

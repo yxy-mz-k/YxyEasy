@@ -1,16 +1,14 @@
 import { ComponentType } from "../../types/componentType";
-import { useI18n } from "hooks/web/useI18n";
 
 /**
  * @description: 生成placeholder
  */
 export function createPlaceholderMessage(component: ComponentType) {
-  const { t } = useI18n();
   if (component.includes("Input") || component.includes("AutoComplete")) {
-    return t("common.inputText");
+    return "请输入";
   }
   if (component.includes("Picker")) {
-    return t("common.chooseText");
+    return "请选择";
   }
 
   if (
@@ -21,7 +19,7 @@ export function createPlaceholderMessage(component: ComponentType) {
     component.includes("DatePicker") ||
     component.includes("TimePicker")
   ) {
-    return t("common.chooseText");
+    return "请选择";
   }
   return "";
 }

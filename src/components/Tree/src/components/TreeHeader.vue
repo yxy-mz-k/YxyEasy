@@ -56,7 +56,6 @@ import {
 } from "ant-design-vue";
 import Icon from "components/Icon";
 import { BasicTitle } from "components/Basic";
-import { useI18n } from "hooks/web/useI18n";
 import { useDebounceFn } from "@vueuse/core";
 import { createBEM } from "utils/bem";
 import { ToolbarEnum } from "../types/tree";
@@ -122,7 +121,6 @@ const props = defineProps({
 const emit = defineEmits(["strictly-change", "search"]);
 
 const slots = useSlots();
-const { t } = useI18n();
 
 const getInputSearchCls = computed(() => {
   const titleExists = slots.headerTitle || props.title;
@@ -138,9 +136,9 @@ const getInputSearchCls = computed(() => {
 const toolbarList = computed(() => {
   const { checkable } = props;
   const defaultToolbarList = [
-    { label: t("component.tree.expandAll"), value: ToolbarEnum.EXPAND_ALL },
+    { label: "展开全部", value: ToolbarEnum.EXPAND_ALL },
     {
-      label: t("component.tree.unExpandAll"),
+      label: "折叠全部",
       value: ToolbarEnum.UN_EXPAND_ALL,
       divider: checkable,
     },
@@ -148,19 +146,19 @@ const toolbarList = computed(() => {
 
   return checkable
     ? [
-        // { label: t('component.tree.selectAll'), value: ToolbarEnum.SELECT_ALL },
+        // { label: '选择全部', value: ToolbarEnum.SELECT_ALL },
         // {
-        //   label: t('component.tree.unSelectAll'),
+        //   label:'取消选择',
         //   value: ToolbarEnum.UN_SELECT_ALL,
         //   divider: checkable,
         // },
         ...defaultToolbarList,
         {
-          label: t("component.tree.checkStrictly"),
+          label: "层级关联",
           value: ToolbarEnum.CHECK_STRICTLY,
         },
         {
-          label: t("component.tree.checkUnStrictly"),
+          label: "层级独立",
           value: ToolbarEnum.CHECK_UN_STRICTLY,
         },
       ]

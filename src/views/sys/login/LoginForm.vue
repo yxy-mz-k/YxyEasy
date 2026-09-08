@@ -12,7 +12,7 @@
       <Input
         size="large"
         v-model:value="formData.username"
-        :placeholder="t('sys.login.userName')"
+        placeholder="账号"
         class="fix-auto-fill"
       />
     </FormItem>
@@ -21,7 +21,7 @@
         size="large"
         visibilityToggle
         v-model:value="formData.password"
-        :placeholder="t('sys.login.password')"
+        placeholder="密码"
       />
     </FormItem>
 
@@ -49,7 +49,7 @@
         <FormItem>
           <!-- No logic, you need to deal with it yourself -->
           <Checkbox v-model:checked="rememberMe" size="small">
-            {{ t("sys.login.rememberMe") }}
+            记住我
           </Checkbox>
         </FormItem>
       </ACol>
@@ -61,7 +61,7 @@
             size="small"
             @click="setLoginState(LoginStateEnum.RESET_PASSWORD)"
           >
-            {{ t("sys.login.forgetPassword") }}
+            忘记密码?
           </Button>
         </FormItem>
       </ACol>
@@ -74,7 +74,7 @@
         @click="handleLogin"
         :loading="loading"
       >
-        {{ t("sys.login.loginButton") }}
+        登录
       </Button>
     </FormItem>
   </Form>
@@ -85,7 +85,6 @@ import { reactive, ref, unref, computed, onMounted } from "vue";
 import { Checkbox, Form, Input, Row, Col, Button } from "ant-design-vue";
 import LoginFormTitle from "./LoginFormTitle.vue";
 import { useMessage } from "hooks/web/useMessage";
-import { useI18n } from "hooks/web/useI18n";
 import { getVerImage } from "api/sys/user";
 import { useUserStore } from "store/modules/user";
 import {
@@ -103,7 +102,6 @@ const ACol = Col;
 const ARow = Row;
 const FormItem = Form.Item;
 const InputPassword = Input.Password;
-const { t } = useI18n();
 const { notification, createErrorModal } = useMessage();
 const { prefixCls } = useDesign("login");
 const userStore = useUserStore();
@@ -156,8 +154,8 @@ async function handleLogin() {
     });
     if (userInfo) {
       notification.success({
-        message: t("sys.login.loginSuccessTitle"),
-        description: `${t("sys.login.loginSuccessDesc")}: ${userInfo.realname}`,
+        message: "登录成功",
+        description: `欢迎回来: ${userInfo.realname}`,
         duration: 3,
       });
     } else {
@@ -166,11 +164,6 @@ async function handleLogin() {
     }
   } catch (error) {
     getVerImageApi();
-    // createErrorModal({
-    //   title: t('sys.api.errorTip'),
-    //   content: (error as unknown as Error).message || t('sys.api.networkExceptionMsg'),
-    //   getContainer: () => document.body.querySelector(`.${prefixCls}`) || document.body,
-    // });
   } finally {
     loading.value = false;
   }

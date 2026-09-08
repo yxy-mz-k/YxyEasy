@@ -4,17 +4,15 @@ import { isImgTypeByName } from '../helper';
 import { Progress, Tag } from 'ant-design-vue';
 import TableAction from 'components/Table/src/components/TableAction.vue';
 import ThumbUrl from './ThumbUrl.vue';
-import { useI18n } from 'hooks/web/useI18n';
 import { previewColumnsFnType } from '../props';
 
 
 // 文件上传列表
 export function createTableColumns(): FileBasicColumn[] {
-const { t } = useI18n();
   return [
     {
       dataIndex: 'thumbUrl',
-      title: t('component.upload.legend'),
+      title: '略缩图',
       width: 100,
       customRender: ({ record }) => {
         const { thumbUrl } = (record as FileItem) || {};
@@ -23,7 +21,7 @@ const { t } = useI18n();
     },
     {
       dataIndex: 'name',
-      title: t('component.upload.fileName'),
+      title:  '文件名',
       align: 'left',
       customRender: ({ text, record }) => {
         const { percent, status: uploadStatus } = (record as FileItem) || {};
@@ -47,7 +45,7 @@ const { t } = useI18n();
     },
     {
       dataIndex: 'size',
-      title: t('component.upload.fileSize'),
+      title:'文件大小',
       width: 100,
       customRender: ({ text = 0 }) => {
         return text && (text / 1024).toFixed(2) + 'KB';
@@ -55,33 +53,32 @@ const { t } = useI18n();
     },
     {
       dataIndex: 'status',
-      title: t('component.upload.fileStatue'),
+      title:'状态',
       width: 100,
       customRender: ({ text }) => {
         if (text === UploadResultStatus.SUCCESS) {
-          return <Tag color="green">{() => t('component.upload.uploadSuccess')}</Tag>;
+          return <Tag color="green">{() =>'上传成功'}</Tag>;
         } else if (text === UploadResultStatus.ERROR) {
-          return <Tag color="red">{() => t('component.upload.uploadError')}</Tag>;
+          return <Tag color="red">{() => '上传失败'}</Tag>;
         } else if (text === UploadResultStatus.UPLOADING) {
-          return <Tag color="blue">{() => t('component.upload.uploading')}</Tag>;
+          return <Tag color="blue">{() =>'上传中'}</Tag>;
         }
 
-        return text || t('component.upload.pending');
+        return text ||'处理中'
       },
     },
   ];
 }
 export function createActionColumn(handleRemove: Function): FileBasicColumn {
-const { t } = useI18n();
   return {
     width: 120,
-    title: t('component.upload.operating'),
+    title: '操作',
     dataIndex: 'action',
     fixed: false,
     customRender: ({ record }) => {
       const actions: ActionItem[] = [
         {
-          label: t('component.upload.del'),
+          label: '删除',
           color: 'error',
           onClick: handleRemove.bind(null, {
             record,
@@ -96,11 +93,10 @@ const { t } = useI18n();
 }
 // 文件预览列表
 export function createPreviewColumns(): BasicColumn[] {
-const { t } = useI18n();
   return [
     {
       dataIndex: 'url',
-      title: t('component.upload.legend'),
+      title:'略缩图',
       width: 100,
       customRender: ({ record }) => {
         const { url } = (record as PreviewFileItem) || {};
@@ -109,7 +105,7 @@ const { t } = useI18n();
     },
     {
       dataIndex: 'name',
-      title: t('component.upload.fileName'),
+      title:'文件名',
       align: 'left',
     },
   ];
@@ -122,16 +118,15 @@ export function createPreviewActionColumn({
   handleRemove: previewColumnsFnType['handleRemove'];
   handleDownload: Fn;
 }): BasicColumn {
-const { t } = useI18n();
   return {
     width: 160,
-    title: t('component.upload.operating'),
+    title: '操作',
     dataIndex: 'action',
     fixed: false,
     customRender: ({ record }) => {
       const actions: ActionItem[] = [
         {
-          label: t('component.upload.del'),
+          label: '删除',
           color: 'error',
           onClick: handleRemove.bind(null, {
             record,
@@ -140,7 +135,7 @@ const { t } = useI18n();
           }),
         },
         {
-          label: t('component.upload.download'),
+          label:'下载',
           onClick: handleDownload.bind(null, record),
         },
       ];

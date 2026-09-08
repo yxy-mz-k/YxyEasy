@@ -9,7 +9,6 @@ export function getSlot(slots: Slots, slot = 'default', data?: any) {
     return null;
   }
   if (!isFunction(slots[slot])) {
-    console.error(`${slot} is not a function!`);
     return null;
   }
   const slotFn = slots[slot];

@@ -8,7 +8,6 @@ import { cacheKeys } from "enums/cacheEnum";
 import { getAuthCache, setAuthCache, clearAuthCache } from "utils/auth";
 import { GetUserInfoModel, LoginParams } from "api/sys/model/userModel";
 import { doLogout, getUserInfo, loginApi } from "api/sys/user";
-import { useI18n } from "hooks/web/useI18n";
 import { useMessage } from "hooks/web/useMessage";
 import { router } from "router/index";
 import { usePermissionStore } from "store/modules/permission";
@@ -180,9 +179,7 @@ export const useUserStore = defineStore({
             document.cookie = cname + "=" + cvalue + "; " + expires;
           }
           setCookie("user_token", "", -1);
-        } catch {
-          console.error("注销Token失败");
-        }
+        } catch {}
       }
       this.setToken(undefined);
       this.setSessionTimeout(false);
@@ -196,11 +193,10 @@ export const useUserStore = defineStore({
      */
     confirmLoginOut() {
       const { createConfirm } = useMessage();
-      const { t } = useI18n();
       createConfirm({
         iconType: "warning",
-        title: () => h("span", t("sys.app.logoutTip")),
-        content: () => h("span", t("sys.app.logoutMessage")),
+        title: () => h("span", "温馨提醒"),
+        content: () => h("span", "是否确认退出系统?"),
         onOk: async () => {
           await this.logout(true);
         },

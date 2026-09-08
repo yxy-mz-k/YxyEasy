@@ -5,7 +5,6 @@ import { useTimeoutFn } from "hooks/core/useTimeout";
 import BasicDragVerify from "./DragVerify.vue";
 import { hackCss } from "utils/domUtils";
 import { rotateProps } from "./props";
-import { useI18n } from "hooks/web/useI18n";
 
 export default defineComponent({
   name: "ImgRotateDragVerify",
@@ -25,7 +24,6 @@ export default defineComponent({
       endTime: 0,
       draged: false,
     });
-    const { t } = useI18n();
 
     watch(
       () => state.isPassing,
@@ -153,13 +151,13 @@ export default defineComponent({
                 ]}
               >
                 {state.isPassing
-                  ? t("component.verify.time", { time: time.toFixed(1) })
-                  : t("component.verify.error")}
+                  ? `验证校验成功,耗时${time.toFixed(1)}秒！`
+                  : '验证失败！'
               </span>
             )}
             {!state.showTip && !state.draged && (
               <span class={[`ir-dv-img__tip`, "normal"]}>
-                {t("component.verify.redoTip")}
+                {'点击图片可刷新'}
               </span>
             )}
           </div>

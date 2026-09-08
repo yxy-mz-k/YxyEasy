@@ -11,9 +11,7 @@ export type RouteLocationRawEx = Omit<RouteLocationRaw, "path"> & {
   path: PageEnum;
 };
 
-function handleError(e: Error) {
-  console.error(e);
-}
+function handleError(e: Error) {}
 
 // page switch
 export function useGo(_router?: Router) {
