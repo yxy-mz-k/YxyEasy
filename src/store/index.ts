@@ -1,8 +1,8 @@
 import type { App } from "vue";
-import { createPinia } from "pinia";
+import { createPinia, setActivePinia } from "pinia";
 
 const store = createPinia();
-
+// setActivePinia(store);
 export function setupStore(app: App<Element>) {
   app.use(store);
 }

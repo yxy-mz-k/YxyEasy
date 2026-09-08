@@ -31,5 +31,7 @@ export function resetRouter() {
 
 // config router
 export function setupRouter(app: App<Element>) {
+  // if (!app.config.globalProperties.$router) {
   app.use(router);
+  // }
 }

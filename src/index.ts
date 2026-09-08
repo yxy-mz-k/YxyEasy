@@ -9,7 +9,7 @@ import "design/index.less";
 
 // 导入配置
 import { setGlobalConfig } from "utils/global";
-import { useConfigStore } from "store/modules/config";
+// import { useConfigStore } from "store/modules/config";
 
 // 导出所有内容
 export * from "./api";
@@ -34,15 +34,15 @@ const install = async (app: App, options?: YxyEasyOptions) => {
   if (options) {
     setGlobalConfig(options);
   }
+  // 2. 初始化 Pinia
+  // const pinia = createPinia();
+  // setActivePinia(pinia);
+  // app.use(pinia);
+
   setupStore(app);
   await setupI18n(app);
   setupRouter(app);
   setupRouterGuard(router);
-
-  // 2. 初始化 Pinia
-  const pinia = createPinia();
-  setActivePinia(pinia);
-  app.use(pinia);
 
   // 6. 注册组件
   Object.values(components).forEach((component: any) => {
