@@ -1,4 +1,5 @@
 export * from "./app";
+export * from "./config";
 export * from "./configManage";
 export * from "./dic";
 export * from "./errorLog";

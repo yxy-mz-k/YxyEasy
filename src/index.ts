@@ -23,20 +23,26 @@ export * from "./utils";
 export type * from "./types";
 export { defHttp } from "./utils/http";
 
+import { setupStore } from "store/index";
+import { setupI18n } from "locales/setupI18n";
+import { router, setupRouter } from "router/index";
+import { setupRouterGuard } from "router/guard";
+
 // 默认导出插件
-const install = (app: App, options?: YxyEasyOptions) => {
+const install = async (app: App, options?: YxyEasyOptions) => {
   // 1. 先设置全局配置（在任何 store 使用之前）
   if (options) {
     setGlobalConfig(options);
   }
+  setupStore(app);
+  await setupI18n(app);
+  setupRouter(app);
+  setupRouterGuard(router);
 
   // 2. 初始化 Pinia
   const pinia = createPinia();
   setActivePinia(pinia);
   app.use(pinia);
-
-  const EASYCONFIG = useConfigStore();
-  EASYCONFIG.setConfig(options);
 
   // 6. 注册组件
   Object.values(components).forEach((component: any) => {

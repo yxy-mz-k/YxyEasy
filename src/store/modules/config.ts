@@ -1,19 +1,16 @@
 import { defineStore } from "pinia";
 
-export const useConfigStore = defineStore("EASYCONFIG", {
-  state: () => {
-    return {
-      key: <any>"",
-      project: <any>"",
-      appId: <any>"",
-      suffixApi: <any>"",
-      name: <any>"",
-      VITE_GLOB_APP_SHORT_NAME: "vue_vben_admin",
-    };
-  },
-  // 类似 computed
+export const useConfigStore = defineStore({
+  id: "EASYCONFIG",
+  state: () => ({
+    key: <any>"",
+    project: <any>"",
+    appId: <any>"",
+    suffixApi: <any>"",
+    name: <any>"",
+    VITE_GLOB_APP_SHORT_NAME: "vue_vben_admin",
+  }),
   getters: {},
-  // 类似 methods 可以做同步 异步 用来提交 state
   actions: {
     setConfig(options: any) {
       this.key = options?.key;
