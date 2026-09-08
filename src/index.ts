@@ -3,8 +3,8 @@ import type { App } from "vue";
 import { createPinia, setActivePinia } from "pinia";
 import type { YxyEasyOptions } from "./types";
 import * as components from "./components";
-import "./styles/index.scss";
-// import "design/theme.less";
+import "styles/index.scss";
+import "styles/variables.less";
 import "design/index.less";
 
 // 导入配置

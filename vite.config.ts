@@ -93,6 +93,14 @@ export default defineConfig({
         // 保持模块结构
         // preserveModules: true,
         // preserveModulesRoot: "src",
+
+        // 确保 CSS 被提取
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name.endsWith(".css")) {
+            return "style.css";
+          }
+          return assetInfo.name;
+        },
       },
     }, // 压缩选项
     minify: "terser",
@@ -110,7 +118,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       less: {
-        additionalData: `@import "styles/variables.less";`, // 自动注入
+        javascriptEnabled: true,
+        additionalData: `@import "${resolve(
+          __dirname,
+          "src/styles/variables.less",
+        )}";`,
       },
     },
   },
