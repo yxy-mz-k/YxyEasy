@@ -3,6 +3,7 @@ export * from "./dics";
 export * from "./fields";
 export * from "./fileUtils";
 export * from "./geo";
+export * from "./mapId";
 export * from "./menu";
 export * from "./model";
 export * from "./public";
