@@ -8,7 +8,7 @@ import {
   UnwrapRef,
   ref,
 } from "vue";
-import { getGlobalConfig } from "utils/global";
+import { prefixCls } from "settings/designSetting";
 
 export interface CreateContextOptions {
   readonly?: boolean;
@@ -49,8 +49,7 @@ export function useContext<T>(
 ): ShallowUnwrap<T> {
   // 提供默认值
   const defaultContext = {
-    prefixCls: ref(getGlobalConfig().prefixCls || "vben"),
-    isMobile: ref(false),
+    prefixCls,
   };
   return inject(key, defaultValue || defaultContext);
 }
