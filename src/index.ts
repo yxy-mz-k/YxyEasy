@@ -26,7 +26,7 @@ export { defHttp } from "./utils/http";
 import { setupStore } from "store/index";
 import { setupI18n } from "locales/setupI18n";
 import { router, setupRouter } from "router/index";
-import { setupRouterGuard } from "router/guard";
+import { setupRouterGuard } from "router/guard/index";
 
 // 默认导出插件
 const install = async (app: App, options?: YxyEasyOptions) => {
