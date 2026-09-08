@@ -42,6 +42,7 @@ import { useErrorLogStore } from "store/modules/errorLog";
 // import { fireErrorApi } from 'api/demo/error';
 import { getColumns } from "./data";
 import { cloneDeep } from "lodash-es";
+import { globalConfig } from "utils/global";
 
 const rowInfo = ref<ErrorLogInfo>();
 const imgList = ref<string[]>([]);
@@ -72,9 +73,9 @@ watch(
   },
 );
 const { createMessage } = useMessage();
-if (import.meta.env.DEV) {
-  createMessage.info(t("sys.errorLog.enableMessage"));
-}
+// if (globalConfig?.isEnv) {
+//   createMessage.info(t("sys.errorLog.enableMessage"));
+// }
 // 查看详情
 function handleDetail(row: ErrorLogInfo) {
   rowInfo.value = row;

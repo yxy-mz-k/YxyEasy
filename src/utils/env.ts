@@ -1,5 +1,6 @@
 import type { GlobEnvConfig } from "types/config";
 
+import { globalConfig } from "utils/global";
 import { warn } from "utils/log";
 import pkg from "../../package.json";
 
@@ -44,7 +45,7 @@ export const prodMode = "production";
  * @example:
  */
 export function getEnv(): string {
-  return import.meta.env.MODE;
+  return globalConfig?.isEnv ? "development" : "production";
 }
 
 /**
@@ -53,7 +54,7 @@ export function getEnv(): string {
  * @example:
  */
 export function isDevMode(): boolean {
-  return import.meta.env.DEV;
+  return globalConfig?.isEnv;
 }
 
 /**
@@ -62,5 +63,5 @@ export function isDevMode(): boolean {
  * @example:
  */
 export function isProdMode(): boolean {
-  return import.meta.env.PROD;
+  return !globalConfig?.isEnv;
 }
