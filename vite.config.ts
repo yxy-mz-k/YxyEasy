@@ -110,12 +110,12 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       less: {
-        additionalData: `@import "styles/variables.less";`, // 自动注入
+        additionalData: `@import "design/index.less";`, // 自动注入
       },
     },
   },
-  define: {
-    __COLOR_PLUGIN_OUTPUT_FILE_NAME__: JSON.stringify(""),
-    __COLOR_PLUGIN_OPTIONS__: JSON.stringify({}),
-  },
+  // define: {
+  //   __COLOR_PLUGIN_OUTPUT_FILE_NAME__: JSON.stringify(""),
+  //   __COLOR_PLUGIN_OPTIONS__: JSON.stringify({}),
+  // },
 });

@@ -4,7 +4,8 @@ import { createPinia, setActivePinia } from "pinia";
 import type { YxyEasyOptions } from "./types";
 import * as components from "./components";
 import "./styles/index.scss";
-import "design/theme.less";
+// import "design/theme.less";
+import "design/index.less";
 
 // 导入配置
 import { setGlobalConfig } from "utils/global";
@@ -13,6 +14,7 @@ import { useConfigStore } from "store/modules/config";
 // 导出所有内容
 export * from "./api";
 export * from "./components";
+// export * from "./design/index.less";
 export * from "./enums";
 export * from "./hooks";
 export * from "./settings";
