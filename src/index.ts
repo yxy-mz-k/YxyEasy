@@ -33,6 +33,7 @@ const install = async (app: App, options?: YxyEasyOptions) => {
   if (options) {
     setGlobalConfig(options);
   }
+
   // 2. 初始化 Pinia
   // const pinia = createPinia();
   // setActivePinia(pinia);

@@ -5,6 +5,8 @@ export let globalConfig: any = {
   VITE_HOST: "192.168.6.2:8899",
   VITE_PUBLIC_PATH: "/park",
   VITE_GLOB_APP_SHORT_NAME: "vue_vben_admin",
+  GLOB_CONFIG_FILE_NAME: "_app.config.js",
+  VITE_USE_PWA: false,
 };
 
 // 设置配置

@@ -6,6 +6,7 @@ import { resolve } from "path";
 import glob from "vite-plugin-glob";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { generateModifyVars } from "./src/utils/generateModifyVars";
+import { createVitePlugins } from "utils/build";
 // https://vite.dev/config/
 // import pkg from "./package.json";
 
@@ -15,21 +16,7 @@ import { generateModifyVars } from "./src/utils/generateModifyVars";
 //   lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
 // };
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueJsx(),
-    glob(),
-    createSvgIconsPlugin({
-      // 指定需要缓存的图标文件夹
-      iconDirs: [resolve(process.cwd(), "src/assets/icons")],
-      // 指定 symbolId 格式
-      symbolId: "icon-[dir]-[name]",
-      // 自定义插入位置
-      inject: "body-last",
-      // 自定义 domId
-      customDomId: "__svg__icons__dom__",
-    }),
-  ],
+  plugins: createVitePlugins(),
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
