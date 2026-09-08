@@ -29,9 +29,16 @@ export function resetRouter() {
   });
 }
 
+// 标记是否已安装
+let installed = false;
 // config router
 export function setupRouter(app: App<Element>) {
-  // if (!app.config.globalProperties.$router) {
-  app.use(router);
-  // }
+  // 防止重复安装
+  if (installed) {
+    return;
+  }
+  if (!app.config.globalProperties.$router) {
+    app.use(router);
+    installed = true;
+  }
 }

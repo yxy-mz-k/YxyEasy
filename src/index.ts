@@ -11,6 +11,11 @@ import "design/index.less";
 import { setGlobalConfig } from "utils/global";
 // import { useConfigStore } from "store/modules/config";
 
+import { setupStore } from "store/index";
+import { setupI18n } from "locales/setupI18n";
+import { router, setupRouter } from "router/index";
+import { setupRouterGuard } from "router/guard/index";
+
 // 导出所有内容
 export * from "./api";
 export * from "./components";
@@ -22,11 +27,6 @@ export * from "./store";
 export * from "./utils";
 export type * from "./types";
 export { defHttp } from "./utils/http";
-
-import { setupStore } from "store/index";
-import { setupI18n } from "locales/setupI18n";
-import { router, setupRouter } from "router/index";
-import { setupRouterGuard } from "router/guard/index";
 
 // 默认导出插件
 const install = async (app: App, options?: YxyEasyOptions) => {
