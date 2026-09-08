@@ -6,7 +6,7 @@ import { resolve } from "path";
 import glob from "vite-plugin-glob";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { generateModifyVars } from "./src/utils/generateModifyVars";
-import { createVitePlugins } from "./src/utils/build";
+import { createVitePlugins } from "./src/utils/build/index";
 // https://vite.dev/config/
 // import pkg from "./package.json";
 
