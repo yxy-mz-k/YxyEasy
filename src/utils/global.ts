@@ -26,5 +26,5 @@ export function setGlobalConfig(options: any) {
 
 // 获取配置
 export function getGlobalConfig() {
-  return readonly(globalConfig);
+  return globalConfig;
 }
