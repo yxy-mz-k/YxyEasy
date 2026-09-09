@@ -3,14 +3,14 @@ import { merge, random } from "lodash-es";
 import { isArray } from "utils/is";
 import { FormSchema } from "components/Form";
 
-const globSetting = useGlobSetting();
-const baseApiUrl = globSetting.domainUrl;
 /**
  *  获取文件服务访问路径
  * @param fileUrl 文件路径
  * @param prefix(默认http)  文件路径前缀 http/https
  */
 export const getFileAccessHttpUrl = (fileUrl, prefix = "http") => {
+  const globSetting = useGlobSetting();
+  const baseApiUrl = globSetting.domainUrl;
   let result = fileUrl;
   try {
     if (fileUrl && fileUrl.length > 0 && !fileUrl.startsWith(prefix)) {

@@ -72,7 +72,6 @@ onMounted(async () => {
 const { prefixCls } = useDesign("app-logo");
 const { getCollapsedShowTitle } = useMenuSetting();
 const userStore = useUserStore();
-// const { title } = useGlobSetting();
 const go = useGo();
 
 const getAppLogoClass = computed(() => [
