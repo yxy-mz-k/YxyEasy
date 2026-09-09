@@ -7,6 +7,10 @@ export let globalConfig: any = {
   VITE_GLOB_APP_SHORT_NAME: "vue_vben_admin",
   GLOB_CONFIG_FILE_NAME: "_app.config.js",
   VITE_USE_PWA: false,
+  VITE_PROXY: [
+    ["/upload", "http://192.168.6.2:8899/upload"],
+    ["/oss", "http://192.168.6.2:8899/oss"],
+  ],
 };
 
 // 设置配置

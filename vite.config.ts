@@ -7,14 +7,8 @@ import glob from "vite-plugin-glob";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { generateModifyVars } from "./src/utils/generateModifyVars";
 import { createVitePlugins } from "./src/utils/build/index";
-// https://vite.dev/config/
-// import pkg from "./package.json";
+import { createProxy } from "./src/utils/build/vite/proxy";
 
-// const { dependencies, devDependencies, name, version } = pkg;
-// const __APP_INFO__ = {
-//   pkg: { dependencies, devDependencies, name, version },
-//   lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-// };
 export default defineConfig({
   plugins: createVitePlugins(),
   resolve: {
@@ -124,5 +118,13 @@ export default defineConfig({
       "ant-design-vue/es/locale/zh_CN",
       "ant-design-vue/es/locale/en_US",
     ],
+  },
+  server: {
+    // https: false,
+    // Listening on all local IPs
+    // host: true,
+    // port: VITE_PORT,
+    // Load proxy configuration from .env
+    proxy: createProxy(),
   },
 });

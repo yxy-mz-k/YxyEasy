@@ -17,8 +17,6 @@ import { joinTimestamp, formatRequestDate } from "./helper";
 import { useUserStoreWithOut } from "store/modules/user";
 import { AxiosRetry } from "utils/http/axiosRetry";
 import { getToken } from "utils/auth";
-const globSetting = useGlobSetting();
-const urlPrefix = globSetting.urlPrefix;
 const { createMessage, createErrorModal } = useMessage();
 /**
  * @description: 数据处理，方便区分多种处理方式
@@ -102,6 +100,7 @@ const transform: AxiosTransform = {
     if (apiUrl && isString(apiUrl)) {
       config.url = `${apiUrl}${config.url}`;
     }
+
     const params = config.params || {};
     const data = config.data || false;
     formatDate && data && !isString(data) && formatRequestDate(data);
@@ -232,6 +231,8 @@ const transform: AxiosTransform = {
 };
 
 function createAxios(opt?: Partial<CreateAxiosOptions>) {
+  const globSetting = useGlobSetting();
+  const urlPrefix = globSetting.urlPrefix;
   return new VAxios(
     deepMerge(
       {
