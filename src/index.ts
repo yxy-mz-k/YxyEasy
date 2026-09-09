@@ -1,5 +1,6 @@
 // src/index.ts
 import type { App } from "vue";
+import { nextTick } from "vue";
 // import { createPinia, setActivePinia } from "pinia";
 import type { YxyEasyOptions } from "./types";
 import * as components from "./components";
@@ -35,6 +36,8 @@ const install = async (app: App, options?: YxyEasyOptions) => {
   if (options) {
     setGlobalConfig(options);
   }
+  // 等待下一帧，确保配置生效
+  await nextTick(() => {});
 
   // 2. 初始化 Pinia
   // const pinia = createPinia();

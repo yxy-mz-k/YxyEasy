@@ -3,9 +3,10 @@
  * https://github.com/antfu/vite-plugin-pwa
  */
 import { VitePWA } from "vite-plugin-pwa";
-import { globalConfig } from "../global";
+import { getGlobalConfig } from "../global";
 
 export function configPwaConfig() {
+  let globalConfig = getGlobalConfig();
   if (globalConfig?.VITE_USE_PWA) {
     // vite-plugin-pwa
     const pwaPlugin = VitePWA({

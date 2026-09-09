@@ -5,9 +5,10 @@
 
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import path from "path";
-import { globalConfig } from "../global";
+import { getGlobalConfig } from "../global";
 
 export function configSvgIconsPlugin() {
+  let globalConfig = getGlobalConfig();
   const isBuild = !globalConfig?.isEnv;
   const svgIconsPlugin = createSvgIconsPlugin({
     iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],

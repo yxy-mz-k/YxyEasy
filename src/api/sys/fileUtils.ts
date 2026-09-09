@@ -2,7 +2,7 @@
 import { useUserStore } from "store/modules/user";
 import { defHttp } from "utils/http/index";
 import axios from "axios";
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 let contextPath;
 function getUrlRelativePath() {
   if (contextPath) {
@@ -30,6 +30,7 @@ export const uploadFileApi = ({
   onUploadProgress,
   moreoverParams = null,
 }) => {
+  let globalConfig = getGlobalConfig();
   const formData = new FormData();
   formData.append("file", file);
   formData.append("fileName", file.name || "file");

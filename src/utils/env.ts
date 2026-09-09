@@ -1,11 +1,13 @@
 import type { GlobEnvConfig } from "types/config";
 
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 import { warn } from "utils/log";
 import pkg from "../../package.json";
 
 export function getCommonStoragePrefix() {
-  return `${globalConfig?.VITE_GLOB_APP_SHORT_NAME}__${getEnv()}`.toUpperCase();
+  return `${
+    getGlobalConfig()?.VITE_GLOB_APP_SHORT_NAME
+  }__${getEnv()}`.toUpperCase();
 }
 
 export function getStorageShortName() {
@@ -13,7 +15,7 @@ export function getStorageShortName() {
 }
 
 export function getAppEnvConfig() {
-  if (!/^[a-zA-Z\_]*$/.test(globalConfig?.VITE_GLOB_APP_SHORT_NAME)) {
+  if (!/^[a-zA-Z\_]*$/.test(getGlobalConfig()?.VITE_GLOB_APP_SHORT_NAME)) {
     warn(
       `VITE_GLOB_APP_SHORT_NAME Variables can only be characters/underscores, please modify in the environment variables and re-running.`,
     );
@@ -22,7 +24,7 @@ export function getAppEnvConfig() {
   return {
     // VITE_GLOB_APP_TITLE,
     // VITE_GLOB_API_URL,
-    VITE_GLOB_APP_SHORT_NAME: globalConfig?.VITE_GLOB_APP_SHORT_NAME,
+    VITE_GLOB_APP_SHORT_NAME: getGlobalConfig()?.VITE_GLOB_APP_SHORT_NAME,
     // VITE_GLOB_API_URL_PREFIX,
     // VITE_GLOB_UPLOAD_URL,
   };
@@ -44,7 +46,7 @@ export const prodMode = "production";
  * @example:
  */
 export function getEnv(): string {
-  return globalConfig?.isEnv ? "development" : "production";
+  return getGlobalConfig()?.isEnv ? "development" : "production";
 }
 
 /**
@@ -53,7 +55,7 @@ export function getEnv(): string {
  * @example:
  */
 export function isDevMode(): boolean {
-  return globalConfig?.isEnv;
+  return getGlobalConfig()?.isEnv;
 }
 
 /**
@@ -62,5 +64,5 @@ export function isDevMode(): boolean {
  * @example:
  */
 export function isProdMode(): boolean {
-  return !globalConfig?.isEnv;
+  return !getGlobalConfig()?.isEnv;
 }

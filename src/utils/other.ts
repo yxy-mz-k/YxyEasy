@@ -255,11 +255,12 @@ export function handleTreeData(data) {
   return data;
 }
 
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 import { queryByIds } from "api/sys/fileUtils";
 
 export async function getFileList(ids?: string) {
   const fileList: any = [];
+  let globalConfig = getGlobalConfig();
   if (ids) {
     await queryByIds({
       id: Array.isArray(ids) ? ids?.join(",") : ids,

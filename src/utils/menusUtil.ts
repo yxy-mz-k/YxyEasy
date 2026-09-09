@@ -1,8 +1,9 @@
 import { getMenuListResultModel } from "api/sys/model/menuModel";
 import { translateDataToTree } from "utils/other";
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 export const getFormatMenusByData = (dataList: any) => {
   // eslint-disable-next-line prefer-const
+  let globalConfig = getGlobalConfig();
   const origin = globalConfig?.VITE_ORIGIN;
   dataList.forEach((element) => {
     //将拓展字段加入字段表

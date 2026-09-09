@@ -22,7 +22,7 @@ import { defineComponent, ref, unref, onMounted, reactive, toRefs } from "vue";
 import { BasicModal, useModalInner } from "components/Modal";
 import { useMessage } from "hooks/web/useMessage";
 const { createMessage } = useMessage();
-import { globalConfig } from "utils/global.js";
+import { getGlobalConfig } from "utils/global.js";
 
 import { useUserStore, useUserStoreWithOut } from "store/modules/user";
 const userStore = useUserStoreWithOut();
@@ -32,7 +32,7 @@ const [register, { closeModal, setModalProps, changeOkLoading }] =
   useModalInner(async (data) => {
     propData.value = data;
     // iframe嵌入
-    src.value = `${globalConfig?.VITE_ORIGIN}/center/#/flow?id=${
+    src.value = `${getGlobalConfig()?.VITE_ORIGIN}/center/#/flow?id=${
       data?.record?.[data?.prop || "taskId"]
     }&&isSilentMode=true&&user_token=${userStore.getToken}`;
   });

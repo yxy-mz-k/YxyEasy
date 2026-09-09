@@ -6,7 +6,7 @@ import { PageEnum } from "enums/pageEnum";
 import { useUserStoreWithOut } from "store/modules/user";
 import { PAGE_NOT_FOUND_ROUTE } from "router/routes/basic";
 import { RootRoute } from "router/routes";
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 
 import { getMenuList } from "api/sys/menu";
 const LOGIN_PATH = PageEnum.BASE_LOGIN;
@@ -30,6 +30,7 @@ export function createPermissionGuard(router: Router) {
     }
 
     const token = userStore.getToken;
+    let globalConfig = getGlobalConfig();
 
     // Whitelist can be directly entered
     if (whitePathList.includes(to.path as PageEnum)) {

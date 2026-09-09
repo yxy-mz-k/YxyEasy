@@ -1,5 +1,6 @@
+import { reactive, readonly } from "vue";
 // 模块级全局变量，可以在任何地方使用
-export let globalConfig: any = {
+export let globalConfig: any = reactive<any>({
   isEnv: false,
   VITE_ORIGIN: "http://192.168.6.2:8899",
   VITE_HOST: "192.168.6.2:8899",
@@ -11,7 +12,7 @@ export let globalConfig: any = {
     ["/upload", "http://192.168.6.2:8899/upload"],
     ["/oss", "http://192.168.6.2:8899/oss"],
   ],
-};
+});
 
 // 设置配置
 export function setGlobalConfig(options: any) {
@@ -25,5 +26,5 @@ export function setGlobalConfig(options: any) {
 
 // 获取配置
 export function getGlobalConfig() {
-  return globalConfig;
+  return readonly(globalConfig);
 }

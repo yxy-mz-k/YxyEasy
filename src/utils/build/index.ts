@@ -12,8 +12,9 @@ import { configStyleImportPlugin } from "./styleImport";
 import { configImageminPlugin } from "./imagemin";
 import { configPwaConfig } from "./pwa";
 
-import { globalConfig } from "../global";
+import { getGlobalConfig } from "../global";
 export function createVitePlugins() {
+  let globalConfig = getGlobalConfig();
   const isBuild = !globalConfig?.isEnv;
 
   const vitePlugins: (PluginOption | PluginOption[])[] = [

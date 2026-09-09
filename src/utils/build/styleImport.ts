@@ -3,10 +3,8 @@
  * https://github.com/anncwb/vite-plugin-style-import
  */
 import { createStyleImportPlugin } from "vite-plugin-style-import";
-import { globalConfig } from "../global";
 
 export function configStyleImportPlugin() {
-  const isBuild = !globalConfig?.isEnv;
   // if (!isBuild) {
   //   return [];
   // }

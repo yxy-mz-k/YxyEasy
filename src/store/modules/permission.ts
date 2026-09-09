@@ -25,7 +25,7 @@ import { useMessage } from "hooks/web/useMessage";
 import { PageEnum } from "enums/pageEnum";
 import { getFormatMenusByData } from "utils/menusUtil";
 import { SysSourceTypeEnum } from "enums/sysEnum";
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 
 interface PermissionState {
   // Permission code list
@@ -112,6 +112,7 @@ export const usePermissionStore = defineStore({
     async buildRoutesAction(): Promise<AppRouteRecordRaw[]> {
       const userStore = useUserStore();
       const appStore = useAppStoreWithOut();
+      let globalConfig = getGlobalConfig();
 
       let routes: AppRouteRecordRaw[] = [];
       const roleList = toRaw(userStore.getRoleList) || [];

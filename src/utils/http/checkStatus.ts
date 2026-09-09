@@ -7,7 +7,7 @@ import { SessionTimeoutProcessingEnum } from "enums/appEnum";
 const { createMessage, createErrorModal } = useMessage();
 const error = createMessage.error!;
 const stp = projectSetting.sessionTimeoutProcessing;
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 // * @description: logout
 // */
 
@@ -19,6 +19,7 @@ export function checkStatus(
 ): void {
   const userStore = useUserStoreWithOut();
   let errMessage = "";
+  let globalConfig = getGlobalConfig();
 
   switch (status) {
     case 400:

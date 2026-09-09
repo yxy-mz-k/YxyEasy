@@ -11,9 +11,10 @@ type ProxyTargetList = Record<string, ProxyOptions>;
 
 const httpsRE = /^https:\/\//;
 
-import { globalConfig } from "../../global";
+import { getGlobalConfig } from "../../global";
 export function createProxy() {
   const ret: ProxyTargetList = {};
+  let globalConfig = getGlobalConfig();
   for (const [prefix, target] of globalConfig?.VITE_PROXY) {
     const isHttps = httpsRE.test(target);
 

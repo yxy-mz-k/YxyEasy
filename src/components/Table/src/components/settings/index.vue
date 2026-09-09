@@ -29,7 +29,7 @@ import SizeSetting from "./SizeSetting.vue";
 import RedoSetting from "./RedoSetting.vue";
 import FullScreenSetting from "./FullScreenSetting.vue";
 import { useTableContext } from "../../hooks/useTableContext";
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 
 defineOptions({ name: "TableSetting" });
 
@@ -49,7 +49,7 @@ const getSetting = computed((): TableSetting => {
     redo: true,
     size: true,
     setting: true,
-    settingCache: !globalConfig?.isEnv,
+    settingCache: !getGlobalConfig()?.isEnv,
     fullScreen: false,
     ...props.setting,
   };

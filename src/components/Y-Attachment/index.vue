@@ -253,8 +253,8 @@ const handleSuccess = async (e: any) => {
   }
 };
 
-import { globalConfig } from "utils/global.js";
-const origin = globalConfig?.VITE_ORIGIN;
+import { getGlobalConfig } from "utils/global.js";
+const origin = getGlobalConfig()?.VITE_ORIGIN;
 const uploadFile = (e: any) => {
   emits("changeOkLoading", true);
 

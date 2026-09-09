@@ -8,7 +8,7 @@ import {
 
 import { ErrorMessageMode } from "types/axios";
 import { useUserStoreWithOut } from "store/modules/user";
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 
 enum Api {
   Login = "/uauth/sys/login",
@@ -26,6 +26,7 @@ enum Api {
  * @description: user login api
  */
 export function userInfoApi() {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
     url: `${globalConfig?.suffixApi}${Api.userInfo}`,
   });
@@ -84,6 +85,7 @@ export function getPermCode() {
 }
 
 export function doLogout() {
+  let globalConfig = getGlobalConfig();
   const userStore = useUserStoreWithOut();
   return defHttp.get({
     url: `${globalConfig?.suffixApi}${Api.Logout}`,
@@ -92,6 +94,7 @@ export function doLogout() {
 }
 
 export function getTokenByApi() {
+  let globalConfig = getGlobalConfig();
   return defHttp.get({
     url: `${globalConfig?.suffixApi}${Api.Logout}`,
     headers: { "X-Access-Token": userStore.getToken },
@@ -112,6 +115,7 @@ export function testRetry() {
 }
 //修改密码
 export const EditPasswordApi = (params: any) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
     url: Api.EditPassword,
     params: params,
@@ -120,12 +124,14 @@ export const EditPasswordApi = (params: any) => {
 };
 
 export const getUserOrgList = (params) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
     url: `${globalConfig?.suffixApi}${Api.getUserOrgList}`,
     params,
   });
 };
 export const getAppData = (params: any) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
     url: `${globalConfig?.suffixApi}${Api.getAppData}`,
     params: params,

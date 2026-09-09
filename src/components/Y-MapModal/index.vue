@@ -38,10 +38,10 @@ import {
 } from "vue";
 import LeafletMap from "components/Y-LeafletMap/index.vue";
 import { BasicModal, useModalInner } from "components/Modal";
-import { globalConfig } from "utils/global.js";
+import { getGlobalConfig } from "utils/global.js";
 const propData = ref<any>({});
 const show = ref(false);
-const origin = globalConfig?.VITE_ORIGIN;
+const origin = getGlobalConfig()?.VITE_ORIGIN;
 
 const [register, { closeModal }] = useModalInner((data: any) => {
   propData.value = data;

@@ -5,9 +5,10 @@
 import type { PluginOption } from "vite";
 import { createHtmlPlugin } from "vite-plugin-html";
 import pkg from "../../../package.json";
-import { globalConfig } from "../global";
+import { getGlobalConfig } from "../global";
 
 export function configHtmlPlugin() {
+  let globalConfig = getGlobalConfig();
   // const path = VITE_PUBLIC_PATH.endsWith('/') ? VITE_PUBLIC_PATH : `${VITE_PUBLIC_PATH}/`;
   const isBuild = !globalConfig?.isEnv;
   const getAppConfigSrc = () => {

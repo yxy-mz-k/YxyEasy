@@ -2,8 +2,9 @@
  * Get the configuration file variable name
  * @param env
  */
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 export const getConfigFileName = (env: Record<string, any>) => {
+  const globalConfig = getGlobalConfig();
   return `__PRODUCTION__${
     globalConfig?.VITE_GLOB_APP_SHORT_NAME || "__APP"
   }__CONF__`

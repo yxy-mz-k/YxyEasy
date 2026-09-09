@@ -14,7 +14,7 @@ import { triggerWindowResize } from "utils/event";
 import { useRoute } from "vue-router";
 import { useAppStore } from "store/modules/app";
 import Mitt from "utils/myMitt";
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 
 export default defineComponent({
   name: "FoldButton",
@@ -23,6 +23,7 @@ export default defineComponent({
     const { prefixCls } = useDesign("multiple-tabs-content");
     const { getShowMenu, setMenuSetting } = useMenuSetting();
     const { getShowHeader, setHeaderSetting } = useHeaderSetting();
+    let globalConfig = getGlobalConfig();
 
     const getIsUnFold = computed(
       () => !unref(getShowMenu) && !unref(getShowHeader),

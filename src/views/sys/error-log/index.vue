@@ -41,7 +41,6 @@ import { useErrorLogStore } from "store/modules/errorLog";
 // import { fireErrorApi } from 'api/demo/error';
 import { getColumns } from "./data";
 import { cloneDeep } from "lodash-es";
-import { globalConfig } from "utils/global";
 
 const rowInfo = ref<ErrorLogInfo>();
 const imgList = ref<string[]>([]);

@@ -1,6 +1,6 @@
 import { darkCssIsReady, loadDarkThemeCss } from "vite-plugin-theme/es/client";
 import { addClass, hasClass, removeClass } from "utils/domUtils";
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 
 export async function updateDarkTheme(mode: string | null = "light") {
   const htmlRoot =
@@ -10,6 +10,7 @@ export async function updateDarkTheme(mode: string | null = "light") {
   }
 
   const hasDarkClass = hasClass(htmlRoot, "dark");
+  let globalConfig = getGlobalConfig();
 
   if (mode === "dark") {
     // 生产环境需要加载暗色主题 CSS

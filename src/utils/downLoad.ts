@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { globalConfig } from "utils/global";
+import { getGlobalConfig } from "utils/global";
 export function exporFile(
   res: any,
   fileName = "file",
@@ -29,6 +29,7 @@ export function exporFile(
   }
 }
 export function preView(url: string) {
+  let globalConfig = getGlobalConfig();
   // window.open(url, '_blank');
   const origin = globalConfig?.VITE_ORIGIN;
   const originSrc = globalConfig?.VITE_ORIGIN;
@@ -44,6 +45,7 @@ export function preView(url: string) {
 }
 export function downLoad() {}
 export function getPreViewUrl(url: string) {
+  let globalConfig = getGlobalConfig();
   const origin = globalConfig?.VITE_ORIGIN;
   const originSrc = globalConfig?.VITE_ORIGIN;
   const encodeUrl = encodeURIComponent(
