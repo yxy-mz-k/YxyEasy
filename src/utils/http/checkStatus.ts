@@ -1,6 +1,5 @@
 import type { ErrorMessageMode } from "types/axios";
 import { useMessage } from "hooks/web/useMessage";
-import router from "router/index";
 // import { PageEnum } from 'enums/pageEnum';
 import { useUserStoreWithOut } from "store/modules/user";
 import projectSetting from "settings/projectSetting";
@@ -8,7 +7,6 @@ import { SessionTimeoutProcessingEnum } from "enums/appEnum";
 const { createMessage, createErrorModal } = useMessage();
 const error = createMessage.error!;
 const stp = projectSetting.sessionTimeoutProcessing;
-import { doLogout, getUserInfo, loginApi } from "api/sys/user";
 import { globalConfig } from "utils/global";
 // * @description: logout
 // */

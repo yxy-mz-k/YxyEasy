@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 import { store } from "store/index";
 
 import { cacheKeys } from "enums/cacheEnum";
-import { createLocalStorage } from "utils/cache/index";
+import { createLocalStorage } from "utils/cache/storage";
 import { localeSetting } from "settings/localeSetting";
 
 const ls = createLocalStorage();

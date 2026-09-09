@@ -36,7 +36,7 @@ import { ref, onMounted } from "vue";
 import { Tooltip, Dropdown, Menu, type MenuProps } from "ant-design-vue";
 import { ColumnHeightOutlined } from "@ant-design/icons-vue";
 import { useTableContext } from "../../hooks/useTableContext";
-import { getPopupContainer } from "utils/index";
+import { getPopupContainer } from "utils/other";
 
 import { useTableSettingStore } from "store/modules/tableSetting";
 

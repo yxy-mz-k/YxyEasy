@@ -1,8 +1,4 @@
-import type { LockInfo, UserInfo } from "types/store";
-import type { ProjectConfig } from "types/config";
-import type { RouteLocationNormalized } from "vue-router";
-
-import { createLocalStorage, createSessionStorage } from "./index";
+import { createLocalStorage, createSessionStorage } from "./storage";
 import { Memory } from "./memory";
 import { cacheKeys } from "enums/cacheEnum";
 import { DEFAULT_CACHE_TIME } from "settings/encryptionSetting";

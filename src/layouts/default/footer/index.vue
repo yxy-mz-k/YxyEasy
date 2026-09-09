@@ -28,7 +28,7 @@ import { Layout } from "ant-design-vue";
 import { GithubFilled } from "@ant-design/icons-vue";
 
 import { DOC_URL, GITHUB_URL, SITE_URL } from "settings/siteSetting";
-import { openWindow } from "utils/index";
+import { openWindow } from "utils/other";
 
 import { useRootSetting } from "hooks/setting/useRootSetting";
 import { useRouter } from "vue-router";

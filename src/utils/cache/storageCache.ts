@@ -9,7 +9,7 @@ export interface CreateStorageParams extends EncryptionParams {
   hasEncrypt: boolean;
   timeout?: Nullable<number>;
 }
-export const createStorage = ({
+export const createStorageError = ({
   prefixKey = "",
   storage = sessionStorage,
   key = cacheCipher.key,

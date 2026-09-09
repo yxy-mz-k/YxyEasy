@@ -19,7 +19,7 @@ import { computed } from "vue";
 
 import { Upload } from "ant-design-vue";
 import { useDesign } from "hooks/web/useDesign";
-import { useGlobSetting } from "hooks/setting";
+import { useGlobSetting } from "hooks/setting/useGlobalSetting";
 
 defineOptions({ name: "TinymceImageUpload" });
 

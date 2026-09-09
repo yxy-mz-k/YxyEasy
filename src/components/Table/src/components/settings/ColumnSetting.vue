@@ -125,7 +125,7 @@ import { ScrollContainer } from "components/Container";
 import { useTableContext } from "../../hooks/useTableContext";
 import { useDesign } from "hooks/web/useDesign";
 import { isFunction, isNil } from "utils/is";
-import { getPopupContainer as getParentContainer } from "utils/index";
+import { getPopupContainer as getParentContainer } from "utils/other";
 import { cloneDeep, omit } from "lodash-es";
 import Sortablejs from "sortablejs";
 import { INDEX_COLUMN_FLAG } from "components/Table/src/const";

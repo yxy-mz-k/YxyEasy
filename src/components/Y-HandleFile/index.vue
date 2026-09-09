@@ -166,7 +166,7 @@ const emits = defineEmits<{
 const getContainer = () => document.body;
 
 import { getPreViewUrl, exporFile } from "utils/downLoad";
-import { getFileList } from "utils/index";
+import { getFileList } from "utils/other";
 import { deleteFile, download } from "api/sys/fileUtils";
 import { Modal } from "ant-design-vue";
 import { ExclamationCircleOutlined } from "@ant-design/icons-vue";

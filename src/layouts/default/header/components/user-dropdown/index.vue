@@ -53,7 +53,7 @@ import { useModal } from "components/Modal";
 
 import headerImg from "assets/images/header.jpg";
 import { propTypes } from "utils/propTypes";
-import { openWindow } from "utils/index";
+import { openWindow } from "utils/other";
 
 import { createAsyncComponent } from "utils/factory/createAsyncComponent";
 import { useDrawer } from "components/Drawer";

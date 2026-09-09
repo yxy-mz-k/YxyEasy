@@ -25,7 +25,6 @@
 </template>
 <script lang="ts" setup>
 import { computed, unref, onMounted, ref } from "vue";
-// import { useGlobSetting } from 'hooks/setting';
 import { useGo } from "hooks/web/usePage";
 import { useMenuSetting } from "hooks/setting/useMenuSetting";
 import { useDesign } from "hooks/web/useDesign";

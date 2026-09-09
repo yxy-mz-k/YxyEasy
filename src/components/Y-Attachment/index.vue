@@ -190,7 +190,7 @@ const { listType } = toRefs(props);
 import { uploadFileApi, deleteFile, queryByIds } from "api/sys/fileUtils";
 import { useMessage } from "hooks/web/useMessage";
 const { createMessage } = useMessage();
-import { getFileList } from "utils/index";
+import { getFileList } from "utils/other";
 import { Modal } from "ant-design-vue";
 import { ExclamationCircleOutlined } from "@ant-design/icons-vue";
 

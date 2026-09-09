@@ -1,4 +1,4 @@
-import { useGlobSetting } from "hooks/setting";
+import { useGlobSetting } from "hooks/setting/useGlobalSetting";
 import { merge, random } from "lodash-es";
 import { isArray } from "utils/is";
 import { FormSchema } from "components/Form";
@@ -72,7 +72,7 @@ export function randomString(length: number, chats?: string) {
  * @param opt  配置参数
  * @param startPid 父节点
  */
-export const listToTree = (array, opt, startPid) => {
+export const normalListToTree = (array, opt, startPid) => {
   const obj = {
     primaryKey: opt.primaryKey || "key",
     parentKey: opt.parentKey || "parentId",

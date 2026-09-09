@@ -63,7 +63,7 @@ import ForgetPasswordForm from "./ForgetPasswordForm.vue";
 import RegisterForm from "./RegisterForm.vue";
 import MobileForm from "./MobileForm.vue";
 import QrCodeForm from "./QrCodeForm.vue";
-import { useGlobSetting } from "hooks/setting";
+import { useGlobSetting } from "hooks/setting/useGlobalSetting";
 import { useDesign } from "hooks/web/useDesign";
 import { useLocaleStore } from "store/modules/locale";
 

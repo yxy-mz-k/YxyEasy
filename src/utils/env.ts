@@ -8,7 +8,6 @@ export function getCommonStoragePrefix() {
   return `${globalConfig?.VITE_GLOB_APP_SHORT_NAME}__${getEnv()}`.toUpperCase();
 }
 
-// Generate cache key according to version
 export function getStorageShortName() {
   return `${getCommonStoragePrefix()}${`__${pkg.version}`}__`.toUpperCase();
 }

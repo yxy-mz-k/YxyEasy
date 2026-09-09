@@ -8,7 +8,7 @@ import type { PaginationProps } from "../types/pagination";
 import type { DynamicProps } from "types/utils";
 import type { FormActionType } from "components/Form";
 import type { WatchStopHandle } from "vue";
-import { getDynamicProps } from "utils/index";
+import { getDynamicProps } from "utils/other";
 import { ref, onUnmounted, unref, watch, toRaw } from "vue";
 import { isProdMode } from "utils/env";
 import { error } from "utils/log";

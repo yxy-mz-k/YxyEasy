@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { getPathAssets } from "utils/index";
+import { getPathAssets } from "utils/other";
 export default function (value?: any) {
   // 动态修改主题图片
 

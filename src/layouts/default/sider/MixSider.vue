@@ -89,7 +89,7 @@ import { AppLogo } from "components/Application";
 import { useMenuSetting } from "hooks/setting/useMenuSetting";
 import { usePermissionStore } from "store/modules/permission";
 import { useDragLine } from "./useLayoutSider";
-import { useGlobSetting } from "hooks/setting";
+import { useGlobSetting } from "hooks/setting/useGlobalSetting";
 import { useDesign } from "hooks/web/useDesign";
 import { useI18n } from "hooks/web/useI18n";
 import { useGo } from "hooks/web/usePage";

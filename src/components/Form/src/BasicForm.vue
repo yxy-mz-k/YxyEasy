@@ -71,7 +71,7 @@ import FormAction from "./components/FormAction.vue";
 import { dateItemType, isIncludeSimpleComponents } from "./helper";
 import { dateUtil } from "utils/dateUtil";
 
-import { deepMerge } from "utils/index";
+import { deepMerge } from "utils/other";
 
 import { useFormValues } from "./hooks/useFormValues";
 import useAdvanced from "./hooks/useAdvanced";

@@ -4,7 +4,7 @@
 
 import { mitt } from "utils/mitt";
 import type { RouteLocationNormalized } from "vue-router";
-import { getRawRoute } from "utils/index";
+import { getRawRoute } from "utils/other";
 
 const emitter = mitt();
 

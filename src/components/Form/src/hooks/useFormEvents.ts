@@ -7,7 +7,7 @@ import type {
 import type { NamePath } from "ant-design-vue/lib/form/interface";
 import { unref, toRaw, nextTick } from "vue";
 import { isArray, isFunction, isObject, isString, isNil } from "utils/is";
-import { deepMerge } from "utils/index";
+import { deepMerge } from "utils/other";
 import {
   dateItemType,
   defaultValueComponents,

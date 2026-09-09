@@ -1,5 +1,5 @@
 import { getMenuListResultModel } from "api/sys/model/menuModel";
-import { translateDataToTree } from "utils/index";
+import { translateDataToTree } from "utils/other";
 import { globalConfig } from "utils/global";
 export const getFormatMenusByData = (dataList: any) => {
   // eslint-disable-next-line prefer-const

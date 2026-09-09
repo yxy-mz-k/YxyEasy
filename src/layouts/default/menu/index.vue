@@ -13,7 +13,7 @@ import { ScrollContainer } from "components/Container";
 
 import { useGo } from "hooks/web/usePage";
 import { useSplitMenu } from "./useLayoutMenu";
-import { openWindow } from "utils/index";
+import { openWindow } from "utils/other";
 import { propTypes } from "utils/propTypes";
 import { isUrl } from "utils/is";
 import { useRootSetting } from "hooks/setting/useRootSetting";

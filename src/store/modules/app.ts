@@ -15,7 +15,7 @@ import { cacheKeys } from "enums/cacheEnum";
 import { Persistent } from "utils/cache/persistent";
 import { darkMode } from "settings/designSetting";
 import { resetRouter } from "router/index";
-import { deepMerge } from "utils/index";
+import { deepMerge } from "utils/other";
 
 interface AppState {
   darkMode?: ThemeEnum;

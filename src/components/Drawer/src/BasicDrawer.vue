@@ -50,7 +50,7 @@ import { ref, computed, watch, unref, nextTick, getCurrentInstance } from "vue";
 import type { CSSProperties, Ref } from "vue";
 import { Drawer } from "ant-design-vue";
 import { isFunction, isNumber } from "utils/is";
-import { deepMerge } from "utils/index";
+import { deepMerge } from "utils/other";
 import DrawerFooter from "./components/DrawerFooter.vue";
 import DrawerHeader from "./components/DrawerHeader.vue";
 import { ScrollContainer } from "components/Container";

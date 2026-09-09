@@ -9,7 +9,7 @@ import type { DynamicProps } from "types/utils";
 import { ref, onUnmounted, unref, nextTick, watch } from "vue";
 import { isProdMode } from "utils/env";
 import { error } from "utils/log";
-import { getDynamicProps } from "utils/index";
+import { getDynamicProps } from "utils/other";
 
 export declare type ValidateFields = (
   nameList?: NamePath[],
