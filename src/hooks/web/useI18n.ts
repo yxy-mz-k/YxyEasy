@@ -1,4 +1,4 @@
-import { i18n } from "locales/setupI18n";
+import { getI18n } from "locales/setupI18n";
 
 type I18nGlobalTranslation = {
   (key: string): string;
@@ -29,8 +29,8 @@ export function useI18n(namespace?: string): {
       return getKey(namespace, key);
     },
   };
-
-  if (!i18n) {
+  const i18n = getI18n(); // 使用 getI18n()
+  if (!i18n || !i18n.global) {
     return normalFn;
   }
 

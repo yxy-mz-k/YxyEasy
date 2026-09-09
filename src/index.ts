@@ -45,8 +45,6 @@ const install = async (app: App, options?: YxyEasyOptions) => {
   initAppConfigStore();
   // registerGlobComp(app);
   await setupI18n(app);
-  setupRouter(app);
-  setupRouterGuard(router);
 
   // 6. 注册组件
   Object.values(components).forEach((component: any) => {
@@ -56,6 +54,9 @@ const install = async (app: App, options?: YxyEasyOptions) => {
       app.component(component.name, component);
     }
   });
+
+  setupRouter(app);
+  setupRouterGuard(router);
 };
 
 export default {
