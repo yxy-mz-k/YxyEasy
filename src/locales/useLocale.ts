@@ -3,7 +3,7 @@
  */
 import type { LocaleType } from "types/config";
 
-import { i18n } from "./setupI18n";
+import { getI18n } from "./setupI18n";
 import { useLocaleStoreWithOut } from "store/modules/locale";
 import { unref, computed } from "vue";
 import { loadLocalePool, setHtmlPageLang } from "./helper";
@@ -16,7 +16,10 @@ interface LangModule {
 
 function setI18nLanguage(locale: LocaleType) {
   const localeStore = useLocaleStoreWithOut();
-
+  const i18n = getI18n(); // 使用 getI18n()
+  if (!i18n || !i18n.global) {
+    return {};
+  }
   if (i18n.mode === "legacy") {
     i18n.global.locale = locale;
   } else {
@@ -31,13 +34,25 @@ export function useLocale() {
   const getLocale = computed(() => localeStore.getLocale);
   const getShowLocalePicker = computed(() => localeStore.getShowPicker);
 
+  // const getAntdLocale = computed((): any => {
+  //   return i18n.global.getLocaleMessage(unref(getLocale))?.antdLocale ?? {};
+  // });
+
   const getAntdLocale = computed((): any => {
+    const i18n = getI18n(); // 使用 getI18n()
+    if (!i18n || !i18n.global) {
+      return {};
+    }
+
     return i18n.global.getLocaleMessage(unref(getLocale))?.antdLocale ?? {};
   });
 
-  // Switching the language will change the locale of useI18n
   // And submit to configuration modification
   async function changeLocale(locale: LocaleType) {
+    const i18n = getI18n(); // 使用 getI18n()
+    if (!i18n || !i18n.global) {
+      return {};
+    }
     const globalI18n = i18n.global;
     const currentLocale = unref(globalI18n.locale);
     if (currentLocale === locale) {
