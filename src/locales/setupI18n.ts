@@ -1,3 +1,4 @@
+// src/locales/setupI18n.ts
 import type { App } from "vue";
 import type { I18n, I18nOptions } from "vue-i18n";
 import { createI18n } from "vue-i18n";
@@ -7,13 +8,14 @@ import { useLocaleStoreWithOut } from "store/modules/locale";
 
 const { fallback, availableLocales } = localeSetting;
 
-let i18n: ReturnType<typeof createI18n> | null = null;
+// 使用 let 存储实例
+let i18nInstance: any = null;
 
 // 获取 i18n 实例
 export function getI18n(): ReturnType<typeof createI18n> {
-  if (!i18n) {
+  if (!i18nInstance) {
     // 创建一个临时的 i18n 实例
-    i18n = createI18n({
+    i18nInstance = createI18n({
       legacy: false,
       locale: "zh_CN",
       fallbackLocale: fallback,
@@ -24,7 +26,7 @@ export function getI18n(): ReturnType<typeof createI18n> {
       silentFallbackWarn: true,
     });
   }
-  return i18n;
+  return i18nInstance;
 }
 
 // 为了兼容，导出 i18n（使用 getter）
@@ -59,17 +61,16 @@ async function createI18nOptions(): Promise<I18nOptions> {
       [locale]: message,
     },
     availableLocales: availableLocales,
-    sync: true, //If you don’t want to inherit locale from global scope, you need to set sync of i18n component option to false.
-    silentTranslationWarn: true, // true - warning off
+    sync: true,
+    silentTranslationWarn: true,
     missingWarn: false,
     silentFallbackWarn: true,
   };
 }
 
-// setup i18n instance with glob
 export async function setupI18n(app: App) {
   const options = await createI18nOptions();
-  i18n = createI18n(options) as I18n;
-  app.use(i18n);
-  return i18n;
+  i18nInstance = createI18n(options) as I18n;
+  app.use(i18nInstance);
+  return i18nInstance;
 }
