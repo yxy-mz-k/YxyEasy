@@ -27,6 +27,7 @@ import "@yxy_27/yxyeasy/dist/style.css";
 const isEnv = import.meta.env["MODE"] === "development" ? true : false;
 const origin = isEnv ? import.meta.env["VITE_ORIGIN"] : window.location.origin;
 const host = isEnv ? import.meta.env["VITE_HOST"] : window.location.host;
+const viewModules = import.meta.glob("./views/**/index.vue");
 
 app.use(yxyeasy, {
   key: "park",
@@ -34,6 +35,7 @@ app.use(yxyeasy, {
   VITE_HOST: host,
   isEnv,
   name: "园区档案管理",
+  views: viewModules,
 });
 ```
 

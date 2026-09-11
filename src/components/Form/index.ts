@@ -25,6 +25,7 @@ export const ApiTree = withInstall(apiTree);
 export const ApiRadioGroup = withInstall(apiRadioGroup);
 export const ApiCascader = withInstall(apiCascader);
 export const ApiTransfer = withInstall(apiTransfer);
+export type { FormSchema } from "./src/types/form";
 
 // 默认导出
 export default {

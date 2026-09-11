@@ -175,6 +175,7 @@ Object.values(FlowChartComponents).forEach((comp) => {
 });
 
 import * as FormComponents from "./Form";
+export type { FormSchema } from "./Form/src/types/form";
 Object.values(FormComponents).forEach((comp) => {
   if (typeof comp === "object" && comp !== null) {
     allComponents.push(comp);
