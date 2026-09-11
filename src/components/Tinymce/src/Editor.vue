@@ -152,7 +152,7 @@ const langName = computed(() => {
 
 const initOptions = computed((): RawEditorSettings => {
   const { height, options, toolbar, plugins } = props;
-  const publicPath = getGlobalConfig()?.suffixApi || "/";
+  const publicPath = getGlobalConfig()?.VITE_PUBLIC_PATH || "/";
   return {
     selector: `#${unref(tinymceId)}`,
     height,
