@@ -7,7 +7,7 @@ import { getI18n } from "./setupI18n";
 import { useLocaleStoreWithOut } from "store/modules/locale";
 import { unref, computed } from "vue";
 import { loadLocalePool, setHtmlPageLang } from "./helper";
-
+import antdZhCN from "ant-design-vue/es/locale/zh_CN";
 interface LangModule {
   message: Recordable;
   dateLocale: Recordable;
@@ -44,7 +44,9 @@ export function useLocale() {
       return {};
     }
 
-    return i18n.global.getLocaleMessage(unref(getLocale))?.antdLocale ?? {};
+    return (
+      i18n.global.getLocaleMessage(unref(getLocale))?.antdLocale ?? antdZhCN
+    );
   });
 
   // And submit to configuration modification

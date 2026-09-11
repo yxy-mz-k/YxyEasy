@@ -16,6 +16,9 @@ import { router, setupRouter } from "router/index";
 import { setupRouterGuard } from "router/guard/index";
 import { initAppConfigStore } from "logics/initAppConfig";
 // import { registerGlobComp } from "components/registerGlobComp";
+import { useUserStoreWithOut } from "store/modules/user";
+import { useAppStore } from "store/modules/app";
+import { MenuModeEnum, MenuTypeEnum } from "enums/menuEnum";
 
 // 导出所有内容
 export * from "./api";
@@ -31,7 +34,7 @@ export type * from "./types";
 // export { defHttp } from "./utils/http";
 
 // 默认导出插件
-const install = async (app: App, options?: YxyEasyOptions) => {
+const install = (app: App, options?: YxyEasyOptions) => {
   // 1. 先设置全局配置（在任何 store 使用之前）
   if (options) {
     setGlobalConfig(options);
@@ -51,7 +54,7 @@ const install = async (app: App, options?: YxyEasyOptions) => {
   setupStore(app);
   initAppConfigStore();
   // registerGlobComp(app);
-  await setupI18n(app);
+  setupI18n(app);
 
   // 6. 注册组件
   Object.values(components).forEach((component: any) => {
@@ -64,6 +67,83 @@ const install = async (app: App, options?: YxyEasyOptions) => {
 
   setupRouter(app);
   setupRouterGuard(router);
+
+  const userStore = useUserStoreWithOut();
+  const appStore = useAppStore();
+  const regex = /user_token=([^#/&]+)/;
+  const matchResult = window.location.href.match(regex);
+  let user_token = matchResult ? matchResult[1] : null;
+  if (!user_token) {
+    const regexT = /token=([^#/&]+)/;
+    const matchResultT = window.location.href.match(regexT);
+    user_token = matchResultT ? matchResultT[1] : null;
+  }
+  if (user_token) {
+    sessionStorage.setItem("user_token", user_token);
+  }
+
+  const temp = sessionStorage.getItem("user_token");
+  if (temp) {
+    userStore.setToken(temp);
+  }
+
+  //跳转
+  if (user_token) {
+    let href = window.location.href.replace(/user_token=[^#/&]+/, "");
+    href = href.replace("/?#/", "/");
+    if (href.endsWith("&")) {
+      href = href.substring(0, href.lastIndexOf("&"));
+    }
+    if (href.endsWith("?")) {
+      href = href.substring(0, href.lastIndexOf("?"));
+    }
+    window.location.replace(href);
+    href = href.replace(/http[s]?:\/\/[^/]+\/[^/]*/, "");
+    if (href === "") {
+      href = "/";
+    }
+    if (href.indexOf("?") > -1) {
+      const urlSearchParams = new URLSearchParams(href.split("?")[1]);
+      const params = Object.fromEntries(urlSearchParams.entries());
+      const queryObj: any = {};
+      Object.keys(params).map((k: any) => {
+        if (k !== "user_token") {
+          queryObj[k] = params[k];
+        }
+      });
+      if (Object.keys(params).length > 1) {
+        router.push({
+          path: href.replace("#/", ""),
+          query: queryObj,
+        });
+      } else {
+        router.push(href.replace("#/", ""));
+      }
+    } else {
+      router.push(href.replace("#/", ""));
+    }
+  }
+
+  if (!(window.self === window.top)) {
+    appStore.setProjectConfig({
+      fullContent: true,
+      showFooter: false,
+      showSettingButton: false,
+    });
+  } else {
+    appStore.setProjectConfig({
+      fullContent: false,
+      showFooter: true,
+      showSettingButton: true,
+    });
+  }
+  appStore.setProjectConfig({
+    menuSetting: {
+      type: MenuTypeEnum.MIX,
+      mode: MenuModeEnum.INLINE,
+      split: false,
+    },
+  });
 };
 
 export default {
