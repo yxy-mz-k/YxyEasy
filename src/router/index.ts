@@ -15,7 +15,7 @@ getRouteNames(basicRoutes);
 
 // app router
 export const router = createRouter({
-  history: createWebHashHistory(getGlobalConfig().VITE_PUBLIC_PATH),
+  history: createWebHashHistory(getGlobalConfig().suffixApi),
   routes: basicRoutes as unknown as RouteRecordRaw[],
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 }),

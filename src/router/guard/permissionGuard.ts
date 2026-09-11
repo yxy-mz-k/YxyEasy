@@ -67,7 +67,7 @@ export function createPermissionGuard(router: Router) {
           window.location.origin + globalConfig?.project + href;
       }
 
-      await getMenuList();
+      await getMenuList({});
     }
 
     // Jump to the 404 page after processing the login

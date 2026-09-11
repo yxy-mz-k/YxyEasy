@@ -286,7 +286,23 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
     ),
   );
 }
-export const defHttp = createAxios();
+
+let defHttpInstance: any = null;
+export function getDefHttp() {
+  if (!defHttpInstance) {
+    defHttpInstance = createAxios();
+  }
+  return defHttpInstance;
+}
+export function refreshDefHttp() {
+  defHttpInstance = null;
+}
+export const defHttp = new Proxy({} as any, {
+  get(_, prop) {
+    return getDefHttp()[prop];
+  },
+});
+// export const defHttp = createAxios();
 
 // other api url
 // export const homsHttp = createAxios({
@@ -296,7 +312,7 @@ export const defHttp = createAxios();
 //     apiUrl: '',
 //   },
 // });
-export default defHttp;
+// export default defHttp;
 
 export * from "./Axios";
 export * from "./axiosCancel";

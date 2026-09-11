@@ -11,9 +11,16 @@ import { REDIRECT_NAME } from "router/constant";
  * Listening to page changes and dynamically changing site titles
  */
 export function useTitle() {
+  const router = useRouter();
+  if (!router) {
+    return;
+  }
+  const { currentRoute } = router;
+  if (!currentRoute) {
+    return;
+  }
   const { title } = useGlobSetting();
   const { t } = useI18n();
-  const { currentRoute } = useRouter();
   const localeStore = useLocaleStore();
 
   const pageTitle = usePageTitle();

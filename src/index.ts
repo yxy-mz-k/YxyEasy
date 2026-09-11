@@ -1,6 +1,6 @@
 // src/index.ts
 import type { App } from "vue";
-import { nextTick } from "vue";
+// import { nextTick } from "vue";
 // import { createPinia, setActivePinia } from "pinia";
 import type { YxyEasyOptions } from "./types";
 import * as components from "./components";
@@ -28,7 +28,7 @@ export * from "./locales";
 export * from "./store";
 export * from "./utils";
 export type * from "./types";
-export { defHttp } from "./utils/http";
+// export { defHttp } from "./utils/http";
 
 // 默认导出插件
 const install = async (app: App, options?: YxyEasyOptions) => {
@@ -36,8 +36,12 @@ const install = async (app: App, options?: YxyEasyOptions) => {
   if (options) {
     setGlobalConfig(options);
   }
+
+  import("utils/http").then(({ refreshDefHttp }) => {
+    refreshDefHttp();
+  });
   // 等待下一帧，确保配置生效
-  await nextTick(() => {});
+  // await nextTick(() => {});
 
   // 2. 初始化 Pinia
   // const pinia = createPinia();

@@ -1,13 +1,12 @@
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import vueJsx from "@vitejs/plugin-vue-jsx"; // 添加这个
+// import vue from "@vitejs/plugin-vue";
+// import vueJsx from "@vitejs/plugin-vue-jsx"; // 添加这个
 // import path from "path";
 import { resolve } from "path";
-import glob from "vite-plugin-glob";
-import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+// import glob from "vite-plugin-glob";
+// import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { generateModifyVars } from "./src/utils/generateModifyVars";
 import { createVitePlugins } from "./src/utils/build/index";
-import { createProxy } from "./src/utils/build/vite/proxy";
 
 export default defineConfig({
   plugins: createVitePlugins(),
@@ -46,16 +45,64 @@ export default defineConfig({
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
-      external: [
-        "vue",
-        "ant-design-vue",
-        "echarts",
-        "element-plus",
-        "sass",
-        "sortablejs",
-        "splitpanes",
-        "vue-router",
-        "@ant-design/icons-vue",
+      externals: [
+        /^@ant-design\/colors($|\/)/,
+        /^@ant-design\/icons-vue($|\/)/,
+        /^@geoman-io\/leaflet-geoman-free($|\/)/,
+        /^@iconify\/iconify($|\/)/,
+        /^@logicflow\/core($|\/)/,
+        /^@logicflow\/extension($|\/)/,
+        /^@vue\/runtime-core($|\/)/,
+        /^@vue\/shared($|\/)/,
+        /^@vueuse\/core($|\/)/,
+        /^@vueuse\/components($|\/)/,
+        /^@vueuse\/shared($|\/)/,
+        /^@zxcvbn-ts\/core($|\/)/,
+        /^ant-design-vue($|\/)/,
+        /^axios($|\/)/,
+        /^browserslist($|\/)/,
+        /^cesium($|\/)/,
+        /^cesium-navigation-es6($|\/)/,
+        /^codemirror($|\/)/,
+        /^cropperjs($|\/)/,
+        /^crypto-js($|\/)/,
+        /^dayjs($|\/)/,
+        /^echarts($|\/)/,
+        /^element-plus($|\/)/,
+        /^element-resize-detector($|\/)/,
+        /^intro.js($|\/)/,
+        /^jquery($|\/)/,
+        /^leaflet($|\/)/,
+        /^leaflet.chinatmsproviders($|\/)/,
+        /^lodash-es($|\/)/,
+        /^miniprogram-sm-crypto($|\/)/,
+        /^mitt($|\/)/,
+        /^mockjs($|\/)/,
+        /^nprogress($|\/)/,
+        /^path-to-regexp($|\/)/,
+        /^pinia($|\/)/,
+        /^print-js($|\/)/,
+        /^qrcode($|\/)/,
+        /^qs($|\/)/,
+        /^resize-observer-polyfill($|\/)/,
+        /^showdown($|\/)/,
+        /^sortablejs($|\/)/,
+        /^splitpanes($|\/)/,
+        /^tinymce($|\/)/,
+        /^vditor($|\/)/,
+        /^vite-plugin-cesium($|\/)/,
+        /^vue($|\/)/,
+        /^vue-clipboard3($|\/)/,
+        /^vue-i18n($|\/)/,
+        /^vue-json-pretty($|\/)/,
+        /^vue-router($|\/)/,
+        /^vue-signature-pad($|\/)/,
+        /^vue-types($|\/)/,
+        /^vue3-colorpicker($|\/)/,
+        /^vue3-draggable-resizable($|\/)/,
+        /^vue3-json-viewer($|\/)/,
+        /^ws($|\/)/,
+        /^xlsx($|\/)/,
       ],
       output: {
         // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
@@ -109,22 +156,21 @@ export default defineConfig({
     __INTLIFY_PROD_DEVTOOLS__: false,
     // __APP_INFO__: JSON.stringify(__APP_INFO__),
   },
-  optimizeDeps: {
-    // @iconify/iconify: The dependency is dynamically and virtually loaded by @purge-icons/generated, so it needs to be specified explicitly
-    include: [
-      "@vue/runtime-core",
-      "@vue/shared",
-      "@iconify/iconify",
-      "ant-design-vue/es/locale/zh_CN",
-      "ant-design-vue/es/locale/en_US",
-    ],
-  },
+  // optimizeDeps: {
+  //   // @iconify/iconify: The dependency is dynamically and virtually loaded by @purge-icons/generated, so it needs to be specified explicitly
+  //   include: [
+  //     "@vue/runtime-core",
+  //     "@vue/shared",
+  //     "@iconify/iconify",
+  //     "ant-design-vue/es/locale/zh_CN",
+  //     "ant-design-vue/es/locale/en_US",
+  //   ],
+  // },
   server: {
     // https: false,
     // Listening on all local IPs
     // host: true,
     // port: VITE_PORT,
     // Load proxy configuration from .env
-    proxy: createProxy(),
   },
 });

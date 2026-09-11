@@ -9,7 +9,6 @@ import { getGlobalConfig } from "../global";
 
 export function configHtmlPlugin() {
   let globalConfig = getGlobalConfig();
-  // const path = VITE_PUBLIC_PATH.endsWith('/') ? VITE_PUBLIC_PATH : `${VITE_PUBLIC_PATH}/`;
   const isBuild = !globalConfig?.isEnv;
   const getAppConfigSrc = () => {
     // return `${path || '/'}${GLOB_CONFIG_FILE_NAME}?v=${pkg.version}-${new Date().getTime()}`;

@@ -5,17 +5,16 @@ import glob from "vite-plugin-glob";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { resolve } from "path";
 
-import windiCSS from "vite-plugin-windicss";
-import { configHtmlPlugin } from "./html";
-import { configSvgIconsPlugin } from "./svgSprite";
-import { configStyleImportPlugin } from "./styleImport";
-import { configImageminPlugin } from "./imagemin";
-import { configPwaConfig } from "./pwa";
+// import windiCSS from "vite-plugin-windicss";
+// import { configHtmlPlugin } from "./html";
+// import { configSvgIconsPlugin } from "./svgSprite";
+// import { configStyleImportPlugin } from "./styleImport";
+// import { configPwaConfig } from "./pwa";
 
-import { getGlobalConfig } from "../global";
+// import { getGlobalConfig } from "../global";
 export function createVitePlugins() {
-  let globalConfig = getGlobalConfig();
-  const isBuild = !globalConfig?.isEnv;
+  // let globalConfig = getGlobalConfig();
+  // const isBuild = !globalConfig?.isEnv;
 
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     vue(),
@@ -32,15 +31,14 @@ export function createVitePlugins() {
       customDomId: "__svg__icons__dom__",
     }),
   ];
-  vitePlugins.push(windiCSS());
-  vitePlugins.push(configHtmlPlugin());
-  vitePlugins.push(configSvgIconsPlugin());
-  vitePlugins.push(configStyleImportPlugin());
+  // vitePlugins.push(windiCSS());
+  // vitePlugins.push(configHtmlPlugin());
+  // vitePlugins.push(configSvgIconsPlugin());
+  // vitePlugins.push(configStyleImportPlugin());
 
-  if (isBuild) {
-    vitePlugins.push(configImageminPlugin());
-    vitePlugins.push(configPwaConfig());
-  }
+  // if (isBuild) {
+  //   vitePlugins.push(configPwaConfig());
+  // }
 
   return vitePlugins;
 }
