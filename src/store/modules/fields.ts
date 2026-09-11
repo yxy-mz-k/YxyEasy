@@ -5,8 +5,7 @@ interface FieldsState {
   FieldsDicList?: any;
 }
 
-export const useFieldsStore = defineStore({
-  id: "app-fields",
+export const useFieldsStore = defineStore("app-fields", {
   state: (): FieldsState => ({
     FieldsDicList: [],
   }),

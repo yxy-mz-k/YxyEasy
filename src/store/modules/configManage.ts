@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
-export const useConfigManagetore = defineStore({
-  id: "app-configManage",
+export const useConfigManagetore = defineStore("app-configManage", {
   state: () => ({
     // 所有的组件对应的图片
     id: <any>"",

@@ -14,8 +14,7 @@ interface TableSettingState {
   setting: Nullable<Partial<TableSetting>>;
 }
 
-export const useTableSettingStore = defineStore({
-  id: "table-setting",
+export const useTableSettingStore = defineStore("table-setting", {
   state: (): TableSettingState => ({
     setting: Persistent.getLocal(cacheKeys?.TABLE_SETTING_KEY),
   }),

@@ -45,7 +45,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
-      externals: [
+      external: [
         /^@ant-design\/colors($|\/)/,
         /^@ant-design\/icons-vue($|\/)/,
         /^@geoman-io\/leaflet-geoman-free($|\/)/,

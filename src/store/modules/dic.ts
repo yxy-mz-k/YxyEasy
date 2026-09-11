@@ -7,8 +7,7 @@ interface DictState {
   DictList?: any;
 }
 
-export const useDictStore = defineStore({
-  id: "app-dict",
+export const useDictStore = defineStore("app-dict", {
   state: (): DictState => ({
     DictList: [],
   }),
