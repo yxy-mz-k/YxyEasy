@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YHandleFixed from "./index.vue";
+import HandleFixed from "./index.vue";
 
-YHandleFixed.install = (app: App) => {
-  app.component("YHandleFixed", YHandleFixed);
+HandleFixed.install = (app: App) => {
+  app.component("HandleFixed", HandleFixed);
 };
 
-export default YHandleFixed as typeof YHandleFixed & Plugin;
+export default HandleFixed as typeof HandleFixed & Plugin;
