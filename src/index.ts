@@ -3,16 +3,15 @@ import type { App } from "vue";
 // import { nextTick } from "vue";
 // import { createPinia, setActivePinia } from "pinia";
 import type { YxyEasyOptions } from "./types";
-import * as components from "./components";
 import "virtual:windi-base.css";
-import "design/index.less";
 import "virtual:windi-components.css";
+import "design/index.less";
 import "virtual:windi-utilities.css";
 
-import "styles/index.scss";
 // 导入配置
 import { setGlobalConfig } from "utils/global";
 
+import "styles/index.scss";
 import { setupStore } from "store/index";
 import { setupI18n } from "locales/setupI18n";
 import { router, setupRouter } from "router/index";
@@ -23,7 +22,10 @@ import { useUserStoreWithOut } from "store/modules/user";
 import { useAppStore } from "store/modules/app";
 import { MenuModeEnum, MenuTypeEnum } from "enums/menuEnum";
 import * as Icons from "@ant-design/icons-vue";
+import Antd from "ant-design-vue";
+import "ant-design-vue/dist/antd.less";
 
+import * as components from "./components";
 // 导出所有内容
 export * from "./api";
 export * from "./components";
@@ -55,6 +57,7 @@ const install = (app: App, options?: YxyEasyOptions) => {
   // setActivePinia(pinia);
   // app.use(pinia);
 
+  app.use(Antd);
   const icons: any = Icons;
   for (const i in icons) {
     app.component(i, icons[i]);
