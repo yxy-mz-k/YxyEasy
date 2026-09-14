@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YLeafletMap from "./index.vue";
+import LeafletMap from "./index.vue";
 
-YLeafletMap.install = (app: App) => {
-  app.component("YLeafletMap", YLeafletMap);
+LeafletMap.install = (app: App) => {
+  app.component("LeafletMap", LeafletMap);
 };
 
-export default YLeafletMap as typeof YLeafletMap & Plugin;
+export default LeafletMap as typeof LeafletMap & Plugin;

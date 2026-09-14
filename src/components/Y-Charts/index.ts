@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YCharts from "./index.vue";
+import Charts from "./index.vue";
 
-YCharts.install = (app: App) => {
-  app.component("YCharts", YCharts);
+Charts.install = (app: App) => {
+  app.component("Charts", Charts);
 };
 
-export default YCharts as typeof YCharts & Plugin;
+export default Charts as typeof Charts & Plugin;

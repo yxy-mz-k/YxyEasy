@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YLeftProjectTree from "./index.vue";
+import LeftProjectTree from "./index.vue";
 
-YLeftProjectTree.install = (app: App) => {
-  app.component("YLeftProjectTree", YLeftProjectTree);
+LeftProjectTree.install = (app: App) => {
+  app.component("LeftProjectTree", LeftProjectTree);
 };
 
-export default YLeftProjectTree as typeof YLeftProjectTree & Plugin;
+export default LeftProjectTree as typeof LeftProjectTree & Plugin;

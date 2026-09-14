@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YToolTip from "./index.vue";
+import ToolTip from "./index.vue";
 
-YToolTip.install = (app: App) => {
-  app.component("YToolTip", YToolTip);
+ToolTip.install = (app: App) => {
+  app.component("ToolTip", ToolTip);
 };
 
-export default YToolTip as typeof YToolTip & Plugin;
+export default ToolTip as typeof ToolTip & Plugin;

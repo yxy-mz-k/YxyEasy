@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YSplitpanes from "./index.vue";
+import Splitpanes from "./index.vue";
 
-YSplitpanes.install = (app: App) => {
-  app.component("YSplitpanes", YSplitpanes);
+Splitpanes.install = (app: App) => {
+  app.component("Splitpanes", Splitpanes);
 };
 
-export default YSplitpanes as typeof YSplitpanes & Plugin;
+export default Splitpanes as typeof Splitpanes & Plugin;

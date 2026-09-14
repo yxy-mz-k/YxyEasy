@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YFlowModal from "./index.vue";
+import FlowModal from "./index.vue";
 
-YFlowModal.install = (app: App) => {
-  app.component("YFlowModal", YFlowModal);
+FlowModal.install = (app: App) => {
+  app.component("FlowModal", FlowModal);
 };
 
-export default YFlowModal as typeof YFlowModal & Plugin;
+export default FlowModal as typeof FlowModal & Plugin;

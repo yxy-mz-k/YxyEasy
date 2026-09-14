@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YClipboard from "./index.vue";
+import Clipboard from "./index.vue";
 
-YClipboard.install = (app: App) => {
-  app.component("YClipboard", YClipboard);
+Clipboard.install = (app: App) => {
+  app.component("Clipboard", Clipboard);
 };
 
-export default YClipboard as typeof YClipboard & Plugin;
+export default Clipboard as typeof Clipboard & Plugin;

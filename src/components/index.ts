@@ -2,40 +2,40 @@ import type { App } from "vue";
 import { withInstall } from "utils/withInstall";
 import { componentRegistry } from "utils/registry";
 
+import AttachCom from "./Y-AttachCom";
+import Attachment from "./Y-Attachment";
 import YCharts from "./Y-Charts";
-import YToolTip from "./Y-ToolTip";
-import YSortableList from "./Y-SortableList";
-import YWebWinVideo from "./Y-WebWinVideo";
-import YSplitpanes from "./Y-Splitpanes";
 import YClipboard from "./Y-Clipboard";
-import YPageLayout from "./Y-PageLayout";
-import YLeftProjectTree from "./Y-LeftProjectTree";
-import YAttachCom from "./Y-AttachCom";
-import YAttachment from "./Y-Attachment";
-import YFlowModal from "./Y-FlowModal";
-import YHandleFile from "./Y-HandleFile";
-import YHandleFixed from "./Y-HandleFixed";
-import YLeafletMap from "./Y-LeafletMap";
-import YMapModal from "./Y-MapModal";
-import YVideoCom from "./Y-VideoCom";
+import FlowModal from "./Y-FlowModal";
+import HandleFile from "./Y-HandleFile";
+import HandleFixed from "./Y-HandleFixed";
+import LeafletMap from "./Y-LeafletMap";
+import LeftProjectTree from "./Y-LeftProjectTree";
+import MapModal from "./Y-MapModal";
+import PageLayout from "./Y-PageLayout";
+import SortableList from "./Y-SortableList";
+import Splitpanes from "./Y-Splitpanes";
+import YToolTip from "./Y-ToolTip";
+import VideoCom from "./Y-VideoCom";
+import WebWinVideo from "./Y-WebWinVideo";
 // 按需引入
 const allComponents = [
   YCharts,
   YClipboard,
-  YLeftProjectTree,
-  YPageLayout,
-  YSortableList,
-  YSplitpanes,
+  LeftProjectTree,
+  PageLayout,
+  SortableList,
+  Splitpanes,
   YToolTip,
-  YWebWinVideo,
-  YAttachCom,
-  YAttachment,
-  YFlowModal,
-  YHandleFile,
-  YHandleFixed,
-  YLeafletMap,
-  YMapModal,
-  YVideoCom,
+  WebWinVideo,
+  AttachCom,
+  Attachment,
+  FlowModal,
+  HandleFile,
+  HandleFixed,
+  LeafletMap,
+  MapModal,
+  VideoCom,
 ];
 
 import * as ApplicationComponents from "./Application";
@@ -350,20 +350,20 @@ const install = (app: App) => {
 export {
   YCharts,
   YClipboard,
-  YLeftProjectTree,
-  YPageLayout,
-  YSortableList,
-  YSplitpanes,
+  LeftProjectTree,
+  PageLayout,
+  SortableList,
+  Splitpanes,
   YToolTip,
-  YWebWinVideo,
-  YAttachCom,
-  YAttachment,
-  YFlowModal,
-  YHandleFile,
-  YHandleFixed,
-  YLeafletMap,
-  YMapModal,
-  YVideoCom,
+  WebWinVideo,
+  AttachCom,
+  Attachment,
+  FlowModal,
+  HandleFile,
+  HandleFixed,
+  LeafletMap,
+  MapModal,
+  VideoCom,
 };
 
 export type { ButtonProps };

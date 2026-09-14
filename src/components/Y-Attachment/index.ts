@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YAttachCom from "./index.vue";
+import Attachment from "./index.vue";
 
-YAttachCom.install = (app: App) => {
-  app.component("YAttachCom", YAttachCom);
+Attachment.install = (app: App) => {
+  app.component("Attachment", Attachment);
 };
 
-export default YAttachCom as typeof YAttachCom & Plugin;
+export default Attachment as typeof Attachment & Plugin;

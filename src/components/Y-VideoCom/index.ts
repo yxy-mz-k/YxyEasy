@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YVideoCom from "./index.vue";
+import VideoCom from "./index.vue";
 
-YVideoCom.install = (app: App) => {
-  app.component("YVideoCom", YVideoCom);
+VideoCom.install = (app: App) => {
+  app.component("VideoCom", VideoCom);
 };
 
-export default YVideoCom as typeof YVideoCom & Plugin;
+export default VideoCom as typeof VideoCom & Plugin;

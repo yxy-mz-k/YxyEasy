@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YHandleFile from "./index.vue";
+import HandleFile from "./index.vue";
 
-YHandleFile.install = (app: App) => {
-  app.component("YHandleFile", YHandleFile);
+HandleFile.install = (app: App) => {
+  app.component("HandleFile", HandleFile);
 };
 
-export default YHandleFile as typeof YHandleFile & Plugin;
+export default HandleFile as typeof HandleFile & Plugin;

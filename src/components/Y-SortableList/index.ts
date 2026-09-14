@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YSortableList from "./index.vue";
+import SortableList from "./index.vue";
 
-YSortableList.install = (app: App) => {
-  app.component("YSortableList", YSortableList);
+SortableList.install = (app: App) => {
+  app.component("SortableList", SortableList);
 };
 
-export default YSortableList as typeof YSortableList & Plugin;
+export default SortableList as typeof SortableList & Plugin;

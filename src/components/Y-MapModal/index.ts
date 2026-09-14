@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YMapModal from "./index.vue";
+import MapModal from "./index.vue";
 
-YMapModal.install = (app: App) => {
-  app.component("YMapModal", YMapModal);
+MapModal.install = (app: App) => {
+  app.component("MapModal", MapModal);
 };
 
-export default YMapModal as typeof YMapModal & Plugin;
+export default MapModal as typeof MapModal & Plugin;

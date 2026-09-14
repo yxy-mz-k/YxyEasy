@@ -1,8 +1,8 @@
 import type { App, Plugin } from "vue";
-import YPageLayout from "./index.vue";
+import PageLayout from "./index.vue";
 
-YPageLayout.install = (app: App) => {
-  app.component("YPageLayout", YPageLayout);
+PageLayout.install = (app: App) => {
+  app.component("PageLayout", PageLayout);
 };
 
-export default YPageLayout as typeof YPageLayout & Plugin;
+export default PageLayout as typeof PageLayout & Plugin;
