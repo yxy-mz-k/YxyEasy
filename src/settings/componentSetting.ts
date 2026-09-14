@@ -1,8 +1,7 @@
 // Used to configure the general configuration of some components without modifying the components
 
 import type { SorterResult } from "../components/Table";
-
-export default {
+export const componentSetting = {
   // basic-table setting
   table: {
     // Form interface request general configuration
@@ -72,6 +71,7 @@ export default {
     colon: true,
   },
 };
+export default componentSetting;
 
 /**
  * 获取排序信息

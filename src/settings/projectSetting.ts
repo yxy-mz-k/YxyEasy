@@ -21,7 +21,7 @@ import {
 import { primaryColor } from "utils/themeConfig";
 
 // ! You need to clear the browser cache after the change
-const setting: ProjectConfig = {
+export const setting: ProjectConfig = {
   // Whether to show the configuration button
   showSettingButton: true,
 

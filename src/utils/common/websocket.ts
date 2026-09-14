@@ -123,3 +123,4 @@ const websocket: any = {
   },
 };
 export default websocket;
+export { websocket };
