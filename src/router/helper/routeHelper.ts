@@ -62,39 +62,33 @@ function dynamicImport(
   component: string,
 ) {
   const keys = Object.keys(dynamicViewsModules);
+
+  const normalizedComponent = (component as string)
+    .replace(/^\//, "")
+    .replace(/\.vue$/, "")
+    .replace(/\.tsx$/, "");
+
   const matchKeys = keys.filter((key) => {
-    // 处理两种路径格式：../../views/ 和 ./views/
-    const k = key
-      .replace("../../views", "")
-      .replace("./views", "")
-      .replace("../views", "");
+    let k = key
+      .replace(/^\.\.\/\.\.\/views\//, "")
+      .replace(/^\.\/views\//, "")
+      .replace(/^\.\.\/views\//, "");
 
-    const startFlag = component.startsWith("/");
-    const endFlag = component.endsWith(".vue") || component.endsWith(".tsx");
-    const startIndex = startFlag ? 0 : 1;
-    const lastIndex = endFlag ? k.length : k.lastIndexOf(".");
+    k = k.replace(/\.vue$/, "").replace(/\.tsx$/, "");
 
-    return k.substring(startIndex, lastIndex) === component;
+    return k === normalizedComponent;
   });
 
-  if (matchKeys?.length === 1) {
-    const matchKey = matchKeys[0];
-    return dynamicViewsModules[matchKey];
-  } else if (matchKeys?.length > 1) {
-    // warn(
-    //   "Please do not create `.vue` and `.TSX` files with the same file name in the same hierarchical directory under the views folder. This will cause dynamic introduction failure",
-    // );
-    return;
-  } else {
-    // warn(
-    //   "在 src/views/ 下找不到 `" +
-    //     component +
-    //     ".vue` 或 `" +
-    //     component +
-    //     ".tsx`, 请自行创建!",
-    // );
+  if (matchKeys.length === 0) {
+    // warn("在 src/views/ 下找不到 `" + component + ".vue`, 请自行创建!");
     return EXCEPTION_COMPONENT;
   }
+
+  // 优先业务项目的
+  const externalKey = matchKeys.find((k) => k.startsWith("./views/"));
+  const selectedKey = externalKey || matchKeys[0];
+
+  return dynamicViewsModules[selectedKey];
 }
 
 // Turn background objects into routing objects
