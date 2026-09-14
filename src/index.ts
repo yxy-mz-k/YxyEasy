@@ -22,6 +22,7 @@ import { initAppConfigStore } from "logics/initAppConfig";
 import { useUserStoreWithOut } from "store/modules/user";
 import { useAppStore } from "store/modules/app";
 import { MenuModeEnum, MenuTypeEnum } from "enums/menuEnum";
+import * as Icons from "@ant-design/icons-vue";
 
 // 导出所有内容
 export * from "./api";
@@ -53,6 +54,11 @@ const install = (app: App, options?: YxyEasyOptions) => {
   // const pinia = createPinia();
   // setActivePinia(pinia);
   // app.use(pinia);
+
+  const icons: any = Icons;
+  for (const i in icons) {
+    app.component(i, icons[i]);
+  }
 
   setupStore(app);
   initAppConfigStore();

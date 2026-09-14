@@ -35,3 +35,5 @@ export * from "./uuid";
 export * from "./data";
 export * from "./other";
 export * from "./handleApiUrl";
+// export * from "./build/generate/generateModifyVars";
+export * from "./build/config/themeConfig";
