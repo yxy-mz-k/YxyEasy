@@ -5,8 +5,8 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 // import glob from "vite-plugin-glob";
 // import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-import { generateModifyVars } from "./src/utils/generateModifyVars";
-import { createVitePlugins } from "./src/utils/build/index";
+import { generateModifyVars } from "./src/utils/build/generate/generateModifyVars";
+import { createVitePlugins } from "./src/utils/build/vite/plugins/index";
 
 export default defineConfig({
   plugins: createVitePlugins(),

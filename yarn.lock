@@ -10868,9 +10868,9 @@ vite-plugin-vue-setup-extend@^0.4.0:
     "@vue/compiler-sfc" "^3.2.29"
     magic-string "^0.25.7"
 
-vite-plugin-windicss@^1.8.4:
+vite-plugin-windicss@^1.9.4:
   version "1.9.4"
-  resolved "https://registry.npmmirror.com/vite-plugin-windicss/-/vite-plugin-windicss-1.9.4.tgz#f88d088de2110a0b7b59965579e8ab44ad678d3d"
+  resolved "https://registry.npmjs.org/vite-plugin-windicss/-/vite-plugin-windicss-1.9.4.tgz#f88d088de2110a0b7b59965579e8ab44ad678d3d"
   integrity sha512-3t1AUVrs2XBXGc2BefRPRvy1CLy8qA/5A1J1Z73Ej1DIx+puXn39MQSWluxZ2FHEz8z9OEIvsoIIPc/s/P3OmQ==
   dependencies:
     "@windicss/plugin-utils" "1.9.4"

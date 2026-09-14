@@ -1,4 +1,4 @@
-import { getThemeColors, generateColors } from "utils/themeConfig";
+import { getThemeColors, generateColors } from "utils/build/config/themeConfig";
 
 import { replaceStyleVariables } from "vite-plugin-theme/es/client";
 import {

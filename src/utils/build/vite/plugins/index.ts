@@ -4,6 +4,8 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import glob from "vite-plugin-glob";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { resolve } from "path";
+import windiCSS from "vite-plugin-windicss";
+// import { configThemePlugin } from "./theme";
 
 // import windiCSS from "vite-plugin-windicss";
 // import { configHtmlPlugin } from "./html";
@@ -11,7 +13,7 @@ import { resolve } from "path";
 // import { configStyleImportPlugin } from "./styleImport";
 // import { configPwaConfig } from "./pwa";
 
-// import { getGlobalConfig } from "../global";
+// import { getGlobalConfig } from "../../../global";
 export function createVitePlugins() {
   // let globalConfig = getGlobalConfig();
   // const isBuild = !globalConfig?.isEnv;
@@ -30,11 +32,14 @@ export function createVitePlugins() {
       // 自定义 domId
       customDomId: "__svg__icons__dom__",
     }),
+    // windiCSS(),
+    // configThemePlugin(),
   ];
-  // vitePlugins.push(windiCSS());
+  vitePlugins.push(windiCSS());
   // vitePlugins.push(configHtmlPlugin());
   // vitePlugins.push(configSvgIconsPlugin());
   // vitePlugins.push(configStyleImportPlugin());
+  // vitePlugins.push(configThemePlugin());
 
   // if (isBuild) {
   //   vitePlugins.push(configPwaConfig());

@@ -19,7 +19,6 @@ export * from "./domUtils";
 export * from "./downLoad";
 export * from "./env";
 export * from "./fieldsUtil";
-export * from "./getConfigFileName";
 export * from "./getMapUrl";
 export * from "./handleMapping";
 
@@ -33,8 +32,6 @@ export * from "./propTypes";
 export * from "./time";
 export * from "./types";
 export * from "./uuid";
-export * from "./themeConfig";
-export * from "./generateModifyVars";
 export * from "./data";
 export * from "./other";
 export * from "./handleApiUrl";

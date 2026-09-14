@@ -1,6 +1,5 @@
-import { generateAntColors, primaryColor } from "utils/themeConfig";
-import { getThemeVariables } from "ant-design-vue/dist/theme";
-import { resolve } from "path";
+import { generateAntColors, primaryColor } from "../config/themeConfig";
+import { getThemeVariables } from "ant-design-vue/dist/theme.js";
 
 /**
  * less global variable
@@ -15,14 +14,12 @@ export function generateModifyVars(dark = false) {
     primaryColorObj[`primary-${index + 1}`] = palettes[index];
   }
 
-  const modifyVars = getThemeVariables({ dark });
-  return {
-    ...modifyVars,
+  const ThemeVariables = getThemeVariables({ dark });
+  const modifyVars = {
+    ...ThemeVariables,
     // Used for global import to avoid the need to import each style file separately
     // reference:  Avoid repeated references
-    hack: `${modifyVars.hack} @import (reference) "${resolve(
-      "src/design/config.less",
-    )}";`,
+    hack: `${ThemeVariables.hack} @import (reference) "src/design/config.less";`,
     "primary-color": primary,
     ...primaryColorObj,
     "info-color": primary,
@@ -36,4 +33,5 @@ export function generateModifyVars(dark = false) {
     "link-color": primary, //   Link color
     "app-content-background": "#f7f7f7", //   Link color
   };
+  return modifyVars;
 }

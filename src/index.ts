@@ -4,9 +4,12 @@ import type { App } from "vue";
 // import { createPinia, setActivePinia } from "pinia";
 import type { YxyEasyOptions } from "./types";
 import * as components from "./components";
-import "styles/index.scss";
+import "virtual:windi-base.css";
 import "design/index.less";
+import "virtual:windi-components.css";
+import "virtual:windi-utilities.css";
 
+import "styles/index.scss";
 // 导入配置
 import { setGlobalConfig } from "utils/global";
 

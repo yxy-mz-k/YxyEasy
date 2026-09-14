@@ -4,16 +4,17 @@
  */
 import type { PluginOption } from "vite";
 import { createHtmlPlugin } from "vite-plugin-html";
-import pkg from "../../../package.json";
-import { GLOB_CONFIG_FILE_NAME } from "../../constant";
-import { getGlobalConfig } from "../../../src/utils/global";
+import pkg from "../../../../../package.json";
+import { getGlobalConfig } from "../../../global";
 
-export function configHtmlPlugin(env: ViteEnv, isBuild: boolean) {
-  const globalConfig = getGlobalConfig();
-
+export function configHtmlPlugin() {
+  let globalConfig = getGlobalConfig();
+  const isBuild = !globalConfig?.isEnv;
   const getAppConfigSrc = () => {
     // return `${path || '/'}${GLOB_CONFIG_FILE_NAME}?v=${pkg.version}-${new Date().getTime()}`;
-    return `${GLOB_CONFIG_FILE_NAME}?v=${pkg.version}-${new Date().getTime()}`;
+    return `${globalConfig?.GLOB_CONFIG_FILE_NAME}?v=${
+      pkg.version
+    }-${new Date().getTime()}`;
   };
 
   const htmlPlugin: PluginOption[] = createHtmlPlugin({

@@ -16,9 +16,6 @@ export function getStorageShortName() {
 
 export function getAppEnvConfig() {
   if (!/^[a-zA-Z\_]*$/.test(getGlobalConfig()?.VITE_GLOB_APP_SHORT_NAME)) {
-    warn(
-      `VITE_GLOB_APP_SHORT_NAME Variables can only be characters/underscores, please modify in the environment variables and re-running.`,
-    );
   }
 
   return {
@@ -41,7 +38,6 @@ export const devMode = "development";
 export const prodMode = "production";
 
 /**
- * @description: Get environment variables
  * @returns:
  * @example:
  */

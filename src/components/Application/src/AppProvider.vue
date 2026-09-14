@@ -34,7 +34,6 @@ export default defineComponent({
 
     const { prefixCls } = toRefs(props);
 
-    // Inject variables into the global
     createAppProviderContext({ prefixCls, isMobile });
 
     /**

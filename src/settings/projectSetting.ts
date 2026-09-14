@@ -18,7 +18,7 @@ import {
   SIDE_BAR_BG_COLOR_LIST,
   HEADER_PRESET_BG_COLOR_LIST,
 } from "./designSetting";
-import { primaryColor } from "utils/themeConfig";
+import { primaryColor } from "utils/build/config/themeConfig";
 
 // ! You need to clear the browser cache after the change
 export const setting: ProjectConfig = {

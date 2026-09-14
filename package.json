@@ -1,7 +1,7 @@
 {
   "name": "@yxy_27/yxyeasy",
   "private": false,
-  "version": "0.0.42",
+  "version": "0.0.43",
   "type": "module",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
@@ -63,8 +63,8 @@
     "@logicflow/extension": "^1.1.13",
     "@vue/runtime-core": "^3.2.33",
     "@vue/shared": "^3.2.33",
-    "@vueuse/core": "^8.9.4",
     "@vueuse/components": "^10.5.0",
+    "@vueuse/core": "^8.9.4",
     "@vueuse/shared": "^8.3.0",
     "@zxcvbn-ts/core": "^2.0.1",
     "ant-design-vue": "^3.2.0",
@@ -242,7 +242,7 @@
     "vite-plugin-theme": "^0.8.6",
     "vite-plugin-top-level-await": "^1.1.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
-    "vite-plugin-windicss": "^1.8.4",
+    "vite-plugin-windicss": "^1.9.4",
     "vue-eslint-parser": "^8.3.0",
     "vue-tsc": "^0.33.9"
   }
