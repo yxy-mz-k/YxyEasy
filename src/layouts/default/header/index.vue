@@ -248,15 +248,18 @@ export default defineComponent({
       return relUrl;
     }
     const getTopMenuList = async () => {
+      let globalConfig = getGlobalConfig();
       topMenuList.value = await getMenuList({ appId: "app_mannager_menu" });
       let path = GetUrlRelativePath();
       topMenuList.value.forEach((item, index) => {
-        item.exts.forEach((ext) => {
+        item?.exts?.forEach((ext: any) => {
           if (ext.extKey == "path") {
             // if (ext.extValue == path || ext.extValue + '#/home' == path) {
             if (
               ext.extValue == path ||
-              new URL(ext.extValue, import.meta.url).pathname.includes(path)
+              new URL(ext.extValue, window.location.origin).pathname.includes(
+                path,
+              )
             ) {
               activeKey.value = index;
             }
@@ -271,7 +274,7 @@ export default defineComponent({
           )?.extValue;
           return (
             extValue !== path &&
-            !new URL(extValue, import.meta.url).pathname.includes(path)
+            !new URL(extValue, window.location.origin).pathname.includes(path)
           );
         })
       ) {
@@ -281,8 +284,6 @@ export default defineComponent({
             (i: any) => i.extKey == "path",
           )?.extValue;
           activeKey.value = 0;
-
-          let globalConfig = getGlobalConfig();
 
           const origin = globalConfig?.VITE_ORIGIN;
           window.location.href = origin + extValue + window.location.hash;

@@ -37,3 +37,4 @@ export * from "./themeConfig";
 export * from "./generateModifyVars";
 export * from "./data";
 export * from "./other";
+export * from "./handleApiUrl";

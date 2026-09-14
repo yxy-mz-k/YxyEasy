@@ -372,7 +372,7 @@ export const computedStylePosition = (
   };
 };
 export const getPathAssets = (url: string) => {
-  return new URL(`/src/assets/images/map/${url}`, import.meta.url).href;
+  return new URL(`/src/assets/images/map/${url}`, window.location.origin).href;
 };
 
 // 通过选中日期返回当前七天
