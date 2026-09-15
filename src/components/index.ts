@@ -15,7 +15,7 @@ import MapModal from "./Y-MapModal";
 import PageLayout from "./Y-PageLayout";
 import SortableList from "./Y-SortableList";
 import Splitpanes from "./Y-Splitpanes";
-import YToolTip from "./Y-ToolTip";
+import ToolTip from "./Y-ToolTip";
 import VideoCom from "./Y-VideoCom";
 import WebWinVideo from "./Y-WebWinVideo";
 // 按需引入
@@ -26,7 +26,7 @@ const allComponents = [
   PageLayout,
   SortableList,
   Splitpanes,
-  YToolTip,
+  ToolTip,
   WebWinVideo,
   AttachCom,
   Attachment,
@@ -354,7 +354,7 @@ export {
   PageLayout,
   SortableList,
   Splitpanes,
-  YToolTip,
+  ToolTip,
   WebWinVideo,
   AttachCom,
   Attachment,
