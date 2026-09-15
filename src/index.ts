@@ -24,6 +24,8 @@ import { MenuModeEnum, MenuTypeEnum } from "enums/menuEnum";
 import * as Icons from "@ant-design/icons-vue";
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.less";
+import "@logicflow/core/dist/style/index.css";
+import "@logicflow/extension/lib/style/index.css";
 
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";

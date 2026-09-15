@@ -32,8 +32,8 @@ import { toLogicFlowData } from "./adpterForTurbo";
 import { useModal, BasicModal } from "components/Modal";
 import { JsonPreview } from "components/CodeEditor";
 import { configDefaultDndPanel } from "./config";
-import "@logicflow/core/dist/style/index.css";
-import "@logicflow/extension/lib/style/index.css";
+// import "@logicflow/core/dist/style/index.css";
+// import "@logicflow/extension/lib/style/index.css";
 
 import StartNode from "components/FlowChart/src/StartNode";
 import EndNode from "components/FlowChart/src/EndNode";
