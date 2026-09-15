@@ -14,6 +14,8 @@ enum Api {
     "/api/uauth/sysMng/geoInfo/deleteByTableId",
   deleteById = getUrlRelativePath() + "/api/uauth/sysMng/geoInfo/deleteById",
   geoQueryById = getUrlRelativePath() + "/api/uauth/sysMng/geoInfo/queryById",
+  updateTableId = getUrlRelativePath() +
+    "/api/uauth/sysMng/geoInfo/updateTableId",
 }
 
 /*
@@ -96,5 +98,12 @@ export const geoQueryByIdEdit = (params: any) => {
   return defHttp.post<any>({
     url: Api.geoQueryById,
     params: params,
+  });
+};
+
+export const updateTableId = (params) => {
+  return defHttp.post<any>({
+    url: `${Api.updateTableId}?id=${params.id}&tableId=${params.tableId}`,
+    // params,
   });
 };
