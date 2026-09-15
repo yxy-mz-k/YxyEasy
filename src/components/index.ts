@@ -485,6 +485,8 @@ export * from "./Table/src/types/pagination";
 export * from "./Table/src/types/tableAction";
 export { useTable } from "./Table";
 
+export { getPlayAddr, controlling } from "./Y-VideoCom";
+
 export const { Time } = TimeComponents;
 
 export const { Tinymce } = TinymceComponents;

@@ -6,3 +6,5 @@ VideoCom.install = (app: App) => {
 };
 
 export default VideoCom as typeof VideoCom & Plugin;
+
+export { getPlayAddr, controlling } from "./api";

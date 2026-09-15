@@ -25,6 +25,29 @@ import * as Icons from "@ant-design/icons-vue";
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.less";
 
+import dayjs from "dayjs";
+import "dayjs/locale/zh-cn";
+import weekday from "dayjs/plugin/weekday";
+import localeData from "dayjs/plugin/localeData";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
+import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import weekOfYear from "dayjs/plugin/weekOfYear";
+import weekYear from "dayjs/plugin/weekYear";
+import quarterOfYear from "dayjs/plugin/quarterOfYear";
+dayjs.extend(weekday);
+dayjs.extend(localeData);
+dayjs.extend(customParseFormat);
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
+dayjs.extend(advancedFormat);
+dayjs.extend(weekOfYear);
+dayjs.extend(weekYear);
+dayjs.extend(quarterOfYear);
+
+dayjs.locale("zh-cn");
+
 import * as components from "./components";
 // 导出所有内容
 export * from "./api";

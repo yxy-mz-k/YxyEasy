@@ -2,7 +2,7 @@
 export function getMapping() {
   const iconOptions: any = [];
 
-  const modules = import.meta.globEager("/public/images/map/*.*");
+  const modules = import.meta.glob("/public/images/map/*.*", { eager: true });
   Object.keys(modules).map((i: any) => {
     iconOptions.push({
       label: i.slice(i.lastIndexOf("_") + 1, i.lastIndexOf(".")),

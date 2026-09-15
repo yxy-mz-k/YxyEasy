@@ -11,3 +11,11 @@ export const getDictTreeByDictCode = (dictCode) => {
     params: { dictCode: dictCode },
   });
 };
+
+export const getDicListByDictCodeToTable = (params) => {
+  let globalConfig = getGlobalConfig();
+  return defHttp.post<any>({
+    url: `${globalConfig?.suffixApi}${Api.getDic}`,
+    params,
+  });
+};

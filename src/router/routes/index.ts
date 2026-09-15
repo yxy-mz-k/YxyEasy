@@ -4,7 +4,7 @@ import { PAGE_NOT_FOUND_ROUTE, REDIRECT_ROUTE } from "router/routes/basic";
 
 import { PageEnum } from "enums/pageEnum";
 
-const modules = import.meta.globEager("./modules/**/*.ts");
+const modules = import.meta.glob("./modules/**/*.ts", { eager: true });
 
 const routeModuleList: AppRouteModule[] = [];
 
