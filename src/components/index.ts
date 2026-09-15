@@ -428,7 +428,14 @@ export const { ImpExcel, ExpExcelModal } = ExcelComponents;
 export { jsonToSheetXlsx, aoaToSheetXlsx } from "./Excel";
 export * from "./Excel/src/typing";
 
-export const { FlowChart } = FlowChartComponents;
+export const { FlowChart, FlowChartToolbar, FlowChartTooltip } =
+  FlowChartComponents;
+export {
+  createFlowChartContext,
+  configDefaultDndPanel,
+  StartNode,
+  EndNode,
+} from "./FlowChart";
 
 export const {
   BasicForm,

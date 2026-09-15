@@ -58,7 +58,7 @@ import { basicProps } from "./props";
 import { useDesign } from "hooks/web/useDesign";
 import { useAttrs } from "hooks/core/useAttrs";
 
-defineOptions({ inheritAttrs: false });
+defineOptions({ name: "BasicDrawer", inheritAttrs: false });
 
 const props = defineProps(basicProps);
 

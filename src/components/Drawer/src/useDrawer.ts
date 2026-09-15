@@ -57,7 +57,6 @@ export function useDrawer(): UseDrawerReturnType {
       visibleData[uid] = visible;
     };
   }
-
   const getInstance = () => {
     const instance = unref(drawer);
     if (!instance) {
