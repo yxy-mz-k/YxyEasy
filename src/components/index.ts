@@ -18,6 +18,8 @@ import Splitpanes from "./Y-Splitpanes";
 import ToolTip from "./Y-ToolTip";
 import VideoCom from "./Y-VideoCom";
 import WebWinVideo from "./Y-WebWinVideo";
+import CustomDia from "./Y-CustomDia";
+import ConfigManage from "./Y-ConfigManage";
 // 按需引入
 const allComponents = [
   YCharts,
@@ -36,6 +38,8 @@ const allComponents = [
   LeafletMap,
   MapModal,
   VideoCom,
+  CustomDia,
+  ConfigManage,
 ];
 
 import * as ApplicationComponents from "./Application";
@@ -364,6 +368,8 @@ export {
   LeafletMap,
   MapModal,
   VideoCom,
+  CustomDia,
+  ConfigManage,
 };
 
 export type { ButtonProps };

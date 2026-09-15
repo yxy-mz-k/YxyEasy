@@ -38,3 +38,4 @@ export * from "./handleApiUrl";
 // export * from "./build/generate/generateModifyVars";
 export * from "./build/config/themeConfig";
 export * from "./handleXlsx";
+export * from "./FuzzyQuery";
