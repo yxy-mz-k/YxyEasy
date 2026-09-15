@@ -21,6 +21,7 @@ enum Api {
   userInfo = "/api/sys/user/userInfo",
   getUserOrgList = "/api/sys/user/deptTree",
   getAppData = "/api/sys/user/appData",
+  parkAllCompanys = "/api/sys/parkAllCompanys",
 }
 /**
  * @description: user login api
@@ -135,5 +136,13 @@ export const getAppData = (params: any) => {
   return defHttp.post<any>({
     url: `${globalConfig?.suffixApi}${Api.getAppData}`,
     params: params,
+  });
+};
+
+export const parkAllCompanys = (params) => {
+  let globalConfig = getGlobalConfig();
+  return defHttp.post<any>({
+    url: `${globalConfig?.suffixApi}${Api.parkAllCompanys}`,
+    params,
   });
 };
