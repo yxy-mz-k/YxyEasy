@@ -10680,6 +10680,21 @@ uuid@^3.3.2:
   resolved "https://registry.npmmirror.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+v-dropdown@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.npmjs.org/v-dropdown/-/v-dropdown-3.5.1.tgz#c101b031d4381adcb848642bd07e26409a6c5dae"
+  integrity sha512-shX+jBf+RXLPYiaklE5l2XvJFWd/4eNMN2oVKeITzBMMOAFjI9pGxCMm8g3nz3tCbpOLzD3mwv+WfygeBTpSsg==
+  dependencies:
+    vue "^3.5.21"
+
+v-region@^3.4.1:
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/v-region/-/v-region-3.6.1.tgz#667fa868efd1d195a5ea8064d7872efbbe2f13b0"
+  integrity sha512-6s3PRjYUg7xPTTgkSL6aBjKdEKW3HwTM1ZgrFBWQ3jjo8eD5K5nQ5vjp4fg7L6uMLBdah8sBSud3PDYV61jdWA==
+  dependencies:
+    v-dropdown "^3.5.1"
+    vue "^3.5.39"
+
 v8-compile-cache-lib@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmmirror.com/v8-compile-cache-lib/-/v8-compile-cache-lib-3.0.1.tgz#6336e8d71965cb3d35a1bbb7868445a7c05264bf"
@@ -11015,9 +11030,9 @@ vue3-json-viewer@^2.4.1:
   dependencies:
     clipboard "^2.0.10"
 
-vue@^3.3.9:
+vue@^3.3.9, vue@^3.5.21, vue@^3.5.39:
   version "3.5.42"
-  resolved "https://registry.npmmirror.com/vue/-/vue-3.5.42.tgz#6099e750a19c68a5c09f785808d5abb01558a3c1"
+  resolved "https://registry.npmjs.org/vue/-/vue-3.5.42.tgz#6099e750a19c68a5c09f785808d5abb01558a3c1"
   integrity sha512-4RyHQTbQvOPs3MfvUO1Sg0YRrKNnA0mAVtvpd12Tg1fKDN7OHBUl1IqSn8zGJjK9nI3NkNp8cgTpVrSZC5TTcA==
   dependencies:
     "@vue/compiler-dom" "3.5.42"

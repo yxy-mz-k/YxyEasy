@@ -423,3 +423,7 @@ export const setTableItemMaxFourStyle = (
     };
   }
 };
+
+export const computedSummary = (dataIndex: string, dataSource) => {
+  return dataSource?.reduce((p, n) => p + Number(n[dataIndex]), 0).toFixed(4);
+};
