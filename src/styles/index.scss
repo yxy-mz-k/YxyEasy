@@ -317,3 +317,18 @@ a:hover {
     display: none;
   }
 }
+
+.custom-region {
+  width: 100% !important;
+  height: 100% !important;
+  .dd-trigger-container {
+    width: 100% !important;
+    height: 100% !important;
+    .dd-default-trigger {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 0 !important;
+      justify-content: space-between;
+    }
+  }
+}
