@@ -73,11 +73,15 @@ a:hover {
     padding: 24px;
     box-sizing: border-box;
   }
+  .page-parent-content-nopadding {
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 .page-parent-drawer {
   .page-layout-index {
-    padding: 0;
+    padding: 0 !important;
   }
 }
 .hoverScroll {

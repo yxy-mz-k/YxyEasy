@@ -4,8 +4,8 @@ import { componentRegistry } from "utils/registry";
 
 import AttachCom from "./Y-AttachCom";
 import Attachment from "./Y-Attachment";
-import YCharts from "./Y-Charts";
-import YClipboard from "./Y-Clipboard";
+import Charts from "./Y-Charts";
+import Clipboard from "./Y-Clipboard";
 import FlowModal from "./Y-FlowModal";
 import HandleFile from "./Y-HandleFile";
 import HandleFixed from "./Y-HandleFixed";
@@ -21,8 +21,8 @@ import WebWinVideo from "./Y-WebWinVideo";
 import CustomDia from "./Y-CustomDia";
 // 按需引入
 const allComponents = [
-  YCharts,
-  YClipboard,
+  Charts,
+  Clipboard,
   LeftProjectTree,
   PageLayout,
   SortableList,
@@ -350,8 +350,8 @@ const install = (app: App) => {
 };
 
 export {
-  YCharts,
-  YClipboard,
+  Charts,
+  Clipboard,
   LeftProjectTree,
   PageLayout,
   SortableList,

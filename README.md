@@ -38,6 +38,7 @@ app.use(yxyeasy, {
   VITE_PUBLIC_PATH,
   name: "园区档案管理",
   views: viewModules,
+  whitePathList: ["/ST"],
 });
 ```
 
