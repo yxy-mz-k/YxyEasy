@@ -62,6 +62,10 @@ export * from "./locales";
 export * from "./store";
 export * from "./utils";
 export type * from "./types";
+
+export type { AppRouteRecordRaw } from "./router/types";
+
+import { setBR } from "./router/routes/index";
 // export { defHttp } from "./utils/http";
 
 // 默认导出插件
@@ -69,6 +73,9 @@ const install = (app: App, options?: YxyEasyOptions) => {
   // 1. 先设置全局配置（在任何 store 使用之前）
   if (options) {
     setGlobalConfig(options);
+  }
+  if (options?.basicRoutes) {
+    setBR(options);
   }
 
   import("utils/http").then(({ refreshDefHttp }) => {
@@ -90,6 +97,7 @@ const install = (app: App, options?: YxyEasyOptions) => {
 
   setupStore(app);
   initAppConfigStore();
+
   // registerGlobComp(app);
   setupI18n(app);
 
@@ -102,7 +110,7 @@ const install = (app: App, options?: YxyEasyOptions) => {
     }
   });
 
-  setupRouter(app);
+  setupRouter(app, options);
   setupRouterGuard(router);
 
   const userStore = useUserStoreWithOut();

@@ -38,7 +38,18 @@ app.use(yxyeasy, {
   VITE_PUBLIC_PATH,
   name: "园区档案管理",
   views: viewModules,
-  whitePathList: ["/ST"],
+  whitePathList: ["/DURegister"],
+  basicRoutes: [
+    {
+      path: "/register",
+      name: "DURegister",
+      component: () => import("@/views/DURegister/index.vue"),
+
+      meta: {
+        title: "排水户注册",
+      },
+    },
+  ],
 });
 ```
 

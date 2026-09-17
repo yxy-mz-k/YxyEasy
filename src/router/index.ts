@@ -11,9 +11,11 @@ const getRouteNames = (array: any[]) =>
     WHITE_NAME_LIST.push(item.name);
     getRouteNames(item.children || []);
   });
+
 getRouteNames(basicRoutes);
 
 // app router
+
 export const router = createRouter({
   history: createWebHashHistory(getGlobalConfig().VITE_PUBLIC_PATH),
   routes: basicRoutes as unknown as RouteRecordRaw[],
@@ -33,12 +35,18 @@ export function resetRouter() {
 // 标记是否已安装
 let installed = false;
 // config router
-export function setupRouter(app: App<Element>) {
+export function setupRouter(app: App<Element>, config?: any) {
   // 防止重复安装
   if (installed) {
     return;
   }
   if (!app.config.globalProperties.$router) {
+    if (config?.basicRoutes) {
+      config?.basicRoutes?.forEach((route: RouteRecordRaw) => {
+        router.addRoute(route);
+      });
+    }
+
     app.use(router);
     installed = true;
   }
