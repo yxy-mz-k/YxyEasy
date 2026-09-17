@@ -1,25 +1,28 @@
 <template>
   <div class="page-layout-index">
     <div class="page-layout-index-content">
-      <div class="page-layout-index-content-tabs" v-if="tab || tab?.length">
-        <a-tabs v-model:activeKey="tabActiveKey" @change="changeTab">
-          <template v-for="item in tab" :key="item[item.keyProp || 'key']">
-            <a-tab-pane
-              :tab="item.tab"
-              :key="item[item.keyProp || 'key']"
-              :disabled="item.disabled"
-              v-if="item?.show?.() ?? true"
-            />
-          </template>
+      <slot name="tab">
+        <div class="page-layout-index-content-tabs" v-if="tab || tab?.length">
+          <a-tabs v-model:activeKey="tabActiveKey" @change="changeTab">
+            <template v-for="item in tab" :key="item[item.keyProp || 'key']">
+              <a-tab-pane
+                :tab="item.tab"
+                :key="item[item.keyProp || 'key']"
+                :disabled="item.disabled"
+                v-if="item?.show?.() ?? true"
+              />
+            </template>
 
-          <template #leftExtra>
-            <slot name="leftExtra"></slot>
-          </template>
-          <template #rightExtra>
-            <slot name="rightExtra"></slot>
-          </template>
-        </a-tabs>
-      </div>
+            <template #leftExtra>
+              <slot name="leftExtra"></slot>
+            </template>
+            <template #rightExtra>
+              <slot name="rightExtra"></slot>
+            </template>
+          </a-tabs>
+        </div>
+      </slot>
+
       <div class="page-layout-index-content-content">
         <Splitpanes
           :size="
