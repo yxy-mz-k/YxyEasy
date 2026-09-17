@@ -19,6 +19,7 @@ import ToolTip from "./Y-ToolTip";
 import VideoCom from "./Y-VideoCom";
 import WebWinVideo from "./Y-WebWinVideo";
 import CustomDia from "./Y-CustomDia";
+import SignWordModal from "./Y-SignWordModal";
 // 按需引入
 const allComponents = [
   Charts,
@@ -38,6 +39,7 @@ const allComponents = [
   MapModal,
   VideoCom,
   CustomDia,
+  SignWordModal,
 ];
 
 import * as ApplicationComponents from "./Application";
@@ -367,6 +369,7 @@ export {
   MapModal,
   VideoCom,
   CustomDia,
+  SignWordModal,
 };
 
 export type { ButtonProps };
