@@ -152,3 +152,21 @@ export const isImgPath = (path: string): boolean => {
 export const isEmptyVal = (val: any): boolean => {
   return val === "" || val === null || val === undefined;
 };
+
+/**
+ * 判断是否是json
+ *
+ * @param str
+ * @returns {boolean}
+ */
+export function isJSON(str) {
+  if (typeof str === "string") {
+    try {
+      JSON.parse(str);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  return false;
+}
