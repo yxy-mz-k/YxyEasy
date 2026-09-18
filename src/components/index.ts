@@ -20,6 +20,7 @@ import VideoCom from "./Y-VideoCom";
 import WebWinVideo from "./Y-WebWinVideo";
 import CustomDia from "./Y-CustomDia";
 import SignWordModal from "./Y-SignWordModal";
+import RichTextEditor from "./Y-RichTextEditor";
 // 按需引入
 const allComponents = [
   Charts,
@@ -40,6 +41,7 @@ const allComponents = [
   VideoCom,
   CustomDia,
   SignWordModal,
+  RichTextEditor,
 ];
 
 import * as ApplicationComponents from "./Application";
@@ -370,6 +372,7 @@ export {
   VideoCom,
   CustomDia,
   SignWordModal,
+  RichTextEditor,
 };
 
 export type { ButtonProps };

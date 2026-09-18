@@ -45,7 +45,11 @@
                   'object-fit': 'fill',
                 }
               "
-              :src="item?.path"
+              :src="
+                getGlobalConfig()?.key == 'sfm'
+                  ? `${item.downloadUrl}${item.uid}`
+                  : item?.path
+              "
             />
           </div>
         </a-carousel>
@@ -53,7 +57,11 @@
           <a-image
             v-for="item in list"
             :key="item.uid"
-            :src="item?.path"
+            :src="
+              getGlobalConfig()?.key == 'sfm'
+                ? `${item.downloadUrl}${item.uid}`
+                : item?.path
+            "
             :style="
               attrs?.imageStyle ?? {
                 height: '100px',
@@ -71,7 +79,15 @@
             }"
           >
             <!-- <a-image v-for="item in list" :key="item.uid" :src="item.path" /> -->
-            <a-image v-for="item in list" :key="item.uid" :src="item?.path" />
+            <a-image
+              v-for="item in list"
+              :key="item.uid"
+              :src="
+                getGlobalConfig()?.key == 'sfm'
+                  ? `${item.downloadUrl}${item.uid}`
+                  : item?.path
+              "
+            />
           </a-image-preview-group>
         </div>
       </template>
@@ -108,7 +124,15 @@
             }"
           >
             <!-- <a-image v-for="item in list" :key="item.uid" :src="item.path" /> -->
-            <a-image v-for="item in list" :key="item.uid" :src="item?.path" />
+            <a-image
+              v-for="item in list"
+              :key="item.uid"
+              :src="
+                getGlobalConfig()?.key == 'sfm'
+                  ? `${item.downloadUrl}${item.uid}`
+                  : item?.path
+              "
+            />
           </a-image-preview-group>
         </div>
       </template>
@@ -167,12 +191,13 @@ const getContainer = () => document.body;
 
 import { getPreViewUrl, exporFile } from "utils/downLoad";
 import { getFileList } from "utils/other";
-import { deleteFile, download } from "api/sys/fileUtils";
+import { deleteFile, download, queryByIds } from "api/sys/fileUtils";
 import { Modal } from "ant-design-vue";
 import { ExclamationCircleOutlined } from "@ant-design/icons-vue";
 import { useMessage } from "hooks/web/useMessage";
 const { createMessage } = useMessage();
 import ToolTip from "components/Y-ToolTip/index.vue";
+import { getGlobalConfig } from "utils/global";
 
 const preview = ref(false);
 const isImage = ref(false);
@@ -192,7 +217,7 @@ const openAttachDialog = async (item: any, list?: any) => {
   if (attrs?.isDownLoad) {
     item.loading = true;
     try {
-      const src = await download(item.uid);
+      const src = await (attrs?.download ?? download)(item.uid);
       item.loading = false;
       exporFile(src, item.name);
     } catch (err) {
@@ -214,7 +239,10 @@ const getFileLists = async () => {
   try {
     list.length = 0;
     if (attrs?.ids) {
-      const files = await getFileList(attrs?.ids);
+      const files = await getFileList(
+        attrs?.ids,
+        attrs?.queryByIds ?? queryByIds,
+      );
       list.push(...(files || []));
       // isImage.value = list?.[0]?.type.includes('image') || false;
       isImage.value = attrs?.isAllImage
@@ -235,7 +263,7 @@ const deleteAttach = (item: any) => {
     centered: true,
     maskClosable: true,
     async onOk() {
-      const deleteresult = await deleteFile({
+      const deleteresult = await (attrs?.deleteFile ?? deleteFile)({
         id: item?.response?.result?.[0]?.id,
       });
       if (deleteresult == null) {

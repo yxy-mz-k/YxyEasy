@@ -26,6 +26,7 @@ import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.less";
 import "@logicflow/core/dist/style/index.css";
 import "@logicflow/extension/lib/style/index.css";
+import "@wangeditor/editor/dist/css/style.css"; // 引入 css
 
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";

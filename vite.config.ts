@@ -57,6 +57,8 @@ export default defineConfig({
         /^@vueuse\/core($|\/)/,
         /^@vueuse\/components($|\/)/,
         /^@vueuse\/shared($|\/)/,
+        // /^@wangeditor\/editor($|\/)/,
+        // /^@wangeditor\/editor-for-vue($|\/)/,
         /^@zxcvbn-ts\/core($|\/)/,
         /^ant-design-vue($|\/)/,
         /^axios($|\/)/,

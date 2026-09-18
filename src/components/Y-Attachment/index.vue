@@ -212,7 +212,7 @@ const openCrop = (file?: any) => {
         circled: attrs?.circled ?? false,
         src,
         uid: file?.uid,
-        uploadApi: uploadFileApi,
+        uploadApi: attrs?.uploadFileApi ?? uploadFileApi,
         DirectlyFile: attrs?.DirectlyFile,
         options: {
           aspectRatio: 37 / 18,
@@ -223,7 +223,7 @@ const openCrop = (file?: any) => {
     } else {
       openCopperUpLoadModal(true, {
         circled: attrs?.circled ?? false,
-        uploadApi: uploadFileApi,
+        uploadApi: attrs?.uploadFileApi ?? uploadFileApi,
         DirectlyFile: attrs?.DirectlyFile,
         options: {
           aspectRatio: 37 / 18,
@@ -241,7 +241,7 @@ const handleSuccess = async (e: any) => {
     emits("getFiles", e.data);
   } else {
     const ids = e?.data?.result?.[0]?.id;
-    const files = await getFileList(ids);
+    const files = await getFileList(ids, attrs?.queryByIds ?? queryByIds);
     if (e?.uid) {
       const index = fileList.value.findIndex((item: any) => item.uid !== e.uid);
       fileList.value.splice(index, 1, ...files);
@@ -307,7 +307,7 @@ const uploadFile = (e: any) => {
     return;
   }
   // 上传接口  e.file 就是接口所用的 file
-  uploadFileApi({
+  (attrs?.uploadFileApi ?? uploadFileApi)({
     file: e?.file,
     onUploadProgress: (ev) => {
       // ev - axios 上传进度实例，上传过程触发多次
@@ -367,7 +367,9 @@ const handleRemove = async (file: any, type = "remove") => {
     }
     if (file?.response?.result) {
       // 调用删除接口
-      const deleteresult = await deleteFile({ id: file.response.result[0].id });
+      const deleteresult = await (attrs?.deleteFile ?? deleteFile)({
+        id: file.response.result[0].id,
+      });
       if (deleteresult == null) {
         fileList.value = fileList.value?.filter((f: any) => f.uid !== file.uid);
         return true;
@@ -393,7 +395,7 @@ const handleRemove = async (file: any, type = "remove") => {
         }
         if (file?.response?.result) {
           // 调用删除接口
-          const deleteresult = await deleteFile({
+          const deleteresult = await (attrs?.deleteFile ?? deleteFile)({
             id: file.response.result[0].id,
           });
           if (deleteresult == null) {
@@ -445,7 +447,10 @@ const clearFile = async () => {
 const getFileLists = async () => {
   fileList.value = [];
   if (attrs?.ids) {
-    const files = await getFileList(attrs?.ids);
+    const files = await getFileList(
+      attrs?.ids,
+      attrs?.queryByIds ?? queryByIds,
+    );
     fileList.value.push(...(files || []));
     emits("getFiles", fileList.value);
   }

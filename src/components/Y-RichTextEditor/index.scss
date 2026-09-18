@@ -1,0 +1,21 @@
+.Rich-Text-Editor {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .Rich-Text-Editor-Toolbar {
+    border-bottom: 1px solid #ccc;
+  }
+  .Rich-Text-Editor-Editor {
+    // flex: 1;
+    // max-height: 300px !important;
+    // height: calc(100% - 45px) !important;
+    overflow-y: auto;
+  }
+}
+.border-left {
+  border-left: 1px solid #ccc;
+}
+.border {
+  border: 1px solid #ccc;
+}

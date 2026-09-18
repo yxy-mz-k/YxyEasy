@@ -258,11 +258,15 @@ export function handleTreeData(data) {
 import { getGlobalConfig } from "utils/global";
 import { queryByIds } from "api/sys/fileUtils";
 
-export async function getFileList(ids?: string) {
+export async function getFileList(ids?: string, API?: any) {
   const fileList: any = [];
   let globalConfig = getGlobalConfig();
   if (ids) {
-    await queryByIds({
+    const download = globalConfig?.isEnv
+      ? `${globalConfig?.suffixApi}-center${globalConfig?.suffixApi}` +
+        "/api/fileMng/download?id="
+      : globalConfig?.suffixApi + "/api/fileMng/download?id=";
+    await (API ?? queryByIds)({
       id: Array.isArray(ids) ? ids?.join(",") : ids,
     })
       .then((res: any) => {
@@ -279,9 +283,10 @@ export async function getFileList(ids?: string) {
                   },
                   name: r?.fileName,
                   status: "done",
-                  url: r?.path,
-                  path: r?.path,
+                  url: r?.path ?? r?.filePath,
+                  path: r?.path ?? r?.filePath,
                   type: r?.contentType,
+                  downloadUrl: download,
                 },
                 r?.contentType?.includes("svg")
                   ? {
