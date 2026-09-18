@@ -28,7 +28,7 @@ const isEnv = import.meta.env["MODE"] === "development" ? true : false;
 const origin = isEnv ? import.meta.env["VITE_ORIGIN"] : window.location.origin;
 const host = isEnv ? import.meta.env["VITE_HOST"] : window.location.host;
 const VITE_PUBLIC_PATH = import.meta.env["VITE_PUBLIC_PATH"];
-const viewModules = import.meta.glob("./views/**/index.vue");
+const viewModules = import.meta.glob("./views/**/*.vue");
 
 app.use(yxyeasy, {
   key: "park",
