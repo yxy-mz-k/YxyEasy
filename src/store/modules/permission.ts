@@ -205,7 +205,9 @@ export const usePermissionStore = defineStore("app-permission", {
             //   belongMethod: '3',
             // });
 
-            const getMenuData = await getMenuList({});
+            const getMenuData = await getMenuList({
+              appId: globalConfig?.appId,
+            });
             //   {
             //   appId: appList[i].code,
             // }
