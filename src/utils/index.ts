@@ -39,3 +39,4 @@ export * from "./handleApiUrl";
 export * from "./build/config/themeConfig";
 export * from "./handleXlsx";
 export * from "./FuzzyQuery";
+export * from "./global";
