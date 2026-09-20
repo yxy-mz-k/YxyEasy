@@ -69,7 +69,7 @@ YxyEasy：
 
 使用的项目：
 
-1.yarn link @yxy_27/yxyeasy (取消链接 yarn unilnk @yxy_27/yxyeasy)
+1.yarn link @yxy_27/yxyeasy (取消链接 yarn unlink @yxy_27/yxyeasy)
 
 2.vite.config.ts 修改
 
