@@ -40,3 +40,6 @@ export * from "./build/config/themeConfig";
 export * from "./handleXlsx";
 export * from "./FuzzyQuery";
 export * from "./global";
+export * from "./auths";
+export * from "./formatTime";
+export * from "./jsencrypt";

@@ -7611,6 +7611,11 @@ jsdom@^16.6.0:
     ws "^7.4.6"
     xml-name-validator "^3.0.0"
 
+jsencrypt@^3.3.2:
+  version "3.5.4"
+  resolved "https://registry.npmjs.org/jsencrypt/-/jsencrypt-3.5.4.tgz#8db335ab164359449dd200d120f125f459476b25"
+  integrity sha512-kNjfYEMNASxrDGsmcSQh/rUTmcoRfSUkxnAz+MMywM8jtGu+fFEZ3nJjHM58zscVnwR0fYmG9sGkTDjqUdpiwA==
+
 jsep@^1.3.8:
   version "1.4.0"
   resolved "https://registry.npmmirror.com/jsep/-/jsep-1.4.0.tgz#19feccbfa51d8a79f72480b4b8e40ce2e17152f0"
@@ -11412,6 +11417,11 @@ wcwidth@^1.0.1:
   integrity sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==
   dependencies:
     defaults "^1.0.3"
+
+web-storage-cache@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/web-storage-cache/-/web-storage-cache-1.1.1.tgz#42ac07e77ea860e884895be9ba99ab1e04eb162e"
+  integrity sha512-D0MieGooOs8RpsrK+vnejXnvh4OOv/+lTFB35JRkJJQt+uOjPE08XpaE0QBLMTRu47B1KGT/Nq3Gbag3Orinzw==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"

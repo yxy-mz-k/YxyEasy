@@ -61,7 +61,7 @@ YxyEasy：
 
 `"dev": "vite build --mode development --watch",`
 
-2.yarn link
+2.yarn link (取消链接 yarn unlink)
 
 3.然后 npm run dev
 
@@ -69,7 +69,7 @@ YxyEasy：
 
 使用的项目：
 
-1.yarn link @yxy_27/yxyeasy
+1.yarn link @yxy_27/yxyeasy (取消链接 yarn unilnk @yxy_27/yxyeasy)
 
 2.vite.config.ts 修改
 

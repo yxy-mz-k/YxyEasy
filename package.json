@@ -83,6 +83,7 @@
     "element-resize-detector": "^1.2.4",
     "intro.js": "^5.1.0",
     "jquery": "^3.7.1",
+    "jsencrypt": "^3.3.2",
     "leaflet": "^1.9.4",
     "leaflet.chinatmsproviders": "^3.0.6",
     "lodash-es": "^4.17.21",
@@ -113,6 +114,7 @@
     "vue3-colorpicker": "^2.2.2",
     "vue3-draggable-resizable": "^1.6.5",
     "vue3-json-viewer": "^2.4.1",
+    "web-storage-cache": "^1.1.1",
     "ws": "^8.14.2",
     "xlsx": "^0.18.5"
   },
@@ -146,6 +148,7 @@
     "element-resize-detector": "^1.2.4",
     "intro.js": "^5.1.0",
     "jquery": "^3.7.1",
+    "jsencrypt": "^3.3.2",
     "leaflet": "^1.9.4",
     "leaflet.chinatmsproviders": "^3.0.6",
     "lodash-es": "^4.17.21",
@@ -176,6 +179,7 @@
     "vue3-colorpicker": "^2.2.2",
     "vue3-draggable-resizable": "^1.6.5",
     "vue3-json-viewer": "^2.4.1",
+    "web-storage-cache": "^1.1.1",
     "ws": "^8.14.2",
     "xlsx": "^0.18.5"
   },

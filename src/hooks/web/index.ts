@@ -16,3 +16,4 @@ export * from "./useSortable";
 export * from "./useTabs";
 export * from "./useTitle";
 export * from "./useWatermark";
+export * from "./useCache";
