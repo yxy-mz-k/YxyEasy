@@ -57,6 +57,8 @@ app.use(yxyeasy, {
 });
 ```
 
+同时修改.env .env.development
+
 本地测试步骤：
 
 YxyEasy：
