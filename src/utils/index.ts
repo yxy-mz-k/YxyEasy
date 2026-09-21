@@ -43,3 +43,4 @@ export * from "./global";
 export * from "./auths";
 export * from "./formatTime";
 export * from "./jsencrypt";
+export * from "./riskLevelUtil";
