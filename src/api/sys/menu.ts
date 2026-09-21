@@ -3,7 +3,7 @@ import { defHttp } from "utils/http/index";
 import { getGlobalConfig } from "utils/global";
 
 enum Api {
-  // GetMenuList = '/uauth/sys/user/appMenu', //能请
+  GetMenuListU = "/uauth/sys/user/appMenu", //能请
   GetMenuList = "/api/sys/user/appMenu",
   GetAppList = "/uauth/sysMng/sysApp/pageList",
 }
@@ -14,7 +14,10 @@ enum Api {
 export const getMenuList = (params) => {
   let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
-    url: `${globalConfig?.suffixApi}${Api.GetMenuList}`,
+    url:
+      globalConfig?.key == "uauth"
+        ? Api.GetMenuListU
+        : `${globalConfig?.suffixApi}${Api.GetMenuList}`,
     params,
   });
 };

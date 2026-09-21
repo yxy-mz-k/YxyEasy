@@ -13,11 +13,13 @@ import { getGlobalConfig } from "utils/global";
 enum Api {
   Login = "/uauth/sys/login",
   VerImage = "/uauth/sys/randomImage",
+  LogoutU = "/uauth/sys/logout",
   Logout = "/api/sys/logout",
   GetUserInfo = "/getUserInfo",
   GetPermCode = "/getPermCode",
   TestRetry = "/testRetry",
   EditPassword = "/uauth/sys/user/changeUserPw",
+  userInfoU = "/uauth/sys/user/userInfo",
   userInfo = "/api/sys/user/userInfo",
   getUserOrgList = "/api/sys/user/deptTree",
   getAppData = "/api/sys/user/appData",
@@ -29,7 +31,10 @@ enum Api {
 export function userInfoApi() {
   let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
-    url: `${globalConfig?.suffixApi}${Api.userInfo}`,
+    url:
+      globalConfig?.key == "uauth"
+        ? Api.userInfoU
+        : `${globalConfig?.suffixApi}${Api.userInfo}`,
   });
 }
 
@@ -89,7 +94,10 @@ export function doLogout() {
   let globalConfig = getGlobalConfig();
   const userStore = useUserStoreWithOut();
   return defHttp.get({
-    url: `${globalConfig?.suffixApi}${Api.Logout}`,
+    url:
+      globalConfig?.key == "uauth"
+        ? Api.LogoutU
+        : `${globalConfig?.suffixApi}${Api.Logout}`,
     headers: { "X-Access-Token": userStore.getToken },
   });
 }
@@ -97,7 +105,10 @@ export function doLogout() {
 export function getTokenByApi() {
   let globalConfig = getGlobalConfig();
   return defHttp.get({
-    url: `${globalConfig?.suffixApi}${Api.Logout}`,
+    url:
+      globalConfig?.key == "uauth"
+        ? Api.LogoutU
+        : `${globalConfig?.suffixApi}${Api.Logout}`,
     headers: { "X-Access-Token": userStore.getToken },
   });
 }

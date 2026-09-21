@@ -13,8 +13,8 @@ export let globalConfig: any = reactive<any>({
 export function setGlobalConfig(options: any) {
   // Object.assign(globalConfig, options);
   Object.assign(globalConfig, options, {
-    project: `/${options?.key}/`,
-    appId: `app_${options?.key}`,
+    project: options?.project ?? `/${options?.key}/`,
+    appId: options?.appId ?? `app_${options?.key}`,
     suffixApi: `/${options?.key}`,
   });
 }

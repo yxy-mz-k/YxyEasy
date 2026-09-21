@@ -17,6 +17,7 @@ import { useFieldsStore } from "store/modules/fields";
 import { getFieldsList } from "api/sys/fields";
 import { isArray } from "utils/is";
 import { h } from "vue";
+import { getGlobalConfig } from "utils/global";
 
 import { getMenuList } from "api/sys/menu";
 interface UserState {
@@ -162,6 +163,7 @@ export const useUserStore = defineStore("app-user", {
      * @description: logout
      */
     async logout(goLogin = false) {
+      const globalConfig = getGlobalConfig();
       const { createMessage } = useMessage();
       if (this.getToken) {
         try {
@@ -184,7 +186,9 @@ export const useUserStore = defineStore("app-user", {
       this.setSessionTimeout(false);
       this.setUserInfo(null);
       clearAuthCache();
-      await getMenuList({});
+      await getMenuList({
+        appId: globalConfig?.appId,
+      });
     },
 
     /**

@@ -1,9 +1,11 @@
 import { defHttp } from "utils/http/index";
 import { useDictStore } from "store/modules/dic";
 import { getGlobalConfig } from "utils/global";
+import { getDicListByDictCode } from "api/sys/dics";
 
 enum Api {
   getDic = "/api/sys/dictTree",
+  dictValue = "/uauth/sysMng/sysDcit/dictValue",
 }
 export const getOptionsByDictCode = async (dictCode) => {
   const dictStore = useDictStore();
@@ -47,13 +49,6 @@ export const updateOptionsByDictCode = async (dictCode) => {
   }
 };
 
-export const getDicListByDictCode = (dictCode) => {
-  let globalConfig = getGlobalConfig();
-  return defHttp.post<any>({
-    url: `${globalConfig?.suffixApi}${Api.getDic}`,
-    params: { dictCode: dictCode },
-  });
-};
 //从接口中读取dicname
 export const getDictNameByDicCode = async (dictCode, dictValue) => {
   let globalConfig = getGlobalConfig();

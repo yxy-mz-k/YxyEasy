@@ -28,14 +28,18 @@ const isEnv = import.meta.env["MODE"] === "development" ? true : false;
 const origin = isEnv ? import.meta.env["VITE_ORIGIN"] : window.location.origin;
 const host = isEnv ? import.meta.env["VITE_HOST"] : window.location.host;
 const VITE_PUBLIC_PATH = import.meta.env["VITE_PUBLIC_PATH"];
+const VITE_GLOB_API_URL = import.meta.env["VITE_GLOB_API_URL"];
 const viewModules = import.meta.glob("./views/**/*.vue");
 
 app.use(yxyeasy, {
   key: "park",
+  // appId: 'uauth',
+  // project: '/center/',
   VITE_ORIGIN: origin,
   VITE_HOST: host,
   isEnv,
   VITE_PUBLIC_PATH,
+  // VITE_GLOB_API_URL,
   name: "园区档案管理",
   views: viewModules,
   whitePathList: ["/DURegister"],

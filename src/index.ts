@@ -67,6 +67,7 @@ export type * from "./types";
 export type { AppRouteRecordRaw } from "./router/types";
 
 import { setBR } from "./router/routes/index";
+
 // export { defHttp } from "./utils/http";
 
 // 默认导出插件

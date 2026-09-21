@@ -17,7 +17,7 @@ const getConfig = (config: Partial<TreeHelperConfig>) =>
 
 // tree from list
 // 列表中的树
-export function listToTree<T = any>(
+export function listToTreeHelper<T = any>(
   list: any[],
   config: Partial<TreeHelperConfig> = {},
 ): T[] {

@@ -17,6 +17,7 @@ import { useWatermark } from "hooks/web/useWatermark";
 import { userInfoApi, getAppData } from "api/sys/user";
 import { useUserStore } from "store/modules/user";
 import websocket from "utils/common/websocket";
+import { getGlobalConfig } from "utils/global";
 
 export default defineComponent({
   name: "LayoutContent",
@@ -28,9 +29,12 @@ export default defineComponent({
     const { setWatermark } = useWatermark();
     const userStore = useUserStore();
     onMounted(async () => {
+      let globalConfig = getGlobalConfig();
       const data = await userInfoApi();
-      const permissions = (await getAppData({})).permissions;
-      data.permissions = permissions;
+      if (globalConfig.key != "uauth") {
+        const permissions = (await getAppData({})).permissions;
+        data.permissions = permissions;
+      }
       userStore.setUserInfo(data);
       setWatermark(data.realname);
       websocket.init(null);

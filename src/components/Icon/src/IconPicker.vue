@@ -86,18 +86,22 @@ import Icon from "./Icon.vue";
 import SvgIcon from "./SvgIcon.vue";
 
 import iconsData from "../data/icons.data";
+import iconsDataUauth from "../data/icons.data.noPrefix";
 import { usePagination } from "hooks/web/usePagination";
 import { useDebounceFn } from "@vueuse/core";
 import svgIcons from "virtual:svg-icons-names";
 import { copyText } from "utils/copyTextToClipboard";
+import { getGlobalConfig } from "utils/global";
 
 function getIcons() {
-  const prefix = iconsData.prefix ?? "";
+  let globalConfig = getGlobalConfig();
+  const idata: any = globalConfig?.key == "uauth" ? iconsDataUauth : iconsData;
+  const prefix = idata.prefix ?? "";
   let result: string[] = [];
   if (prefix) {
-    result = (iconsData?.icons ?? []).map((item) => `${prefix}:${item}`);
-  } else if (Array.isArray(iconsData)) {
-    result = iconsData as string[];
+    result = (idata?.icons ?? []).map((item) => `${prefix}:${item}`);
+  } else if (Array.isArray(idata)) {
+    result = idata as string[];
   }
   return result;
 }
@@ -127,6 +131,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 defineOptions({
+  name: "IconPicker",
   inheritAttrs: false,
 });
 

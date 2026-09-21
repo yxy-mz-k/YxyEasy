@@ -33,9 +33,10 @@ export const uploadFileApi = ({
   // @ts-ignore
   return axios({
     url: globalConfig?.isEnv
-      ? `${globalConfig?.suffixApi}-center` +
-        getUrlRelativePath() +
-        "/api/file/upload"
+      ? globalConfig?.VITE_GLOB_API_URL ??
+        `${globalConfig?.suffixApi}-center` +
+          getUrlRelativePath() +
+          "/api/file/upload"
       : getUrlRelativePath() + "/api/file/upload",
     method: "POST",
     data: formData,

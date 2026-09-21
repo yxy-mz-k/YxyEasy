@@ -7,7 +7,10 @@ import { getGlobalConfig } from "utils/global";
 export const useGlobSetting = (): Readonly<GlobConfig> => {
   const VITE_GLOB_API_URL = () => {
     const globalConfig = getGlobalConfig();
-    return globalConfig?.isEnv ? `${globalConfig?.suffixApi}-center` : "../";
+    return (
+      globalConfig?.VITE_GLOB_API_URL ??
+      (globalConfig?.isEnv ? `${globalConfig?.suffixApi}-center` : "../")
+    );
   };
 
   const VITE_GLOB_UPLOAD_URL = () => {

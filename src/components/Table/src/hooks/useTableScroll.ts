@@ -311,7 +311,9 @@ export function useTableScroll(
 
     handleScrollBar(bodyEl, tableEl);
 
-    bodyEl!.style.height = "unset";
+    if (bodyEl) {
+      bodyEl!.style.height = "unset";
+    }
 
     if (!unref(getCanResize) || !unref(tableData) || tableData.length === 0)
       return;
@@ -365,7 +367,9 @@ export function useTableScroll(
 
     height = (height > maxHeight! ? (maxHeight as number) : height) ?? height;
     setHeight(height);
-    bodyEl!.style.height = `${height}px`;
+    if (bodyEl) {
+      bodyEl!.style.height = `${height}px`;
+    }
     bodyEl = null;
     headEl = null;
     footerEl = null;

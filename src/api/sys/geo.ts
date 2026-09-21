@@ -1,9 +1,19 @@
 import { defHttp } from "utils/http/index";
 import { getUrlRelativePath } from "utils/handleApiUrl";
+import { getGlobalConfig } from "utils/global";
 // import { getMenuListResultModel } from './model/menuModel';
 
 enum Api {
   // GetMenuList = '/uauth/sys/user/appMenu', //能请
+  geoAddU = "/uauth/sysMng/geoInfo/add",
+  geoEditU = "/uauth/sysMng/geoInfo/edit",
+  geoSaveOrEditU = "/uauth/sysMng/geoInfo/saveOrEdit",
+  geoLatLonListU = "/uauth/sysMng/geoInfo/getList",
+  updateMapTableByIdU = "/uauth/sysMng/geoInfo/updateMapTableById",
+  deleteByTableIdU = "/uauth/sysMng/geoInfo/deleteByTableId",
+  deleteByIdU = "/uauth/sysMng/geoInfo/deleteById",
+  geoQueryByIdU = "/uauth/sysMng/geoInfo/queryById",
+
   geoAdd = getUrlRelativePath() + "/api/uauth/sysMng/geoInfo/add",
   geoEdit = getUrlRelativePath() + "/api/uauth/sysMng/geoInfo/edit",
   geoSaveOrEdit = getUrlRelativePath() + "/api/uauth/sysMng/geoInfo/saveOrEdit",
@@ -22,8 +32,9 @@ enum Api {
  * @description: Get user menu based on id
  */
 export const geoAdd = (params) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
-    url: Api.geoAdd,
+    url: globalConfig?.key == "uauth" ? Api.geoAddU : Api.geoAdd,
     params,
   });
 };
@@ -32,8 +43,9 @@ export const geoAdd = (params) => {
  * @description: Get user menu based on id
  */
 export const geoEdit = (params) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
-    url: Api.geoEdit,
+    url: globalConfig?.key == "uauth" ? Api.geoEditU : Api.geoEdit,
     params,
   });
 };
@@ -42,8 +54,9 @@ export const geoEdit = (params) => {
  * @description: Get user menu based on id
  */
 export const geoSaveOrEdit = (params) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
-    url: Api.geoSaveOrEdit,
+    url: globalConfig?.key == "uauth" ? Api.geoSaveOrEditU : Api.geoSaveOrEdit,
     params,
   });
 };
@@ -52,8 +65,9 @@ export const geoSaveOrEdit = (params) => {
  * @description: Get user menu based on id
  */
 export const geoLatLonList = (params) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
-    url: Api.geoLatLonList,
+    url: globalConfig?.key == "uauth" ? Api.geoLatLonListU : Api.geoLatLonList,
     params,
   });
 };
@@ -62,8 +76,12 @@ export const geoLatLonList = (params) => {
  * @description: Get user menu based on id
  */
 export const updateMapTableById = (params) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
-    url: Api.updateMapTableById,
+    url:
+      globalConfig?.key == "uauth"
+        ? Api.updateMapTableByIdU
+        : Api.updateMapTableById,
     params,
   });
 };
@@ -72,31 +90,36 @@ export const updateMapTableById = (params) => {
  * @description: Get user menu based on id
  */
 export const deleteMapByTableId = (tableId, tableName) => {
+  let globalConfig = getGlobalConfig();
   const params = { tableId: tableId, tableName: tableName };
   return defHttp.post<any>({
-    url: Api.deleteByTableId,
+    url:
+      globalConfig?.key == "uauth" ? Api.deleteByTableIdU : Api.deleteByTableId,
     params,
   });
 };
 
 export const deleteMapById = (id) => {
+  let globalConfig = getGlobalConfig();
   const params = { id: id };
   return defHttp.post<any>({
-    url: Api.deleteById,
+    url: globalConfig?.key == "uauth" ? Api.deleteByIdU : Api.deleteById,
     params,
   });
 };
 
 export const geoQueryById = (id) => {
+  let globalConfig = getGlobalConfig();
   const params = { id: id };
   return defHttp.post<any>({
-    url: Api.geoQueryById,
+    url: globalConfig?.key == "uauth" ? Api.geoQueryByIdU : Api.geoQueryById,
     params,
   });
 };
 export const geoQueryByIdEdit = (params: any) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.post<any>({
-    url: Api.geoQueryById,
+    url: globalConfig?.key == "uauth" ? Api.geoQueryByIdU : Api.geoQueryById,
     params: params,
   });
 };

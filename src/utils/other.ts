@@ -215,7 +215,7 @@ export function translateDataToTree(data) {
   translator(parent, children);
   return parent;
 }
-export function listsToTree(data, id) {
+export function listToTree(data, id) {
   // 1.定义最外层的数组
   const tree: any = [];
   // 2.定义一个空对象
