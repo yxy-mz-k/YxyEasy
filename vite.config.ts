@@ -65,7 +65,7 @@ export default defineConfig({
         /^browserslist($|\/)/,
         /^codemirror($|\/)/,
         /^cropperjs($|\/)/,
-        /^crypto-js($|\/)/,
+        // /^crypto-js($|\/)/,
         /^dayjs($|\/)/,
         /^echarts($|\/)/,
         /^element-plus($|\/)/,
