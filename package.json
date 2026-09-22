@@ -7,7 +7,7 @@
   "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "license": "ISC",
-  "description": "阿克曼后台项目依赖",
+  "description": "后台项目依赖",
   "publishConfig": {
     "access": "public"
   },
