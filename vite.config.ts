@@ -96,7 +96,6 @@ export default defineConfig({
         /^vditor($|\/)/,
         /^vite-plugin-cesium($|\/)/,
         /^vue($|\/)/,
-        /^vue-clipboard3($|\/)/,
         /^vue-i18n($|\/)/,
         /^vue-json-pretty($|\/)/,
         /^vue-router($|\/)/,

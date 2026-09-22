@@ -493,3 +493,27 @@ export const handleTree = (
 
   return tree;
 };
+import { useMessage } from "hooks/web/useMessage";
+export const toClipboard = async (content?: any, isJson = false) => {
+  const { createMessage } = useMessage();
+  const text = isJson ? JSON.stringify(content) : content;
+  try {
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(text);
+      createMessage.success("已复制成功到剪切板");
+    } else {
+      // 降级：兼容非 HTTPS 或旧浏览器
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+    createMessage.success("已复制成功到剪切板");
+  } catch (e) {
+    createMessage.error("复制失败");
+  }
+};

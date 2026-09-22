@@ -12,31 +12,36 @@
     </slot>
   </div>
 </template>
-<script setup lang="ts" name="componentName">
-import {
-  ref,
-  shallowRef,
-  toRefs,
-  reactive,
-  onMounted,
-  watch,
-  computed,
-  getCurrentInstance,
-  nextTick,
-  useAttrs,
-} from "vue";
-const attrs: any = useAttrs();
 
+<script setup lang="ts" name="componentName">
+import { useAttrs } from "vue";
 import { useMessage } from "hooks/web/useMessage";
+import { toClipboard } from "utils/other";
+
+const attrs: any = useAttrs();
 const { createMessage } = useMessage();
 
-import useClipboard from "vue-clipboard3";
-const { toClipboard } = useClipboard();
 const copy = async () => {
-  try {
-    await toClipboard(attrs?.content);
-    createMessage.success("已复制成功到剪切板");
-  } catch (e) {}
+  toClipboard(attrs?.content);
+  // const text = attrs?.content ?? "";
+  // try {
+  //   if (navigator.clipboard) {
+  //     await navigator.clipboard.writeText(text);
+  //   } else {
+  //     // 降级：兼容非 HTTPS 或旧浏览器
+  //     const textarea = document.createElement("textarea");
+  //     textarea.value = text;
+  //     textarea.style.position = "fixed";
+  //     textarea.style.opacity = "0";
+  //     document.body.appendChild(textarea);
+  //     textarea.select();
+  //     document.execCommand("copy");
+  //     document.body.removeChild(textarea);
+  //   }
+  //   createMessage.success("已复制成功到剪切板");
+  // } catch (e) {
+  //   createMessage.error("复制失败");
+  // }
 };
 
 const getStyle = () => {
@@ -45,24 +50,3 @@ const getStyle = () => {
   };
 };
 </script>
-<style lang="scss" scoped>
-.clip-board {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  .clip-board-text {
-    word-break: break-all;
-  }
-  .clip-board-ellipsis {
-    width: 100%;
-    height: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-</style>
