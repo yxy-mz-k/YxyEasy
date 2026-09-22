@@ -32,7 +32,7 @@ const VITE_GLOB_API_URL = import.meta.env["VITE_GLOB_API_URL"];
 const viewModules = import.meta.glob("./views/**/*.vue");
 
 app.use(yxyeasy, {
-  key: import.meta.env["VITE_KEY"],
+  key: import.meta.env["VITE_GLOB_APP_KEY"],
   name: import.meta.env["VITE_GLOB_APP_TITLE"],
   // appId: 'uauth',
   // project: '/center/',
@@ -61,7 +61,7 @@ app.use(yxyeasy, {
 
 ```shell
 VITE_PORT = 3100
-VITE_KEY  = 'zhaj'
+VITE_GLOB_APP_KEY  = 'zhaj'
 VITE_GLOB_APP_TITLE = '智慧安监'
 ```
 
