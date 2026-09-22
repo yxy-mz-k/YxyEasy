@@ -121,6 +121,7 @@ import { controlling } from "./api";
 import { useMessage } from "hooks/web/useMessage";
 const { createMessage } = useMessage();
 import { Icon } from "components/Icon";
+import Hls from "hls.js";
 
 const title = ref<any>("");
 const propsData = ref<any>({});

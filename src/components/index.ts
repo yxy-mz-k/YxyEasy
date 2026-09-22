@@ -17,7 +17,6 @@ import SortableList from "./Y-SortableList";
 import Splitpanes from "./Y-Splitpanes";
 import ToolTip from "./Y-ToolTip";
 import VideoCom from "./Y-VideoCom";
-import WebWinVideo from "./Y-WebWinVideo";
 import CustomDia from "./Y-CustomDia";
 import SignWordModal from "./Y-SignWordModal";
 import RichTextEditor from "./Y-RichTextEditor";
@@ -30,7 +29,6 @@ const allComponents = [
   SortableList,
   Splitpanes,
   ToolTip,
-  WebWinVideo,
   AttachCom,
   Attachment,
   FlowModal,
@@ -361,7 +359,6 @@ export {
   SortableList,
   Splitpanes,
   ToolTip,
-  WebWinVideo,
   AttachCom,
   Attachment,
   FlowModal,

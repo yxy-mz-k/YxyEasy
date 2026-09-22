@@ -247,6 +247,11 @@ a:hover {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .textEllipsis2 {
   overflow: hidden;
   text-overflow: ellipsis;

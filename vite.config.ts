@@ -72,6 +72,7 @@ export default defineConfig({
         /^echarts($|\/)/,
         /^element-plus($|\/)/,
         /^element-resize-detector($|\/)/,
+        /^hls.js($|\/)/,
         /^intro.js($|\/)/,
         /^jquery($|\/)/,
         /^jsencrypt($|\/)/,

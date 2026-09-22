@@ -13,7 +13,6 @@
     <template #title>
       <div class="attach-com-title">{{ title }}</div>
     </template>
-    <WebWinVideo :codeList="codeList" ref="WebWinVideoRef" v-if="isVideo" />
     <iframe
       :src="src"
       :frameborder="0"
@@ -21,7 +20,6 @@
       width="100%"
       height="100%"
       style="min-height: 600px"
-      v-else
     ></iframe>
   </BasicModal>
 </template>
@@ -40,12 +38,12 @@ import {
 } from "vue";
 import { BasicModal, useModalInner } from "components/Modal";
 import Mitt from "utils/myMitt";
-import WebWinVideo from "components/Y-WebWinVideo/index.vue";
+// import VideoCom from "components/Y-VideoCom/index.vue";
 const propData = ref<any>({});
 const title = ref("");
 const src = ref("");
 const codeList = reactive<any>([]);
-const isVideo = ref(false);
+// const isVideo = ref(false);
 const getContainer = () => document.body;
 const [register, { closeModal }] = useModalInner((data: any) => {
   propData.value = data;
@@ -54,7 +52,7 @@ const [register, { closeModal }] = useModalInner((data: any) => {
   src.value = data?.src || "";
   codeList.length = 0;
   codeList.push(...(data?.codeList || []));
-  isVideo.value = data?.isVideo;
+  // isVideo.value = data?.isVideo;
 });
 
 const closeDia = () => {

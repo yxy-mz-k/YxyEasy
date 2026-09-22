@@ -17,7 +17,7 @@ import type { Ref } from "vue";
 import type { Definition } from "@logicflow/core";
 import { ref, onMounted, unref, nextTick, computed, watch } from "vue";
 import FlowChartToolbar from "./FlowChartToolbar.vue";
-import LogicFlow from "@logicflow/core";
+import { LogicFlow } from "@logicflow/core";
 import {
   Snapshot,
   BpmnElement,
