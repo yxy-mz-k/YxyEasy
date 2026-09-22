@@ -381,7 +381,7 @@ YxyEasy：
 
 使用的项目：
 
-1.yarn link @yxy_27/yxyeasy (取消链接 yarn unlink @yxy_27/yxyeasy)
+1.yarn link @yxy_27/yxyeasy (取消链接 yarn unlink @yxy_27/yxyeasy,如果下载依赖需要取消连接)
 
 2.vite.config.ts 修改
 
