@@ -32,7 +32,8 @@ const VITE_GLOB_API_URL = import.meta.env["VITE_GLOB_API_URL"];
 const viewModules = import.meta.glob("./views/**/*.vue");
 
 app.use(yxyeasy, {
-  key: "park",
+  key: import.meta.env["VITW_KEY"],
+  name: import.meta.env["VITE_GLOB_APP_TITLE"],
   // appId: 'uauth',
   // project: '/center/',
   VITE_ORIGIN: origin,
@@ -40,7 +41,6 @@ app.use(yxyeasy, {
   isEnv,
   VITE_PUBLIC_PATH,
   // VITE_GLOB_API_URL,
-  name: "园区档案管理",
   views: viewModules,
   whitePathList: ["/DURegister"],
   basicRoutes: [
@@ -55,6 +55,32 @@ app.use(yxyeasy, {
     },
   ],
 });
+```
+
+.env
+
+```shell
+VITE_PORT = 3100
+VITW_KEY  = 'zhaj'
+VITE_GLOB_APP_TITLE = '智慧安监'
+```
+
+.env.development
+
+```shell
+
+# VITE_PROXY = [["/basic-api","http://192.168.6.2:8899/"],["/upload","http://192.168.6.2:8899/upload"],["/oss","http://192.168.6.2:8899/oss"]]
+# VITE_ORIGIN = 'http://192.168.6.2:8899'
+# VITE_HOST = '192.168.6.2:8899'
+# VITE_PUBLIC_PATH = /center/
+# VITE_GLOB_API_URL=/basic-api
+
+
+
+VITE_PROXY = [["/zhaj-center","http://192.168.6.2:8899/"],["/upload","http://192.168.6.2:8899/upload"],["/oss","http://192.168.6.2:8899/oss"]]
+VITE_ORIGIN = 'http://192.168.6.2:8899'
+VITE_HOST = '192.168.6.2:8899'
+VITE_PUBLIC_PATH = /zhaj/
 ```
 
 同时修改.env .env.development
