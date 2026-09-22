@@ -143,7 +143,7 @@ export default defineConfig({
       },
     },
     // 生成 sourcemap
-    sourcemap: true,
+    sourcemap: false, //本地开发时开启，发布时关闭。
     // CSS 处理
     cssCodeSplit: false,
     cssTarget: "chrome80",
