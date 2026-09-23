@@ -195,6 +195,8 @@ const changeTab = (key: any) => {
         "点击确定将离开，点击取消将留在本页面",
       ),
       centered: true,
+      okText: "确定",
+      cancelText: "取消",
       onOk() {
         historyKey.value = key;
         emit("changeTab", key);
