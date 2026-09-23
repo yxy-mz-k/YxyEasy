@@ -61,7 +61,7 @@ export default defineConfig({
         /^@wangeditor\/editor-for-vue($|\/)/,
         /^@zxcvbn-ts\/core($|\/)/,
         /^ant-design-vue($|\/)/,
-        /^axios($|\/)/,
+        // /^axios($|\/)/,
         /^browserslist($|\/)/,
         // /^codemirror($|\/)/,
         // /^cropperjs($|\/)/,
