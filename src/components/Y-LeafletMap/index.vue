@@ -122,7 +122,16 @@ const onsubmit = async (arr: any) => {
           : null;
         if (latlng) {
           getOSMAddress(latlng.lat, latlng.lng, (address: any) => {
-            emits("getMarkAddress", address, attrs);
+            emits(
+              "getMarkAddress",
+              address,
+              Object.assign({}, attrs, {
+                markLatlon: {
+                  lat: latlng.lat,
+                  lng: latlng.lng,
+                },
+              }),
+            );
             emits(
               "success",
               {
