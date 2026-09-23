@@ -91,7 +91,7 @@ export default defineConfig({
         // /^sortablejs($|\/)/,
         /^splitpanes($|\/)/,
         /^tinymce($|\/)/,
-        /^vditor($|\/)/,
+        // /^vditor($|\/)/,
         /^vue($|\/)/,
         /^vue-i18n($|\/)/,
         /^vue-json-pretty($|\/)/,
