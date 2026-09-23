@@ -55,7 +55,7 @@ export default defineConfig({
 
         // 巨型库：打包会让依赖库体积爆炸
         /^echarts/,
-        /^tinymce/,
+        // /^tinymce/,
         // /^vditor/,
         /^xlsx/,
         /^@wangeditor\//,
