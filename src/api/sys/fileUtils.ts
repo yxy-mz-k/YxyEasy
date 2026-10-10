@@ -71,9 +71,17 @@ export const queryByIds = (params: any) => {
 };
 
 export const download = (data: any) => {
+  let globalConfig = getGlobalConfig();
   return defHttp.get<any>(
     {
-      url: Api.download + data,
+      url:
+        (globalConfig?.key == "zhaj" ||
+        globalConfig?.key == "eq" ||
+        globalConfig?.key == "poll" ||
+        globalConfig?.key == "ems" ||
+        globalConfig?.key == "dx"
+          ? Api?.downloadSFM
+          : Api.download) + data,
       responseType: "blob",
     },
     {
