@@ -206,7 +206,7 @@ export const usePermissionStore = defineStore("app-permission", {
             // });
 
             const getMenuData = await getMenuList({
-              appId: globalConfig?.appId,
+              // appId: globalConfig?.appId,
             });
             //   {
             //   appId: appList[i].code,

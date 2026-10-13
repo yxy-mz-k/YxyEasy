@@ -187,7 +187,7 @@ export const useUserStore = defineStore("app-user", {
       this.setUserInfo(null);
       clearAuthCache();
       await getMenuList({
-        appId: globalConfig?.appId,
+        // appId: globalConfig?.appId,
       });
     },
 

@@ -1,5 +1,5 @@
 export * from "./componentSetting";
-export * from "./configSetting";
+// export * from "./configSetting";
 export * from "./designSetting";
 export * from "./encryptionSetting";
 export * from "./localeSetting";
